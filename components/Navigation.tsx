@@ -2,14 +2,106 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Moon, Sun } from 'lucide-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { faPiedPiperAlt } from '@fortawesome/free-brands-svg-icons';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
-function Navigation () {
+function Navigation() {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const navLinksRef = useRef<HTMLDivElement>(null);
+    const [isDarkMode, setIsDarkMode] = useState(false);
+
+    const onToggleMenu = () => {
+        if (navLinksRef.current) {
+            navLinksRef.current.classList.toggle('top-[9%]');
+        }
+        setIsMenuOpen(!isMenuOpen);
+    };
+
+    const toggleTheme = () => {
+        const newTheme = !isDarkMode;
+        setIsDarkMode(newTheme);
+
+        localStorage.setItem('theme', newTheme ? 'dark' : 'light');
+
+        if (newTheme) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    };
+
+    return (
+        <nav className="flex justify-between items-center w-[92%] mx-auto">
+            <div>
+                <img className="w-16 cursor-pointer" src="https://cdn-icons-png.flaticon.com/512/5968/5968204.png" alt="Logo" />
+            </div>
+            <div
+                ref={navLinksRef}
+                className={`nav-links duration-500 md:static absolute bg-[#fff] md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center px-5 ${isMenuOpen ? 'top-[0]' : ''}`}
+            >
+                <ul className="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8 w-[93%]">
+                    <li>
+                        <a className="hover:text-gray-500" href="#">Products</a>
+                    </li>
+                    <li>
+                        <a className="hover:text-gray-500" href="#">Solution</a>
+                    </li>
+                    <li>
+                        <a className="hover:text-gray-500" href="#">Resource</a>
+                    </li>
+                    <li>
+                        <a className="hover:text-gray-500" href="#">Developers</a>
+                    </li>
+                    <li>
+                        <a className="hover:text-gray-500" href="#">Pricing</a>
+                    </li>
+                </ul>
+                {
+
+                    <div className="flex h-[325px] w-[5%] md:hidden">
+                        <FontAwesomeIcon onClick={onToggleMenu} name="menu" className="text-3xl cursor-pointer md:hidden" icon={faTimes} style={{height: "46px"}}/>
+                    </div>
+                }
+            </div>
+            <div className="flex items-center gap-6">
+                {
+                    <button
+                    onClick={toggleTheme}
+                    className={`relative w-[70px] h-[30px] bg-gray-200 dark:bg-gray-800 
+                        rounded-full shadow-inner overflow-hidden transition-opacity duration-500 ease-in-out 
+                        ${isMenuOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+                    >
+                        <div 
+                            className={`absolute w-[30px] h-[30px]  top-[0%] left-[0%] dark:bg-gray-600 
+                            rounded-full shadow-md transition-all duration-500 ease-in-out 
+                            ${isDarkMode ? 'translate-x-[37px] bg-[#000]' : 'translate-x-[5px] bg-[#fff]'}`}
+                        >
+                            <div className="relative w-full h-full flex items-center justify-center">
+                                <Sun 
+                                className={`absolute w-3 h-3 text-[#000] transition-all duration-500
+                                ${isDarkMode ? 'opacity-0 rotate-180' : 'opacity-100 rotate-0'}`} 
+                                />
+                                <Moon 
+                                className={`absolute w-3 h-3 text-[#fff] transition-all duration-500
+                                ${isDarkMode ? 'opacity-100 rotate-0' : 'opacity-0 -rotate-180'}`} 
+                                />
+                            </div>
+                        </div>
+                    </button>
+                }
+                 {
+                    <FontAwesomeIcon onClick={onToggleMenu} name="menu" className="text-3xl cursor-pointer md:hidden" icon={faBars} style={{height: "40px"}}/>
+                 }
+            </div>
+        </nav>
+    );
+}
+
+function Navigation1 () {
     const [isDarkMode, setIsDarkMode] = useState(false);
     const [isClose, setIsClose] = useState(true);
 
@@ -47,13 +139,13 @@ function Navigation () {
                     <div className='flex justify-center w-full h-full'>
                         <div className='text-[20px] w-[340px]  items-center  justify-between md:flex hidden'>
                             <Link href="/project" legacyBehavior>
-                            <a className="text-[#000] hover:bg-[#f29e9e] pl-[20px] pr-[20px] pb-[5px] pt-[5px] rounded-[20px] flex justify-center items-center transition-all duration-500 ease-in-out ">Projects</a>
+                            <a className="text-[#000] hover:border-black hover:border-b-2  pl-[20px] pr-[20px] pb-[5px] pt-[5px] flex justify-center items-center transition-all duration-500 ease-in-out ">Projects</a>
                             </Link>
                             <Link href="/about" legacyBehavior>
-                            <a className="text-[#000] hover:bg-[#f29e9e] pl-[20px] pr-[20px] pb-[5px] pt-[5px] rounded-[20px] flex justify-center items-center transition-all duration-500 ease-in-out ">About</a>
+                            <a className="text-[#000] hover:border-black hover:border-b-2  pl-[20px] pr-[20px] pb-[5px] pt-[5px] flex justify-center items-center transition-all duration-500 ease-in-out ">About</a>
                             </Link>
                             <Link href="/skills" legacyBehavior>
-                            <a className="text-[#000] hover:bg-[#f29e9e] pl-[20px] pr-[20px] pb-[5px] pt-[5px] rounded-[20px] flex justify-center items-center transition-all duration-500 ease-in-out ">Contact</a>
+                            <a className="text-[#000] hover:border-black hover:border-b-2  pl-[20px] pr-[20px] pb-[5px] pt-[5px] flex justify-center items-center transition-all duration-500 ease-in-out ">Contact</a>
                             </Link>
                         </div>
                         {
@@ -85,24 +177,24 @@ function Navigation () {
                             </div>
                         }
                     </div>
-                    <div className=''>
+                    <div className='flex justify-center items-center'>
                         <button
                             onClick={toggleTheme}
-                            className="relative w-[80px] h-[35px] bg-gray-200 dark:bg-gray-800 
+                            className="relative w-[70px] h-[30px] bg-gray-200 dark:bg-gray-800 
                             rounded-full shadow-inner overflow-hidden"
                         >
                             <div 
-                                className={`absolute w-[35px] h-[35px]  top-[0%] left-[0%] dark:bg-gray-600 
+                                className={`absolute w-[30px] h-[30px]  top-[0%] left-[0%] dark:bg-gray-600 
                                 rounded-full shadow-md transition-all duration-500 ease-in-out 
-                                ${isDarkMode ? 'translate-x-[43px] bg-[#000]' : 'translate-x-[5px] bg-[#fff]'}`}
+                                ${isDarkMode ? 'translate-x-[37px] bg-[#000]' : 'translate-x-[5px] bg-[#fff]'}`}
                             >
                                 <div className="relative w-full h-full flex items-center justify-center">
                                     <Sun 
-                                    className={`absolute w-4 h-4 text-[#000] transition-all duration-500
+                                    className={`absolute w-3 h-3 text-[#000] transition-all duration-500
                                     ${isDarkMode ? 'opacity-0 rotate-180' : 'opacity-100 rotate-0'}`} 
                                     />
                                     <Moon 
-                                    className={`absolute w-4 h-4 text-[#fff] transition-all duration-500
+                                    className={`absolute w-3 h-3 text-[#fff] transition-all duration-500
                                     ${isDarkMode ? 'opacity-100 rotate-0' : 'opacity-0 -rotate-180'}`} 
                                     />
                                 </div>

@@ -21,7 +21,7 @@ interface SkillsProps {
 function Skills( ) {
 const skills = ["JavaScript", "React", "TypeScript", "CSS", "Node.js"];
   return (
-    <div className="w-full h-[250px] bg-[#7feeaa] flex flex-wrap items-center justify-center">
+    <div className="w-full md:h-[250px] h-[700px]   bg-[#7feeaa] flex flex-wrap items-center justify-center">
       <h1>Skills</h1>
       <div className="flex flex-wrap justify-center">
         {skills.map((skill, index) => (
