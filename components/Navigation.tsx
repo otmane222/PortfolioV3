@@ -35,9 +35,9 @@ function Navigation() {
     };
 
     return (
-        <nav className="flex justify-between items-center w-[92%] mx-auto">
+        <nav className="flex justify-between items-center w-[92%] mx-auto h-[60px]">
             <div>
-                <img className="w-16 cursor-pointer" src="https://cdn-icons-png.flaticon.com/512/5968/5968204.png" alt="Logo" />
+                <img className="w-8 cursor-pointer" src="logo1.png" alt="Logo" />
             </div>
             <div
                 ref={navLinksRef}
@@ -45,19 +45,19 @@ function Navigation() {
             >
                 <ul className="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8 w-[93%]">
                     <li>
-                        <a className="hover:text-gray-500" href="#">Products</a>
+                        <a className="hover:text-gray-500" href="#">Projects</a>
                     </li>
                     <li>
-                        <a className="hover:text-gray-500" href="#">Solution</a>
+                        <a className="hover:text-gray-500" href="#">About</a>
                     </li>
                     <li>
-                        <a className="hover:text-gray-500" href="#">Resource</a>
+                        <a className="hover:text-gray-500" href="#">Contact</a>
                     </li>
                     <li>
-                        <a className="hover:text-gray-500" href="#">Developers</a>
+                        <a className="hover:text-gray-500" href="#">Skills</a>
                     </li>
                     <li>
-                        <a className="hover:text-gray-500" href="#">Pricing</a>
+                        <a className="hover:text-gray-500" href="#">Certifacates</a>
                     </li>
                 </ul>
                 {
@@ -94,7 +94,7 @@ function Navigation() {
                     </button>
                 }
                  {
-                    <FontAwesomeIcon onClick={onToggleMenu} name="menu" className="text-3xl cursor-pointer md:hidden" icon={faBars} style={{height: "40px"}}/>
+                    <FontAwesomeIcon onClick={onToggleMenu} name="menu" className={`text-3xl cursor-pointer md:hidden ${isMenuOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`} icon={faBars} style={{height: "40px"}}/>
                  }
             </div>
         </nav>

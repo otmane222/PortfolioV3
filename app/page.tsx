@@ -19,12 +19,12 @@ export default function Home() {
         
       <div className="w-[1000px]">
         <Navigation />
-        <Header />
+        {/* <Header />
         <About />
         <Skills />
         <Projects />
         <Contact />
-        <Footer />
+        <Footer /> */}
       </div>
       {/* <Header /> */}
     </div>
