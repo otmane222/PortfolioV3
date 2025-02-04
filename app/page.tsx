@@ -10,12 +10,10 @@ import { Contact } from "../components/Contact";
 import  { Skills } from "../components/Skills";
 import { Projects } from "../components/Projects";
 
-// import '@coreui/coreui/dist/css/coreui.min.css';
-
-
 export default function Home() {
   return (
-    <div className="w-full   flex justify-center ">
+    <div 
+    className={`w-full   flex justify-center font-[zendaya] font-bold  bg-white  `}>
         
       <div className="w-[1000px]">
         <Navigation />

@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { faPiedPiperAlt } from '@fortawesome/free-brands-svg-icons';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faDiagramProject } from '@fortawesome/free-solid-svg-icons';
 
 function Navigation() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -67,9 +68,10 @@ function Navigation() {
                 ref={navLinksRef}
                 className={`nav-links duration-500 md:static absolute   md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center px-5 ${isMenuOpen ? 'top-[0] bg-[#fff]' : ''}`}
             >
-                <ul className="flex md:flex-row flex-col md:items-center md-justify-start md:gap[4vw] gap-[35px] w-[90%]">
-                    <li>
-                        <a className="hover:text-gray-500 text-[18px]" href="#">Projects</a>
+                <ul className="flex md:flex-row flex-col md:items-center md-justify-start md:gap[4vw] gap-[45px] w-[90%]">
+                    <li className='flex items-center gap-2 hover:text-gray-500'>
+                        <FontAwesomeIcon icon={faDiagramProject} />
+                        <a className=" text-[18px]" href="#">Projects</a>
                     </li>
                     <li>
                         <a className="hover:text-gray-500 text-[18px]" href="#">About</a>

@@ -2,8 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
+
+/* 1 */
+@font-face{
+  font-family: 'zendaya';
+  src:url('../public/fonts/Zendaya.otf');
+}
+
+/* 2 */
+@font-face {
+  font-family: 'tokyo';
+  src: url('../public/fonts/Tokyo.ttf');
+}
+
+/* - */
+@font-face {
+  font-family: 'vulture';
+  src: url('../public/fonts/Vulture.ttf');
+}
+
+/* 3 */
+@font-face {
+  font-family: 'standerd';
+  src: url('../public/fonts/Standerd-Regular.otf');
+}
+
+/* 4- */
+@font-face {
+  font-family: 'sorealism';
+  src: url('../public/fonts/sorealism.otf');
+}
+
+/* - */
+@font-face {
+  font-family: 'mintely';
+  src: url('../public/fonts/Mintely\ Personal\ Use\ Only.ttf');
+}
+/* - */
+@font-face {
+  font-family: 'minimalist';
+  src: url('../public/fonts/Minimalist\ Creative.otf');
+}
+/* - */
+@font-face {
+  font-family: 'maslite';
+  src: url('../public/fonts/MASLITE.otf');
+}
+/* - */
+@font-face {
+  font-family: 'magioline';
+  src: url('../public/fonts/Magioline.ttf');
+}
+/* 
+
+  */
+
 :root {
-  --background: #ffffff;
+  --background: #361f1f;
   --foreground: #171717;
 }
 
@@ -15,7 +70,7 @@
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  /* color: var(--foreground); */
+  /* background: var(--background); */
+  /* font-family: Arial, Helvetica, sans-serif; */
 }
