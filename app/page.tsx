@@ -15,12 +15,12 @@ import { Projects } from "../components/Projects";
 
 export default function Home() {
   return (
-    <div className="w-full   flex justify-center">
+    <div className="w-full   flex justify-center ">
         
       <div className="w-[1000px]">
         <Navigation />
-        {/* <Header />
-        <About />
+        <Header />
+        {/* <About />
         <Skills />
         <Projects />
         <Contact />

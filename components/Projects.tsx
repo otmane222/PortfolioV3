@@ -1,4 +1,4 @@
-
+import { Card } from "./Card";
 
 function ProjectCard() {
     return (
@@ -11,8 +11,8 @@ function ProjectCard() {
 
 function Projects() {
   return (
-    <div className="w-full h-[400px] flex flex-col justify-center items-center bg-[#e56ef0]">
-      <h1>Projects</h1>
+    <div className="w-full h-[800px] flex flex-col justify-center items-center bg-[#e56ef0]">
+      <Card />
     </div>
   );
 }

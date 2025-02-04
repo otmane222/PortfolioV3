@@ -1,4 +1,5 @@
 'use client'
+
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -35,41 +36,10 @@ function Navigation() {
     };
 
     return (
-        <nav className="flex justify-between items-center w-[92%] mx-auto h-[60px]">
-            <div>
-                <img className="w-8 cursor-pointer" src="logo1.png" alt="Logo" />
-            </div>
-            <div
-                ref={navLinksRef}
-                className={`nav-links duration-500 md:static absolute bg-[#fff] md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center px-5 ${isMenuOpen ? 'top-[0]' : ''}`}
-            >
-                <ul className="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8 w-[93%]">
-                    <li>
-                        <a className="hover:text-gray-500" href="#">Projects</a>
-                    </li>
-                    <li>
-                        <a className="hover:text-gray-500" href="#">About</a>
-                    </li>
-                    <li>
-                        <a className="hover:text-gray-500" href="#">Contact</a>
-                    </li>
-                    <li>
-                        <a className="hover:text-gray-500" href="#">Skills</a>
-                    </li>
-                    <li>
-                        <a className="hover:text-gray-500" href="#">Certifacates</a>
-                    </li>
-                </ul>
-                {
-
-                    <div className="flex h-[325px] w-[5%] md:hidden">
-                        <FontAwesomeIcon onClick={onToggleMenu} name="menu" className="text-3xl cursor-pointer md:hidden" icon={faTimes} style={{height: "46px"}}/>
-                    </div>
-                }
-            </div>
-            <div className="flex items-center gap-6">
-                {
-                    <button
+        <nav className="flex justify-between items-center w-[95%] mx-auto h-[80px] ">
+            <div className='flex items-center'>
+                {/* <img className="w-8 cursor-pointer" src="logo1.png" alt="Logo" /> */}
+                <button
                     onClick={toggleTheme}
                     className={`relative w-[70px] h-[30px] bg-gray-200 dark:bg-gray-800 
                         rounded-full shadow-inner overflow-hidden transition-opacity duration-500 ease-in-out 
@@ -92,10 +62,34 @@ function Navigation() {
                             </div>
                         </div>
                     </button>
-                }
-                 {
-                    <FontAwesomeIcon onClick={onToggleMenu} name="menu" className={`text-3xl cursor-pointer md:hidden ${isMenuOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`} icon={faBars} style={{height: "40px"}}/>
-                 }
+            </div>
+            <div
+                ref={navLinksRef}
+                className={`nav-links duration-500 md:static absolute   md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center px-5 ${isMenuOpen ? 'top-[0] bg-[#fff]' : ''}`}
+            >
+                <ul className="flex md:flex-row flex-col md:items-center md-justify-start md:gap[4vw] gap-[35px] w-[90%]">
+                    <li>
+                        <a className="hover:text-gray-500 text-[18px]" href="#">Projects</a>
+                    </li>
+                    <li>
+                        <a className="hover:text-gray-500 text-[18px]" href="#">About</a>
+                    </li>
+                    <li>
+                        <a className="hover:text-gray-500 text-[18px]" href="#">Contact</a>
+                    </li>
+                    <li>
+                        <a className="hover:text-gray-500 text-[18px]" href="#">Skills</a>
+                    </li>
+                    <li>
+                        <a className="hover:text-gray-500 text-[18px]" href="#">Certifacates</a>
+                    </li>
+                </ul>
+                    <div className="flex h-[325px] w-[5%] md:hidden">
+                        <FontAwesomeIcon onClick={onToggleMenu} name="menu" className="text-3xl cursor-pointer md:hidden" icon={faTimes} style={{height: "46px"}}/>
+                    </div>
+            </div>
+            <div className="flex items-center gap-6 md:hidden">
+                <FontAwesomeIcon onClick={onToggleMenu} name="menu" className={`text-3xl cursor-pointer md:hidden ${isMenuOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`} icon={faBars} style={{height: "40px"}}/>
             </div>
         </nav>
     );
