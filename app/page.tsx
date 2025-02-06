@@ -9,15 +9,18 @@ import { About } from "../components/About";
 import { Contact } from "../components/Contact";
 import  { Skills } from "../components/Skills";
 import { Projects } from "../components/Projects";
+// import { Bg } from "../components/icons/Bg";
 
 export default function Home() {
   return (
     <div 
-    className={`w-full   flex justify-center font-[zendaya] font-bold  bg-white  `}>
+    className={`w-full   flex justify-center font-[tommy] font-bold  bg-white  `}>
         
       <div className="w-[1000px]">
+        
         <Navigation />
         <Header />
+        {/* <Bg/> */}
         {/* <About />
         <Skills />
         <Projects />

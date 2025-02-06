@@ -3,6 +3,22 @@
 @tailwind utilities;
 
 
+/* Add this custom CSS to your global styles */
+a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: black;
+  transition: width 0.3s ease-in-out;
+}
+
+a:hover::after {
+  width: 100%;
+}
+
 /* 1 */
 @font-face{
   font-family: 'zendaya';
@@ -52,6 +68,21 @@
 @font-face {
   font-family: 'magioline';
   src: url('../public/fonts/Magioline.ttf');
+}
+
+@font-face {
+  font-family: 'miragem';
+  src: url('../public/fonts/Mirage/MADE\ Mirage\ Thin\ PERSONAL\ USE.otf');
+}
+
+@font-face {
+  font-family: 'voyager';
+  src: url('../public/fonts/Voyage/MADEVoyagerPERSONAL_USE-Thin.otf');
+}
+
+@font-face {
+  font-family: 'tommy';
+  src: url('../public/fonts/Tommy/MADE\ TOMMY\ Bold_PERSONAL\ USE.otf');
 }
 /* 
 

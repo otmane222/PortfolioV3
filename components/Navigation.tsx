@@ -15,8 +15,8 @@ import { faAddressCard } from '@fortawesome/free-solid-svg-icons';
 import { faAddressBook } from '@fortawesome/free-solid-svg-icons';
 import { faMicrochip } from '@fortawesome/free-solid-svg-icons';
 import { faCertificate } from '@fortawesome/free-solid-svg-icons';
-
-
+import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faFileSignature } from '@fortawesome/free-solid-svg-icons';
 
 function Navigation() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -73,32 +73,47 @@ function Navigation() {
             </div>
             <div
                 ref={navLinksRef}
-                className={`nav-links z-10 duration-500 md:static absolute z md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center px-5 ${isMenuOpen ? 'top-[0] bg-[#fff]' : ''}`}
+                className={`nav-links z-10 duration-500 md:static absolute z md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center  ${isMenuOpen ? 'top-[0] bg-[#fff]' : ''}`}
             >
                 <ul className="flex md:flex-row flex-col md:items-center md:justify-start md:gap[4vw] w-[90%]">
                     <div className="flex justify-end w-[112%]  h-[80px] items-center
                      md:hidden">
                         <FontAwesomeIcon onClick={onToggleMenu} name="menu" className="text-3xl cursor-pointer md:hidden" icon={faTimes} style={{height: "46px"}}/>
                     </div>
-                    <li className='flex w-[112%] items-center gap-2 md:hover:text-[#cacaca] hover:underline md:p-[5px] md:pl-[20px] md:pr-[20px] p-[20px] transition-all duration-500 mb-1 '>
-                        <FontAwesomeIcon icon={faDiagramProject} />
-                        <a className=" text-[18px]" href="#">Projects</a>
+                    <li className='flex w-[112%] items-center md:p-[5px] md:pl-[20px] md:pr-[20px] p-[20px] transition-all duration-700 m-1'>
+                        <a className="text-[18px] relative gap-2 flex items-center" href="#">
+                            <FontAwesomeIcon icon={faDiagramProject} />
+                            Projects
+                        </a>
                     </li>
-                    <li className='flex w-[112%] items-center gap-2 md:hover:text-[#cacaca] hover:underline md:p-[5px] md:pl-[20px] md:pr-[20px] p-[20px] transition-all duration-500 m-1'>
-                        <FontAwesomeIcon icon={faAddressCard} />
-                        <a className="text-[18px]" href="#">About</a>
+
+
+                    <li className='flex w-[112%] items-center md:p-[5px] md:pl-[20px] md:pr-[20px] p-[20px] transition-all duration-700 m-1'>
+                        <a className="text-[18px] relative gap-2 flex items-center" href="#">
+                            <FontAwesomeIcon icon={faUser} />
+                            About
+                        </a>
                     </li>
-                    <li className='flex w-[112%] items-center gap-2 md:hover:text-[#cacaca] hover:underline md:p-[5px] md:pl-[20px] md:pr-[20px] p-[20px] transition-all duration-500 m-1'>
-                        <FontAwesomeIcon icon={faAddressBook} />
-                        <a className="text-[18px]" href="#">Contact</a>
+
+                    <li className='flex w-[112%] items-center md:p-[5px] md:pl-[20px] md:pr-[20px] p-[20px] transition-all duration-700 m-1'>
+                        <a className="text-[18px] relative gap-2 flex items-center" href="#">
+                        <FontAwesomeIcon icon={faFileSignature} />
+                            Contact
+                        </a>
                     </li>
-                    <li className='flex w-[112%] items-center gap-2 md:hover:text-[#cacaca] hover:underline md:p-[5px] md:pl-[20px] md:pr-[20px] p-[20px] transition-all duration-500 m-1'>
-                        <FontAwesomeIcon icon={faMicrochip} />
-                        <a className="text-[18px]" href="#">Skills</a>
+                    
+                    <li className='flex w-[112%] items-center md:p-[5px] md:pl-[20px] md:pr-[20px] p-[20px] transition-all duration-700 m-1'>
+                        <a className="text-[18px] relative gap-2 flex items-center" href="#">
+                            <FontAwesomeIcon icon={faMicrochip} />
+                            Skills
+                        </a>
                     </li>
-                    <li className='flex w-[112%] items-center gap-2 md:hover:text-[#cacaca] hover:underline md:p-[5px] md:pl-[20px] md:pr-[20px] p-[20px] transition-all duration-500 m-1'>
-                        <FontAwesomeIcon icon={faCertificate} />
-                        <a className="text-[18px]" href="#">Certifacates</a>
+                    
+                    <li className='flex w-[112%] items-center md:p-[5px] md:pl-[20px] md:pr-[20px] p-[20px] transition-all duration-700 m-1'>
+                        <a className="text-[18px] relative gap-2 flex items-center" href="#">
+                            <FontAwesomeIcon icon={faCertificate} />
+                            Certaficates
+                        </a>
                     </li>
                 </ul>
             </div>
