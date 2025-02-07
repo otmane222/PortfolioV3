@@ -84,6 +84,12 @@ a:hover::after {
   font-family: 'tommy';
   src: url('../public/fonts/Tommy/MADE\ TOMMY\ Bold_PERSONAL\ USE.otf');
 }
+
+@font-face {
+  font-family: 'tommy2';
+  src: url('../public/fonts/Tommy/MADE\ TOMMY\ Medium_PERSONAL\ USE.otf');
+}
+
 /* 
 
   */

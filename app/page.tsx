@@ -18,7 +18,7 @@ export default function Home() {
 
 
   return (
-    <div className={`w-full   flex flex-col items-center justify-center font-[tommy] font-bold  bg-white  `}>
+    <div className={`w-full   flex flex-col items-center justify-center font-[tommy]  bg-white  `}>
         
       <div className=" w-full bg-[url('/bg.jpg')] bg-cover bg-center h-screen text-white flex justify-center  min-h-[650px] max-h-[700px]" >
         <div className="w-[1000px] ">
@@ -26,7 +26,13 @@ export default function Home() {
           <Header />
         </div>
       </div>
-      <div className="w-full flex justify-center bg-slate-950 min-h-[646px] max-h-[700px] ">
+
+      <div className="w-full flex bg-[#3d3a3a] text-white justify-center -950 min-h-[440px] max-h-[520px] ">
+        <div className="w-[1000px] bg-[#] md:ml-[100px] ml-[0px]">
+          <About />
+        </div>
+      </div>
+      <div className="w-full flex bg-[#1b1b1b] justify-center -950 min-h-[1450px] max-h-[1500px] ">
 
       </div>
         {/* <Bg/> */}

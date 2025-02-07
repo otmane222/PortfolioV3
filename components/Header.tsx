@@ -17,7 +17,7 @@ function Header() {
             </h1>
             <h1 className='mt-5 md:whitespace-nowrap'>
               <span className="text-[30px] ">Full-stack Developer </span>
-              <span className='text-[28px] text-[#0d3b91] font-bold' >
+              <span className='text-[28px] text-[#76a3f5] font-bold' >
 
               <Typewriter
                 
