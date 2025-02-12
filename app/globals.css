@@ -17,6 +17,9 @@ a::after {
 
 a:hover::after {
   width: 100%;
+  .bg-\[linear-gradient\(to_right\2c \#4f4f4f2e_1px\2c transparent_1px\)\2c linear-gradient\(to_bottom\2c \#8080800a_1px\2c transparent_1px\)\] {
+    background-image: linear-gradient(to right,#e6e0e02e 1px,transparent 1px),linear-gradient(to bottom,#d1d1d10a 1px,transparent 1px);
+}
 }
 
 /* 1 */
@@ -106,8 +109,6 @@ a:hover::after {
   }
 }
 
-body {
-  /* color: var(--foreground); */
-  /* background: var(--background); */
-  /* font-family: Arial, Helvetica, sans-serif; */
-}
+/* color: var(--foreground); */
+/* background: var(--background); */
+/* font-family: Arial, Helvetica, sans-serif; */

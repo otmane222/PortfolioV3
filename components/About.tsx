@@ -19,11 +19,11 @@ function About () {
     ,[])
     
     return (
-        <div className="w-full h-full relative flex  md:justify-start justify-center items-center ">
+        <div className="w-full h-full bg-slate pt-[40px] pb-[40px] relative flex  md:justify-start  justify-center items-center ">
             <div className="w-[80%] md:w-[60%] h-full   flex justify-center items-center">
                 <div className='w-full md:h-[70%] h-[80%]  flex flex-col items-center '>
                     <h1 className='text-[35px]' >About Me</h1>
-                    <p className='font-[tommy2] pt-[10px] text-center'>
+                    <p className='font-[tommy2] pt-[10px] md:text-left text-center'>
                         My name is Otmane Aboulghit borned and raised in Morocco, passionate about web development.
                         I am a Full-Stack Developer with a background in Computer Science and a strong foundation in programming.
                         I am skilled in developing responsive websites and web applications using modern technologies

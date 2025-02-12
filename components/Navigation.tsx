@@ -73,14 +73,14 @@ function Navigation() {
             </div>
             <div
                 ref={navLinksRef}
-                className={`nav-links z-30 duration-500 ms:static absolute md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto  w-full flex items-center  ${isMenuOpen ? 'top-[0] bg-[#212a35]' : ''}`}
+                className={`nav-links z-30 duration-500 ms:static absolute ms:min-h-fit min-h-[60vh] left-0 top-[-100%] ms:w-auto  w-full flex items-center  ${isMenuOpen ? 'top-[0] bg-[#212a35] ms:bg-[#ffffff00] ms:top-[-100%]' : ''}`}
             >
-                <ul className="flex text-[#fff4f4] md:flex-row flex-col md:items-center md:justify-start md:gap[4vw] w-[90%]">
+                <ul className="flex text-[#fff4f4] ms:flex-row flex-col ms:items-center ms:justify-start ms:gap[4vw] w-[90%]">
                     <div className="flex justify-end w-[109%]  h-[82px] items-center
-                     md:hidden">
+                     ms:hidden">
                         <FontAwesomeIcon onClick={onToggleMenu} name="menu" className="text-3xl cursor-pointer ms:hidden" icon={faTimes} style={{height: "46px"}}/>
                     </div>
-                    <li className='flex w-[110%] items-center md:p-[5px] md:pl-[20px] md:pr-[20px] p-[20px] transition-all duration-700 m-1'>
+                    <li className='flex w-[110%] items-center ms:p-[5px] ms:pl-[20px] ms:pr-[20px] p-[20px] transition-all duration-700 m-1'>
                         <a className="text-[18px] relative gap-2 flex items-center" href="#">
                             <FontAwesomeIcon icon={faDiagramProject} />
                             Projects
@@ -88,28 +88,28 @@ function Navigation() {
                     </li>
 
 
-                    <li className='flex w-[110%] items-center md:p-[5px] md:pl-[20px] md:pr-[20px] p-[20px] transition-all duration-700 m-1'>
+                    <li className='flex w-[110%] items-center ms:p-[5px] ms:pl-[20px] ms:pr-[20px] p-[20px] transition-all duration-700 m-1'>
                         <a className="text-[18px] relative gap-2 flex items-center" href="#">
                             <FontAwesomeIcon icon={faUser} />
                             About
                         </a>
                     </li>
 
-                    <li className='flex w-[110%] items-center md:p-[5px] md:pl-[20px] md:pr-[20px] p-[20px] transition-all duration-700 m-1'>
+                    <li className='flex w-[110%] items-center ms:p-[5px] ms:pl-[20px] ms:pr-[20px] p-[20px] transition-all duration-700 m-1'>
                         <a className="text-[18px] relative gap-2 flex items-center" href="#">
                         <FontAwesomeIcon icon={faFileSignature} />
                             Contact
                         </a>
                     </li>
                     
-                    <li className='flex w-[110%] items-center md:p-[5px] md:pl-[20px] md:pr-[20px] p-[20px] transition-all duration-700 m-1'>
+                    <li className='flex w-[110%] items-center ms:p-[5px] ms:pl-[20px] ms:pr-[20px] p-[20px] transition-all duration-700 m-1'>
                         <a className="text-[18px] relative gap-2 flex items-center" href="#">
                             <FontAwesomeIcon icon={faMicrochip} />
                             Skills
                         </a>
                     </li>
                     
-                    <li className='flex w-[110%] items-center md:p-[5px] md:pl-[20px] md:pr-[20px] p-[20px] transition-all duration-700 m-1'>
+                    <li className='flex w-[110%] items-center ms:p-[5px] ms:pl-[20px] ms:pr-[20px] p-[20px] transition-all duration-700 m-1'>
                         <a className="text-[18px] relative gap-2 flex items-center" href="#">
                             <FontAwesomeIcon icon={faCertificate} />
                             Certaficates
@@ -118,7 +118,7 @@ function Navigation() {
                 </ul>
             </div>
             <div className="flex items-center gap-6 ms:hidden">
-                <FontAwesomeIcon onClick={onToggleMenu} name="menu" className={`text-3xl cursor-pointer ms:hidden ${isMenuOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`} icon={faBars} style={{height: "40px"}}/>
+                <FontAwesomeIcon onClick={onToggleMenu} name="menu" className={`text-3xl z-30 cursor-pointer ms:hidden ${isMenuOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`} icon={faBars} style={{height: "40px"}}/>
             </div>
         </nav>
     );
