@@ -1,46 +1,41 @@
 'use client';
-import React, { createContext, useState, useContext, useEffect } from 'react';
 
-type ThemeContextType = {
-  theme: string;
-  toggleTheme: () => void;
-};
+import { ApearanceContextType } from '../types/indexTypes';
+import { createContext, ReactNode, useState, useEffect } from 'react';
 
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+// Create the context
+export const ApearanceContext = createContext<ApearanceContextType | null>(null);
 
-export const useTheme = () => {
-  const context = useContext(ThemeContext);
-  if (!context) {
-    throw new Error('useTheme must be used within a ThemeProvider');
-  }
-  return context;
-};
-
-export const ThemeProvider: React.FC = ({ children }) => {
+// ApearanceProvider component
+export default function ApearanceProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<string>('light');
 
+  // Use useEffect to interact with window.localStorage on the client side only
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    setTheme(savedTheme);
-    if (savedTheme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, []);
+    let currentTheme = window.localStorage.getItem('theme');
 
-  const toggleTheme = () => {
-    setTheme((prevTheme) => {
-      const newTheme = prevTheme === 'light' ? 'dark' : 'light';
-      localStorage.setItem('theme', newTheme);
-      document.documentElement.classList.toggle('dark', newTheme === 'dark');
-      return newTheme;
-    });
+    if (!currentTheme) {
+      currentTheme = 'light';
+      window.localStorage.setItem('theme', currentTheme);
+    }
+
+    setTheme(currentTheme);
+  }, []); // Empty dependency array ensures this runs only on the client side (after initial render)
+
+  // Function to handle theme changes
+  function themeHandler(theme: string) {
+    setTheme(theme);
+    window.localStorage.setItem('theme', theme);
+  }
+
+  const value = {
+    theme,
+    themeHandler,
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ApearanceContext.Provider value={value}>
       {children}
-    </ThemeContext.Provider>
+    </ApearanceContext.Provider>
   );
-};
+}

@@ -20,6 +20,7 @@ main{
     position: relative;
 }
 .slider .list .item{
+    filter: grayscale(1);
     width: var(--width);
     height: var(--height);
     position: absolute;
@@ -38,12 +39,17 @@ main{
         left: calc(var(--width) * -1);
     }
 }
+
+
+
 .slider:hover .item{
     animation-play-state: paused!important;
+    filter: grayscale(1);
+    
     /* filter: grayscale(1); */
 }
 .slider .item:hover{
-    /* filter: grayscale(0); */
+    filter: grayscale(0);
 }
 .slider[reverse="true"] .item{
     animation: reversePlay 10s linear infinite;

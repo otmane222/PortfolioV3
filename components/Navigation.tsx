@@ -3,8 +3,8 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState, useRef } from 'react';
-
+import { useState, useRef, useContext } from 'react';
+import { ApearanceContext } from '@/context/Themecontext';
 import { Moon, Sun } from 'lucide-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
@@ -23,6 +23,12 @@ function Navigation() {
     const navLinksRef = useRef<HTMLDivElement>(null);
     const [isDarkMode, setIsDarkMode] = useState(false);
 
+    const { theme, themeHandler } = useContext(ApearanceContext) || {}
+
+    function ThemeHandler() {
+		themeHandler!(theme == 'light' ? 'dark' : 'light')
+	}
+     
     const onToggleMenu = () => {
         if (navLinksRef.current) {
             navLinksRef.current.classList.toggle('top-[9%]');
@@ -44,7 +50,7 @@ function Navigation() {
     };
 
     return (
-        <nav className="flex justify-between items-center w-[95%] mx-auto h-[80px]  ">
+        <nav className="flex justify-between items-center w-[95%] max-w-[1000px] mx-auto h-[80px]  ">
             <div className='flex items-center justify-center  h-[100px]'>
                     <div 
                         onClick={toggleTheme}
