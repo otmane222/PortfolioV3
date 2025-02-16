@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useRef, useContext } from 'react';
-import { ApearanceContext } from '@/context/Themecontext';
+import { ApearanceContext } from '@/app/context/Themecontext';
 import { Moon, Sun } from 'lucide-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
@@ -26,7 +26,8 @@ function Navigation() {
     const { theme, themeHandler } = useContext(ApearanceContext) || {}
 
     function ThemeHandler() {
-		themeHandler!(theme == 'light' ? 'dark' : 'light')
+        themeHandler!(theme == 'light' ? 'dark' : 'light')
+        setIsDarkMode(!isDarkMode);
 	}
      
     const onToggleMenu = () => {
@@ -36,24 +37,23 @@ function Navigation() {
         setIsMenuOpen(!isMenuOpen);
     };
 
-    const toggleTheme = () => {
-        const newTheme = !isDarkMode;
-        setIsDarkMode(newTheme);
+    // const toggleTheme = () => {
+    //     const newTheme = !isDarkMode;
 
-        localStorage.setItem('theme', newTheme ? 'dark' : 'light');
+    //     localStorage.setItem('theme', newTheme ? 'dark' : 'light');
 
-        if (newTheme) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
-    };
+    //     if (newTheme) {
+    //         document.documentElement.classList.add('dark');
+    //     } else {
+    //         document.documentElement.classList.remove('dark');
+    //     }
+    // };
 
     return (
-        <nav className="flex justify-between items-center w-[95%] max-w-[1000px] mx-auto h-[80px]  ">
+        <nav className={`flex justify-between items-center w-[95%] max-w-[1000px] mx-auto h-[80px] ${theme == 'dark' ? "bg-[#1f1e1e]" : "bg-[#e7e7e7]"} `}>
             <div className='flex items-center justify-center  h-[100px]'>
                     <div 
-                        onClick={toggleTheme}
+                        onClick={ThemeHandler}
                         className={`absolute cursor-pointer mr-[40px] w-[30px] h-[30px] z-10  position-x-2 dark:bg-gray-600 
                         rounded-full shadow-md transition-all duration-500 ease-in-out 
                         ${isDarkMode ? 'translate-x-[35px] bg-[#000]' : 'translate-x-[5px] bg-[#fff]'}`}
@@ -70,7 +70,7 @@ function Navigation() {
                         </div>
                     </div>
                 <button
-                    onClick={toggleTheme}
+                    onClick={ThemeHandler}
                     className={`w-[50px] h-[15px] z-0 bg-gray-200 dark:bg-gray-800 
                         rounded-full shadow-inner overflow-hidden transition-opacity duration-500 ease-in-out 
                         ${isMenuOpen ? 'md:opacity-100 opacity-0 pointer-events-none' : 'opacity-100'}`}
@@ -87,37 +87,37 @@ function Navigation() {
                         <FontAwesomeIcon onClick={onToggleMenu} name="menu" className="text-3xl cursor-pointer ms:hidden" icon={faTimes} style={{height: "46px"}}/>
                     </div>
                     <li className='flex w-[110%] items-center ms:p-[5px] ms:pl-[20px] ms:pr-[20px] p-[20px] transition-all duration-700 m-1'>
-                        <a className="text-[18px] relative gap-2 flex items-center" href="#">
-                            <FontAwesomeIcon icon={faDiagramProject} />
+                        <a className="text-[10px] relative gap-2 flex items-center" href="#">
+                            {/* <FontAwesomeIcon icon={faDiagramProject} /> */}
                             Projects
                         </a>
                     </li>
 
 
                     <li className='flex w-[110%] items-center ms:p-[5px] ms:pl-[20px] ms:pr-[20px] p-[20px] transition-all duration-700 m-1'>
-                        <a className="text-[18px] relative gap-2 flex items-center" href="#">
-                            <FontAwesomeIcon icon={faUser} />
+                        <a className="text-[10px] relative gap-2 flex items-center" href="#">
+                            {/* <FontAwesomeIcon icon={faUser} /> */}
                             About
                         </a>
                     </li>
 
                     <li className='flex w-[110%] items-center ms:p-[5px] ms:pl-[20px] ms:pr-[20px] p-[20px] transition-all duration-700 m-1'>
-                        <a className="text-[18px] relative gap-2 flex items-center" href="#">
-                        <FontAwesomeIcon icon={faFileSignature} />
+                        <a className="text-[10px] relative gap-2 flex items-center" href="#">
+                        {/* <FontAwesomeIcon icon={faFileSignature} /> */}
                             Contact
                         </a>
                     </li>
                     
                     <li className='flex w-[110%] items-center ms:p-[5px] ms:pl-[20px] ms:pr-[20px] p-[20px] transition-all duration-700 m-1'>
-                        <a className="text-[18px] relative gap-2 flex items-center" href="#">
-                            <FontAwesomeIcon icon={faMicrochip} />
+                        <a className="text-[10px] relative gap-2 flex items-center" href="#">
+                            {/* <FontAwesomeIcon icon={faMicrochip} /> */}
                             Skills
                         </a>
                     </li>
                     
                     <li className='flex w-[110%] items-center ms:p-[5px] ms:pl-[20px] ms:pr-[20px] p-[20px] transition-all duration-700 m-1'>
-                        <a className="text-[18px] relative gap-2 flex items-center" href="#">
-                            <FontAwesomeIcon icon={faCertificate} />
+                        <a className="text-[10px] relative gap-2 flex items-center" href="#">
+                            {/* <FontAwesomeIcon icon={faCertificate} /> */}
                             Certaficates
                         </a>
                     </li>

@@ -2,16 +2,20 @@
 'use client';
 import { Typewriter } from 'react-simple-typewriter'
 
+import {  useContext } from 'react';
+import { ApearanceContext } from '@/app/context/Themecontext';
+import { MdArrowOutward } from "react-icons/md";
+
 function Header() {
 
-
+  const { theme } = useContext(ApearanceContext) || {}
   
   return (
-    <div>
+    <div className='flex flex-col items-center justify-center w-full h-full'>
 
-      <div className="w-full  text-white b-slate-500  h-[450px] bg-[#] flex items-center justify-">
+      <div className={`${theme == 'light' ? "text-[#1f1e1e]" : "text-[#e7e7e7]"} h-auto w-full  b-slate-500 bg-[#] flex items-center justify-`}>
         
-        <div className="z-10 m-5 flex flex-col justify-center w-full b-[#ee9494] h-full">
+        <div className="z-10 m-5 flex flex-col justify-center w-full b-[#ee9494] h-auto">
           
           <div className="flex flex-col justify-center w-full b-[#995b5b] h-full">
             
@@ -39,13 +43,13 @@ function Header() {
                   </span>
               </div>
             <div className='flex  items-start ] b-slate-200 pt-[10px] '>
-              <button className='bg-[#0d3b91] hover:bg-[#1363a5] transition-all duration-500 ease-in-out text-white p-[12px] rounded-md'>
+              <button className='bg-[#0d3b91] hover:bg-[#1363a5] text-white transition-all duration-500 ease-in-out  p-[12px] rounded-md'>
               
                 Contact Me
               </button>
 
-              <button className='hover:bg-[#1363a5] text-white transition-all duration-500 ease-in-out  p-[12px] rounded-md ml-5'>
-                Download CV
+              <button className='hover:bg-[#1363a5] hover:text-white  transition-all duration-500 ease-in-out  p-[12px] rounded-md ml-5'>
+                Resume
               </button>
             </div>
             </div>
@@ -57,7 +61,45 @@ function Header() {
         <img src="/bg.svg" alt="otmane" className=" rounded-full w-full h-full " />
         </div> */}
       </div>
-        <div className=" w-[100%] z-10 h-[100px] b-slate-700  ">
+        <div className=" flex items-center w-[100%] z-10 h-auto pt-[10px] md:pt-[0px]  b-slate-700 b-slate-500    ">
+          
+          <div className='flex md:flex-row flex-col  justify-around items-center b-[#b9da85] h-auto w-full '>
+            <div className='flex justify-center items-center bg-slate-300 h-[1px] w-[95%] md:w-[47%]'>
+            </div>
+            <div className='flex md:justify-end justify-start items-center md:p-[0px] p-[10px] b-slate-300 h-[90%] w-[95%] md:w-[50%]'>
+              <h4 className='text-[15px]'>Web dev with background in low level programing c/c++ and system design. DRY, Don't Repeat Yourself</h4>
+            </div>
+          </div>
+
+        </div>
+
+        <div className='flex  items-center justify-between w-[95%] md:w-[95%] pt-[10px] h-auto b-[#150b6d] '>
+          <div className='hidden md:flex justify-around items-center b-[#d83f3f] h-[50px] w-[50%]'>
+            <a className='flex '>
+              <h4 className='text-[13px]'>LINKDEN</h4>
+              <MdArrowOutward size={15}/>
+            </a>
+
+            <a className='flex '>
+              <h4 className='text-[13px]'>GITHUB</h4>
+              <MdArrowOutward size={15}/>
+            </a>
+
+            <a className='flex '>
+              <h4 className='text-[13px]'>TWITTER</h4>
+              <MdArrowOutward size={15}/>
+            </a>
+
+            <a className='flex '>
+              <h4 className='text-[13px]'>GMAIL</h4>
+              <MdArrowOutward size={15}/>
+            </a>
+          </div>
+          <div className='flex justify-start md:justify-end items-center b-[#3fd8be] h-[50px] w-[80%] md:w-[50%]'>
+            <button className='bg-[#fff] hover:bg-[#eeeded] text-black text-[14px] transition-all duration-500 ease-in-out pr-[23px] pl-[23px]  p-[12px] rounded-full'>
+              Know me better
+            </button>
+          </div>
         </div>
     </div>
   );

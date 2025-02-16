@@ -4,7 +4,7 @@
 
 
 /* Add this custom CSS to your global styles */
-a::after {
+/* a::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -13,14 +13,14 @@ a::after {
   height: 2px;
   background-color: rgb(255, 255, 255);
   transition: width 0.3s ease-in-out;
-}
+} */
 
-a:hover::after {
+/* a:hover::after {
   width: 100%;
   .bg-\[linear-gradient\(to_right\2c \#4f4f4f2e_1px\2c transparent_1px\)\2c linear-gradient\(to_bottom\2c \#8080800a_1px\2c transparent_1px\)\] {
     background-image: linear-gradient(to right,#e6e0e02e 1px,transparent 1px),linear-gradient(to bottom,#d1d1d10a 1px,transparent 1px);
 }
-}
+} */
 
 /* 1 */
 @font-face{
