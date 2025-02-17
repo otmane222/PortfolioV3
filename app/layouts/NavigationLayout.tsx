@@ -36,14 +36,14 @@ export default function NavigationLayout({ children }: { children: ReactNode }) 
         setIsMenuOpen(!isMenuOpen);
     };
   return (
-    <div className={`relative flex flex-col bg-[url('/')]  ${theme == 'dark' ? "bg-[#1a1919] text-[#fff4f4]" : "bg-[#ececec] "} w-full h-[10000px] `}>
+    <div className={`relative flex flex-col bg-[url('/')]  ${theme == 'dark' ? "bg-[#1a1919] text-[#fff4f4]" : "bg-[#ececec] text-[#000000] "} w-full h-[10000px] `}>
     {
         // theme == 'dark' ?
         // <div className="absolute z-[- bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:13px_24px] [mask-image:radial-gradient(ellipse_90%_90%_at_50%_0%,#000_70%,transparent_110%)]"></div>
         // :
         // <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_90%_90%_at_50%_0%,#000_70%,transparent_110%)]"></div>
     }
-      <nav className={`flex justify-between items-center w-[95%] max-w-[1000px] mx-auto h-[80px]`}>
+      <nav className={`flex font-[tommy2] justify-between items-center w-[95%] b-slate-400 max-w-[1240px] mx-auto h-[80px]`}>
             <div className='flex items-center justify-center  h-[100px]'>
                     <div 
                         onClick={ThemeHandler}
@@ -72,7 +72,7 @@ export default function NavigationLayout({ children }: { children: ReactNode }) 
             </div>
             <div
                 // ref={navLinksRef}
-                className={`nav-links z-30 duration-500 ms:static absolute ms:min-h-fit min-h-[60vh] left-0 top-[-100%] ms:w-auto  w-full flex items-center  ${isMenuOpen ? 'top-[0] bg-[#212a35] ms:bg-[#ffffff00] ms:top-[-100%]' : ''}`}
+                className={`nav-links z-30 duration-500 ms:static absolute ms:min-h-fit min-h-[60vh] left-0 top-[-100%] ms:w-auto  w-full  flex items-center  ${isMenuOpen ? 'top-[0] bg-[#212a35] ms:bg-[#ffffff00] ms:top-[-100%]' : ''}`}
             >
                 <ul className="flex  ms:flex-row flex-col ms:items-center ms:justify-start ms:gap[4vw] w-[90%]">
                     <div className="flex justify-end w-[109%]  h-[82px] items-center

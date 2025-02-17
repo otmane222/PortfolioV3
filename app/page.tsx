@@ -18,22 +18,24 @@ export default function Home() {
   
   return (
     // <div className={`w-full bg-[url('/st.png')]   flex flex-col items-center justify-center font-[tommy]  bg-white  `}>
-    <div className=" h-full w-full ">
+    <div className={`h-full w-full font-[tommy2] `}>
      
       <div className=" w-full text-white flex justify-center  min-h-[567px] max-h-[700px]" >
-        <div className="w-[1000px] ">
+        <div className="w-[1240px] b-slate-400">
           <Header />
         </div>
       </div>
 
-      <div className="w-full flex  text-white justify-center itme min:h-[460px]   ">
-        <div className="w-full max-w-[1000px] ">
-          <Skills />
+      <div className="w-full flex justify-center itme min:h-[460px]   ">
+        <div className="w-full max-w-[1240px] b-slate-500 pb-[180px] h-auto">
+          <About />
         </div>
       </div>
       
       <div className="w-full flex bg-[#] justify-center -950 min-h-[1450px] max-h-[1500px] ">
-
+        <div className="w-full max-w-[1240px] b-slate-500 h-[500px] ">
+          <Projects />
+        </div>
       </div>
 
     </div>

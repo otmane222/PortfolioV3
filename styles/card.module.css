@@ -1,6 +1,6 @@
 /* styles/card.module.css */
 .wrapper {
-    max-width: 1200px;
+    max-width: 1240px;
     display: flex;
     flex-wrap: wrap;
     min-width: 80%;

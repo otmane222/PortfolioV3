@@ -10,6 +10,19 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        animation: {
+          shimmer: "shimmer 2s linear infinite",
+        },
+        keyframes: {
+          shimmer: {
+            from: {
+              backgroundPosition: "0 0",
+            },
+            to: {
+              backgroundPosition: "-200% 0",
+            },
+          },
+        },
       },
       screens: {
         'xs': '645px',
@@ -17,6 +30,7 @@ export default {
         'hb1':'354px',
         'hb2':'649px',
         '0': '0px',
+        '425': '425px',
         '600': '600px',
         '700': '700px',
         '800': '800px',
@@ -24,6 +38,7 @@ export default {
         '1000': '1000px',
         '1100': '1100px',
         '1200': '1200px',
+        '1300': '1300px',
 
       },
     },
