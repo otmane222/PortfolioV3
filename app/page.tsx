@@ -32,7 +32,7 @@ export default function Home() {
         </div>
       </div>
       
-      <div className="w-full flex bg-[#] justify-center -950 min-h-[1450px] max-h-[1500px] ">
+      <div className="w-full flex bg-[#] justify-center -950 min-h-[1450px] max-h-[1500px] overflow-clip ">
         <div className="w-full max-w-[1240px] b-slate-500 h-[500px] ">
           <Projects />
         </div>

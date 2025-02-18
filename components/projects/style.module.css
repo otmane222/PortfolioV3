@@ -1,0 +1,28 @@
+
+
+
+
+.project:hover  {
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.project:hover h1 {
+    transform: translateX(-10px);
+}
+
+.project:hover p {
+    transform: translateX(10px);
+}
+
+.project h1{
+    font-size: 60px;
+    margin: 0px;
+    font-weight: 400;
+    transition: all 0.4s;
+}
+
+.project p{
+    transition: all 0.4s;
+    font-weight: 300;
+}

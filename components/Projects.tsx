@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import Project from "./Project";
-
+import Project from "./projects/Project";
+import Modal from "./modal.tsx/Modal";
+import styles from "./Projects.module.css";
+import useWindowSize from "./utils";
 function ProjectCard() {
     return (
         <div>
@@ -44,9 +46,12 @@ function Projects() {
     ]
 
   const [modal, setModal] = useState({ active: false, index: 0 });
+  const { width } = useWindowSize();
 
-  return (
-    <div className="w-full h-auto flex flex-col  b-[#e56ef0]">
+  if (width < 1024) {
+    return (
+      <>
+        <div className="w-full h-auto flex flex-col  b-[#e56ef0] ">
       <div className="w-full b-slate-300 flex flex-col">
         <h1 className="pl-[20px]">
           My Work
@@ -57,8 +62,27 @@ function Projects() {
         </h1>
         
       </div>
-      <div className="w-full h-[600px] b-[#297e30]">
-          <div className="flex flex-col items-center">
+      <div className="w-full h-[1000px] bg-[#297e30]">
+          
+      </div>
+    </div>
+      </>
+    );
+  }
+  return (
+    <div className="w-full h-auto flex flex-col  b-[#e56ef0] ">
+      <div className="w-full b-slate-300 flex flex-col">
+        <h1 className="pl-[20px]">
+          My Work
+        </h1>
+        
+        <h1 className="text-5xl p-[20px]">
+          Selected Projects
+        </h1>
+        
+      </div>
+      <div className="w-full h-auto  b-[#297e30]">
+          <div className="flex flex-col items-center justify-center ">
             {
                 projects.map((project, index) => {
                     return (
@@ -66,6 +90,7 @@ function Projects() {
                     )
                 })
             }
+          <Modal modal={modal} projects={projects} />
           </div>
       </div>
       {/* <Card /> */}
