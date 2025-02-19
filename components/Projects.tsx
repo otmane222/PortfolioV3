@@ -3,16 +3,13 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Project from "./projects/Project";
+import { SProject } from "./projects/Project";
+import { ScrollCards } from "./projects/Project";
+
 import Modal from "./modal.tsx/Modal";
 import styles from "./Projects.module.css";
 import useWindowSize from "./utils";
-function ProjectCard() {
-    return (
-        <div>
-            <h1>ProjectCard</h1>
-        </div>
-    );
-}
+
   
         
 
@@ -48,7 +45,7 @@ function Projects() {
   const [modal, setModal] = useState({ active: false, index: 0 });
   const { width } = useWindowSize();
 
-  if (width < 1024) {
+  if (window.innerWidth < 920) {
     return (
       <>
         <div className="w-full h-auto flex flex-col  b-[#e56ef0] ">
@@ -62,8 +59,14 @@ function Projects() {
         </h1>
         
       </div>
-      <div className="w-full h-[1000px] bg-[#297e30]">
-          
+      <div className="w-full h-auto justify-normal bg-slate- flex flex-nowrap">
+        {
+            projects.map((project, index) => {
+                return (
+                    <ScrollCards key={index} />
+                )
+            })
+        }
       </div>
     </div>
       </>

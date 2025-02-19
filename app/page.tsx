@@ -27,13 +27,19 @@ export default function Home() {
       </div>
 
       <div className="w-full flex justify-center itme min:h-[460px]   ">
-        <div className="w-full max-w-[1240px] b-slate-500 pb-[180px] h-auto">
+        <div className="w-full max-w-[1240px] b-slate-500 pb-[130px] h-auto">
           <About />
         </div>
       </div>
       
-      <div className="w-full flex bg-[#] justify-center -950 min-h-[1450px] max-h-[1500px] overflow-clip ">
-        <div className="w-full max-w-[1240px] b-slate-500 h-[500px] ">
+      <div className="w-full flex bg-[#] justify-center -950 h-auto overflow-clip pb-[60px] ">
+        <div className="w-full max-w-[1240px] b-slate-500 h-auto">
+          <Skills />
+        </div>
+      </div>
+
+      <div className="w-full flex bg-[#] justify-center -950 h-auto overflow-clip ">
+        <div className="w-full max-w-[1240px] b-slate-500 h-auto">
           <Projects />
         </div>
       </div>

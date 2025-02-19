@@ -54,6 +54,21 @@ export default function Modal({modal, projects} : {modal: any, projects: any}) {
                 moveConatinerX(window.innerWidth - 220)
                 moveCursorX(window.innerWidth - 220)
                 moveCursorLabelX(window.innerWidth - 220)
+                containerY = pageY;
+                cursorY = pageY;
+                cursorLabelY = pageY;
+                return;
+            }
+            if (pageX <= 205) {
+                moveConatinerY(pageY)
+                moveCursorY(pageY)
+                moveCursorLabelY(pageY)
+                moveConatinerX(200)
+                moveCursorX(200)
+                moveCursorLabelX(200)
+                containerY = pageY;
+                cursorY = pageY;
+                cursorLabelY = pageY;
                 return;
             }
             moveConatinerY(pageY)
@@ -94,7 +109,6 @@ export default function Modal({modal, projects} : {modal: any, projects: any}) {
 
             lastScrollY = currentScrollY;
         });
-
     }
     , [])
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, MotionValue, useScroll, useTransform } from "motion/react";
-import { ComponentPropsWithoutRef, FC, ReactNode, useRef } from "react";
+import { ComponentPropsWithoutRef, FC, ReactNode, useRef, useState } from "react";
 import { useEffect } from "react";
 import { useContext } from "react";
 import { ApearanceContext } from "@/app/context/Themecontext";
@@ -11,11 +11,31 @@ export default function TextReveal ({value}: {value: string}) {
     const { theme } = useContext(ApearanceContext) || {};
 
     const element = useRef<HTMLParagraphElement>(null);
+    const [offset, setOffset] = useState<(string | number)[]>(['start 0.9', 'start -0.5']);
+  
+    useEffect(() => {
+        const mediaQuery = window.matchMedia('(min-width: 500px)');
+        
+        const handleResize = () => {
+        if (mediaQuery.matches) {
+            setOffset(['start 0.9', 'start 0']);
+        } else {
+            setOffset(['start 0.9', 'start -0.5']);
+        }
+        };
+
+        handleResize(); // Check on mount
+
+        mediaQuery.addListener(handleResize); // Listen for changes
+
+        return () => {
+        mediaQuery.removeListener(handleResize); // Cleanup on unmount
+        };
+    }, []);
     const { scrollYProgress } = useScroll({
         target: element,
-        offset: ['start 0.9', 'start 0.25']
+        offset: offset as [string, string],
     })
-
 
     const words = value.split(" ");
 
