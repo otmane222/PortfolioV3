@@ -2,61 +2,47 @@ import {
     AnimatedSpan,
     Terminal,
     TypingAnimation,
-  } from "@/registry/magicui/terminal";
+  } from "./magicui/terminal";
   
-  export function TerminalDemo() {
+  export function TerminalMinishell() {
     return (
-      <Terminal>
-        <TypingAnimation>&gt; pnpm dlx shadcn@latest init</TypingAnimation>
+      <Terminal className="bg-[#222] text-white max-w-[600px] w-full h-full">
+        <TypingAnimation >&gt; ./Minishell</TypingAnimation>
   
-        <AnimatedSpan delay={1500} className="text-green-500">
-          <span>✔ Preflight checks.</span>
+        <AnimatedSpan delay={1500} className="text-green-">
+          <p className="w-[50px] md:w-full">echo 'hello I'm insde my shell'</p>
+        </AnimatedSpan>
+
+        <AnimatedSpan delay={1800}  className="text-green-500">
+          <p>hello I'm insde my shell</p>
+        </AnimatedSpan>
+        
+        <AnimatedSpan delay={3500} className="text-green-">
+          <p>ls</p>
         </AnimatedSpan>
   
-        <AnimatedSpan delay={2000} className="text-green-500">
-          <span>✔ Verifying framework. Found Next.js.</span>
+        <AnimatedSpan delay={3800} className="text-green-500 w-full">
+          <p className="w-[100px] md:w-full"><span className="text-blue-500 ">app</span> file file.txt strlen.c <span className="text-blue-500 ">day00</span> day10.jaja</p>
         </AnimatedSpan>
   
-        <AnimatedSpan delay={2500} className="text-green-500">
-          <span>✔ Validating Tailwind CSS.</span>
+        <AnimatedSpan delay={5500} className="text-green-">
+          <p className="w-[50px] md:w-full">export VAR=otmane && echo hey $VAR</p>
         </AnimatedSpan>
-  
-        <AnimatedSpan delay={3000} className="text-green-500">
-          <span>✔ Validating import alias.</span>
+
+        <AnimatedSpan delay={6000} className="text-green-500">
+          <p>hey otmane</p>
         </AnimatedSpan>
-  
-        <AnimatedSpan delay={3500} className="text-green-500">
-          <span>✔ Writing components.json.</span>
+
+        <AnimatedSpan delay={7500} className="text-green-">
+          <p className="w-[50px] md:w-full ">(echo 1 || echo 2 && echo 3) && <br/>(((echo 4 || echo 5) && echo 6) || echo 7)</p>
         </AnimatedSpan>
-  
-        <AnimatedSpan delay={4000} className="text-green-500">
-          <span>✔ Checking registry.</span>
+
+        <AnimatedSpan delay={7800} className="text-green-500">
+          <p>1</p>
+          <p>3</p>
+          <p>4</p>
+          <p>6</p>
         </AnimatedSpan>
-  
-        <AnimatedSpan delay={4500} className="text-green-500">
-          <span>✔ Updating tailwind.config.ts</span>
-        </AnimatedSpan>
-  
-        <AnimatedSpan delay={5000} className="text-green-500">
-          <span>✔ Updating app/globals.css</span>
-        </AnimatedSpan>
-  
-        <AnimatedSpan delay={5500} className="text-green-500">
-          <span>✔ Installing dependencies.</span>
-        </AnimatedSpan>
-  
-        <AnimatedSpan delay={6000} className="text-blue-500">
-          <span>ℹ Updated 1 file:</span>
-          <span className="pl-2">- lib/utils.ts</span>
-        </AnimatedSpan>
-  
-        <TypingAnimation delay={6500} className="text-muted-foreground">
-          Success! Project initialization completed.
-        </TypingAnimation>
-  
-        <TypingAnimation delay={7000} className="text-muted-foreground">
-          You may now add components.
-        </TypingAnimation>
       </Terminal>
     );
   }

@@ -23,7 +23,7 @@ import ApearanceProvider from "@/app/context/Themecontext";
 import { ApearanceContext } from "@/app/context/Themecontext";
 import { useContext } from "react";
 import NavigationLayout from './layouts/NavigationLayout';
-
+import { Transition } from "@/components/Transition";
 
 export default function RootLayout({
   children,
@@ -38,7 +38,9 @@ export default function RootLayout({
           className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black  `}
         >
           <NavigationLayout>
-              {children}
+            <Transition>
+                {children}
+            </Transition>
           </NavigationLayout>
         </body>
       </ApearanceProvider>

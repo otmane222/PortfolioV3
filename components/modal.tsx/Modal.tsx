@@ -8,18 +8,23 @@ import { motion } from 'framer-motion';
 import { init } from 'next/dist/compiled/webpack/webpack';
 import gsap from 'gsap';
 import useWindowSize from '../utils';
+import Link from 'next/link';
+
+// cubic-bezier(0.36, 0, 0.66, -0.56);
 const scaleAnimation = {
     initial: {scale: 0, x:"-50%", y:"-50%"},
     enter: {scale: 1, x:"-50%", y:"-50%", transition: {duration: 0.4, ease: [0.76, 0, 0.24, 1]}},
     closed: {scale: 0, x:"-50%", y:"-50%", transition: {duration: 0.4, ease: [0.25, 1, 0.5, 1]}}
 }
 
-export default function Modal({modal, projects} : {modal: any, projects: any}) {
+
+export default function Modal({modal, projects, setModal} : {modal: any, projects: any, setModal: any}) {
 
     const {active, index} = modal;
     const modalRef = useRef(null);
     const cursorRef = useRef(null);
     const cursorLabelRef = useRef(null);
+    const current_project:string = "";
 
     
     let lastScrollY = 0;
@@ -138,8 +143,8 @@ export default function Modal({modal, projects} : {modal: any, projects: any}) {
             </motion.div>
             <motion.div variants={scaleAnimation} initial={"initial"}  animate={active ? "enter" : "closed"} ref={cursorRef} className={`${styles.cursor} flex justify-center items-center w-[80px] h-[80px] bg-[#1e57c2] absolute rounded-full pointer-events-none `} >
             </motion.div>
-            <motion.div variants={scaleAnimation} initial={"initial"}  animate={active ? "enter" : "closed"} ref={cursorLabelRef} className={`${styles.cursorLabel} text-white flex justify-center items-center w-[80px] h-[80px] bg-transparent absolute rounded-full pointer-events-none`} >
-                View
+            <motion.div  variants={scaleAnimation} initial={"initial"}  animate={active ? "enter" : "closed"} ref={cursorLabelRef} className={`${styles.cursorLabel} text-white flex justify-center items-center w-[80px] h-[80px] bg-transparent absolute rounded-full pointer-events-none`} >
+                    View
             </motion.div>
 
         </>

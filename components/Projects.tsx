@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import Project from "./projects/Project";
 import { SProject } from "./projects/Project";
 import { ScrollCards } from "./projects/Project";
-
+import Link from "next/link";
 import Modal from "./modal.tsx/Modal";
 import styles from "./Projects.module.css";
 import useWindowSize from "./utils";
@@ -20,25 +20,29 @@ function Projects() {
         title: "C2 Montreal",
         src: "c2montreal.png",
         color: "#000000",
-        field: "Web Development"
+        field: "Web Development",
+        id: 0,
       },
       {
         title: "Office Studio",
         src: "officestudio.png",
         color: "#8C8C8C",
         field: "Web Development",
+        id: 1,
       },
       {
         title: "Locomotive",
         src: "locomotive.png",
         color: "#EFE8D3",
-        field: "Web Development"
+        field: "Web Development",
+        id: 2,
       },
       {
         title: "Silencio",
         src: "silencio.png",
         color: "#706D63",
-        field: "Web Development"
+        field: "Web Development",
+        id: 3,
       }
     ]
 
@@ -89,14 +93,19 @@ function Projects() {
             {
                 projects.map((project, index) => {
                     return (
-                        <Project key={index} index={index} title={project.title} field={project.field} setModal={setModal} />
+                        <Project key={index} index={index} title={project.title} field={project.field} setModal={setModal} num={3} />
                     )
                 })
             }
-          <Modal modal={modal} projects={projects} />
+            
+          <Modal modal={modal} setModal={setModal} projects={projects} />
           </div>
       </div>
-      {/* <Card /> */}
+      <div className="w-full pt-[100px] pb-[100px] flex justify-center items-center">
+          <Link href="#projects" className="text-1xl p-[30px]  rounded-[20px] bg-[#333333]   text-white hover:text-white flex items-center justify-center  ">
+            More Projects
+          </Link>
+        </div>
     </div>
   );
 }

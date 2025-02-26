@@ -7,6 +7,7 @@ import styles from "./style.module.css";
 import { SP } from "next/dist/shared/lib/utils";
 import Image from "next/image";
 
+import Link from "next/link";
 import { motion, useTransform, useScroll } from "framer-motion";
 import { useRef } from "react";
 
@@ -24,7 +25,7 @@ const HorizontalScrollCarousel = () => {
     target: targetRef,
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ["3%", "-95%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["3%", "-80%"]);
 
   return (
     <section ref={targetRef} className="relative h-[3000px] bg-">
@@ -42,6 +43,15 @@ const HorizontalScrollCarousel = () => {
 const Card = ({ card }: { card: CardType }) => {
 
     const { theme } = useContext(ApearanceContext) || {};
+    if (card.id == -1){
+      return (
+        <div className="w-[350px] h-[520px] pl-[50px] flex justify-center items-center">
+          <Link href="#" className="text-4xl p-[20px] w-[300px] h-[300px] bg-[#333333] rounded-full  text-white hover:text-white flex items-center justify-center  ">
+            More Projects
+          </Link>
+        </div>
+      )
+    }
     return (
     <div
     key={card.id}
@@ -52,7 +62,7 @@ const Card = ({ card }: { card: CardType }) => {
                 {card.title}
             </h1>
         </div>
-        <div className={` w-[90%]  h-[250px] rounded-[10px] transition-transform duration-300 hover:scale-110`}
+        <div className={` w-[90%]  h-[250px] rounded-[10px] transition-transform duration-300 `}
             style={{
                 backgroundImage: `url(/projects/${card.url})`,
                 backgroundSize: "cover",
@@ -61,7 +71,7 @@ const Card = ({ card }: { card: CardType }) => {
              >
             {/* <Image src={`/projects/${card.url}`} width={400} height={0} alt={`${card.title}`} /> */}
         </div>
-        <div>
+        <div className="w-[95%]">
             <p className="w-full text-center text-[20px] pt-[20px] pb-[10px]">
                 {card.description}
             </p>
@@ -106,54 +116,61 @@ type CardType = {
 
 const cards: CardType[] = [
   {
-    url: "c2montreal.png",
-    field: "unix",
-    title: "MINI-SHELL",
-    description: "A simple shell but not that simple taking Bash as a reference",
-    id: 1,
-  },
-  {
     url: "officestudio.png",
     field: "web",
     title: "PONG SITE",
-    description: "A simple shell",
+    description: "Full stack project, fully responsive, fully functional",
+    id: 1,
+  },
+  {
+    url: "locomotive.png",
+    field: "web",
+    title: "Portfolio",
+    description: "My Awsome Portfolio, it speaks for itself",
     id: 2,
   },
   {
     url: "silencio.png",
     field: "Devops",
     title: "Inception",
-    description: "A simple shell",
+    description: "Deep dive into the world of containers and dockerzaition ",
     id: 3,
   },
   {
-    url: "locomotive.png",
-    field: "",
-    title: "Agency",
-    description: "A simple shell",
+    url: "c2montreal.png",
+    field: "unix",
+    title: "MINI-SHELL",
+    description: "A simple shell but not that simple taking Bash as a reference",
     id: 4,
   },
   {
-    url: "officestudio.png",
+    url: "",
     field: "",
-    title: "Title 5",
-    description: "A simple shell",
-    id: 5,
-  },
-  {
-    url: "locomotive.png",
-    field: "",
-    title: "Title 6",
-    description: "A simple shell",
-    id: 6,
-  },
-  {
-    url: "silencio.png",
-    field: "",
-    title: "Title 7",
-    description: "A simple shell",
-    id: 7,
-  },
+    title: "",
+    description: "",
+    id: -1,
+  }
+  // {
+  //   url: "officestudio.png",
+  //   field: "",
+  //   title: "Title 5",
+  //   description: "A simple shell",
+  //   id: 5,
+  // },
+  // {
+  //   url: "locomotive.png",
+  //   field: "",
+  //   title: "Title 6",
+  //   description: "A simple shell",
+  //   id: 6,
+  // },
+  // {
+  //   url: "silencio.png",
+  //   field: "",
+  //   title: "Title 7",
+  //   description: "A simple shell",
+  //   id: 7,
+  // },
 ];
 
 
@@ -172,29 +189,31 @@ export function SProject({project}: {project: any}) {
 
 
 
-export default function Project({index, title, field, setModal} : {index: number, title: string, field: string, setModal: any}) {
+export default function Project({index, title, field, setModal, num} : {index: number, title: string, field: string, setModal: any, num:number}) {
 
     const { theme } = useContext(ApearanceContext) || {};
 
     return (
         <>
-            <div onMouseLeave={() => {setModal({active:false, index: index})}}
-            onMouseEnter={() => {setModal({active: true, index: index})}}
-            className={`${styles.project} w-[100%] h-[150px] border-t-[1px]
-            ${index == 3 ? "border-b-[1px]" : ""} ${index == 0 ? "mt-[50px]" : ""}
-            ${theme == 'light' ? "border-[#000]" : "border-[#f3f3f3]"}
-                b-slate-200 flex justify-between items-center`}>
+          <Link href={`projects/${title}`} className="w-full">
+              <div onMouseLeave={() => {setModal({active:false, index: index})}}
+              onMouseEnter={() => {setModal({active: true, index: index})}}
+              className={`${styles.project} w-[100%] h-[150px] border-t-[1px]
+              ${index == num ? "border-b-[1px]" : ""} ${index == 0 ? "mt-[50px]" : ""}
+              ${theme == 'light' ? "border-[#000]" : "border-[#f3f3f3]"}
+                  b-slate-200 flex justify-between items-center`}>
 
 
-                <div className=" hover:opacity-[0.4] transition-all duration-500 ease-in-out w-full h-full flex justify-center items-center">
-                    <div className="w-[40%] b-slate-300 transition-all duration-500 ease-in-out  flex justify-start items-center">
-                        <h1 className="text-4xl" >{title}</h1>
-                    </div>
-                    <div className="w-[40%] b-slate-300 transition-all duration-500 ease-in-out flex justify-end items-center">
-                        <p>{field}</p>
-                    </div>
-                </div>
-            </div>
+                  <div className=" hover:opacity-[0.4] transition-all duration-500 ease-in-out w-full h-full flex justify-center items-center">
+                      <div className="w-[40%] b-slate-300 transition-all duration-500 ease-in-out  flex justify-start items-center">
+                          <h1 className="text-4xl" >{title}</h1>
+                      </div>
+                      <div className="w-[40%] b-slate-300 transition-all duration-500 ease-in-out flex justify-end items-center">
+                          <p>{field}</p>
+                      </div>
+                  </div>
+              </div>
+            </Link>
         </>
     );
 }

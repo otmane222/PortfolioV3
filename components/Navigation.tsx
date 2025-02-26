@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useState, useRef, useContext } from 'react';
 import { ApearanceContext } from '@/app/context/Themecontext';
 import { Moon, Sun } from 'lucide-react';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { faPiedPiperAlt } from '@fortawesome/free-brands-svg-icons';

@@ -21,7 +21,7 @@ function Header() {
             
             <div className='flex flex-col  justify-center h-full b-[#44cf83] '>
               
-              <div>
+              <div >
                 <h1 className='md:whitespace-nowrap'>
                   <span className="md:text-6xl 425:text-4xl text-2xl whitespace-nowrap">Hello,</span>
                   <br />
