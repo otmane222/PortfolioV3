@@ -1,11 +1,10 @@
 // 'use client'
-
+'use client';
 import Image from "next/image";
 import { AppProps } from 'next/app';
-// import '../styles/globals.css';
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
 
-// import { Card } from "../components/Card";
-// import { CardList } from "../components/CardList";
 import { Header } from "../components/Header";
 import { Navigation } from "../components/Navigation";
 import { RevealBento } from "@/components/Footer";
@@ -15,30 +14,27 @@ import { Contact } from "../components/Contact";
 import  { Skills } from "../components/Skills";
 import { Projects } from "../components/Projects";
 import Link from "next/link";
-// import { Bg } from "../components/icons/Bg";
 
-// import { useEffect } from "react";
 
 import { SmoothScrollHero } from "@/components/SmoothScroll";
-import { Transition } from "@/components/Transition";
-// import { useState } from "react";
+
 
 export default function Home() {
   
-
+  
   return (
     // <div className={`w-full bg-[url('/st.png')]   flex flex-col items-center justify-center font-[tommy]  bg-white  `}>
     
 
-        <div className={`h-full w-full font-[tommy2] `}>
+        <div id="page" className={`h-full w-full font-[tommy2] `}>
         
-          <div className=" w-full text-white flex justify-center  min-h-[567px] max-h-[700px]" >
+          <div className="pt-[80px] w-full text-white flex justify-center  min-h-[567px] max-h-[700px]" >
             <div className="w-[1240px] b-slate-400">
               <Header />
             </div>
           </div>
 
-          <div className="w-full flex justify-center itme min:h-[460px]   ">
+          {/* <div className="w-full flex justify-center itme min:h-[460px]   ">
             <div className="w-full max-w-[1240px] b-slate-500 pb-[130px] h-auto">
               <About />
             </div>
@@ -54,7 +50,7 @@ export default function Home() {
             <div className="w-full max-w-[1240px] b-slate-500 h-auto">
               <Projects />
             </div>
-          </div>
+          </div> */}
 
 
         </div>

@@ -57,70 +57,75 @@ export default function NavigationLayout({ children }: { children: ReactNode }) 
             // :
             // <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_90%_90%_at_50%_0%,#000_70%,transparent_110%)]"></div>
         }
-        <nav className={`flex font-[tommy2] justify-between items-center w-[95%] b-slate-400 max-w-[1240px] mx-auto h-[80px]`}>
-                <div className='flex items-center justify-center  h-[100px]'>
-                        <div 
-                            onClick={ThemeHandler}
-                            className={`absolute cursor-pointer mr-[40px] w-[30px] h-[30px] z-10  position-x-2 dark:bg-gray-600 
-                            rounded-full shadow-md transition-all duration-500 ease-in-out 
-                            ${theme == 'dark' ? 'translate-x-[35px] bg-[#222222]' : 'translate-x-[5px] bg-[#e4e4e4]'}`}
-                        >
-                            <div className=" w-[29px] h-[29px] flex items-center  justify-center ">
-                                <Sun
-                                className={`absolute w-[25px] h-[25px]  text-[#000] transition-all duration-500
-                                ${theme == 'dark' ? 'opacity-0 rotate-180' : 'opacity-100 rotate-0'}`} 
-                                />
-                                <Moon 
-                                className={`absolute w-[25px] h-[25px] text-[#fff] transition-all duration-500
-                                ${theme == 'dark' ? 'opacity-100 rotate-0' : 'opacity-0 -rotate-180'}`} 
-                                />
+        <nav className={`fixed z-50  flex font-[tommy2] justify-center z- items-center w-[100%] bg-slate-400  mx-auto h-[80px]`}>
+                <div className='flex items-center justify-between w-[1220px] h-[80px] b-blue-500'>
+                {/* <nav className="fixed top-0 left-0 flex justify-center items-center w-full bg-slate-400 h-[80px]">
+                <div className="flex items-center justify-between w-[1220px] h-[80px] bg-blue-500"> */}
+                    <div className='flex items-center justify-center  h-[100px]'>
+                            <div 
+                                onClick={ThemeHandler}
+                                className={`absolute cursor-pointer mr-[40px] w-[30px] h-[30px] z-10  position-x-2 dark:bg-gray-600 
+                                rounded-full shadow-md transition-all duration-500 ease-in-out 
+                                ${theme == 'dark' ? 'translate-x-[35px] bg-[#222222]' : 'translate-x-[5px] bg-[#e4e4e4]'}`}
+                            >
+                                <div className=" w-[29px] h-[29px] flex items-center  justify-center ">
+                                    <Sun
+                                    className={`absolute w-[25px] h-[25px]  text-[#000] transition-all duration-500
+                                    ${theme == 'dark' ? 'opacity-0 rotate-180' : 'opacity-100 rotate-0'}`} 
+                                    />
+                                    <Moon 
+                                    className={`absolute w-[25px] h-[25px] text-[#fff] transition-all duration-500
+                                    ${theme == 'dark' ? 'opacity-100 rotate-0' : 'opacity-0 -rotate-180'}`} 
+                                    />
+                                </div>
                             </div>
-                        </div>
-                    <button
-                        onClick={ThemeHandler}
-                        className={`w-[50px] h-[10px] z-0 ${theme == 'dark' ? "bg-gray-200" : "bg-white"} 
-                            rounded-full shadow-inner overflow-hidden transition-opacity duration-500 ease-in-out 
-                            ${isMenuOpen ? 'md:opacity-100 opacity-0 pointer-events-none' : 'opacity-100'}`}
-                        >
-                    </button>
-                </div>
-                <div
-                    // ref={navLinksRef}
-                    className={`nav-links z-30 duration-500 ms:static absolute ms:min-h-fit min-h-[60vh] left-0 top-[-100%] ms:w-auto  w-full  flex items-center  ${isMenuOpen ? 'top-[0] bg-[#212a35] ms:bg-[#ffffff00] ms:top-[-100%]' : ''}`}
-                >
-                    <ul className="flex  ms:flex-row flex-col ms:items-center ms:justify-start ms:gap[4vw] w-[98%]  ">
-                        <div className="flex justify-end w-[100%] self-end  h-[82px] items-center bg-slate-300
-                        ms:hidden">
-                            <FontAwesomeIcon onClick={onToggleMenu} name="menu" className="text-3xl cursor-pointer ms:hidden" icon={faTimes} style={{height: "46px"}}/>
-                        </div>
-                        <li className='flex w-[100%] items-center ms:p-[5px] ms:pl-[20px] ms:pr-[20px] p-[20px] m-1'>
-                            <TransitionLink href="/">
-                                Home
-                            </TransitionLink>
-                        </li>
-                        <li className='flex w-[100%] items-center ms:p-[5px] ms:pl-[20px] ms:pr-[20px] p-[20px] m-1'>
-                            <TransitionLink href="/projects">
-                                Projects
-                            </TransitionLink>
-                        </li>
+                        <button
+                            onClick={ThemeHandler}
+                            className={`w-[50px] h-[10px] z-0 ${theme == 'dark' ? "bg-gray-200" : "bg-white"} 
+                                rounded-full shadow-inner overflow-hidden transition-opacity duration-500 ease-in-out 
+                                ${isMenuOpen ? 'md:opacity-100 opacity-0 pointer-events-none' : 'opacity-100'}`}
+                            >
+                        </button>
+                    </div>
+                    <div
+                        // ref={navLinksRef}
+                        className={`nav-links z-30 duration-500 ms:static absolute ms:min-h-fit min-h-[60vh] left-0 top-[0%] ms:w-auto  w-full  flex items-center  ${isMenuOpen ? 'top-[0] bg-[#212a35] ms:bg-[#ffffff00] ms:top-[-100%]' : ''}`}
+                    >
+                        <ul className="flex  ms:flex-row flex-col ms:items-center ms:justify-start ms:gap[4vw] w-[98%]  ">
+                            <div className="flex justify-end w-[100%] self-end  h-[182px] items-center bg-red-500
+                            ms:hidden">
+                                <FontAwesomeIcon onClick={onToggleMenu} name="menu" className="text-3xl cursor-pointer ms:hidden" icon={faTimes} style={{height: "46px"}}/>
+                            </div>
+                            <li className='flex w-[100%] items-center ms:p-[5px] ms:pl-[20px] ms:pr-[20px] p-[20px] m-1'>
+                                <Link scroll={false} href="/">
+                                    Home
+                                </Link>
+                            </li>
+                            <li className='flex w-[100%] items-center ms:p-[5px] ms:pl-[20px] ms:pr-[20px] p-[20px] m-1'>
+                                <Link scroll={false} href="/projects">
+                                    Projects
+                                </Link>
+                            </li>
 
-                        <li className='flex w-[100%] items-center ms:p-[5px] ms:pl-[20px] ms:pr-[20px] p-[20px] m-1'>
-                            <TransitionLink href="/about">
-                                About
-                            </TransitionLink>
-                        </li>
+                            <li className='flex w-[100%] items-center ms:p-[5px] ms:pl-[20px] ms:pr-[20px] p-[20px] m-1'>
+                                <Link scroll={false} href="/about">
+                                    About
+                                </Link>
+                            </li>
 
-                        <li className='flex w-[100%] items-center ms:p-[5px] ms:pl-[20px] ms:pr-[20px] p-[20px] m-1'>
-                            <TransitionLink href="/contact">
-                                Contact
-                            </TransitionLink>
-                        </li>
-                    </ul>
-                </div>
-                <div className="flex items-center gap-6 ms:hidden">
-                    <FontAwesomeIcon onClick={onToggleMenu} name="menu" className={`text-3xl z-30 cursor-pointer ms:hidden ${isMenuOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`} icon={faBars} style={{height: "40px"}}/>
+                            <li className='flex w-[100%] items-center ms:p-[5px] ms:pl-[20px] ms:pr-[20px] p-[20px] m-1'>
+                                <Link scroll={false} href="/contact">
+                                    Contact
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="flex items-center gap-6 ms:hidden">
+                        <FontAwesomeIcon onClick={onToggleMenu} name="menu" className={`text-3xl z-30 cursor-pointer ms:hidden ${isMenuOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`} icon={faBars} style={{height: "40px"}}/>
+                    </div>
                 </div>
             </nav>
+        
         {children}
         </div>
     </Lenis>

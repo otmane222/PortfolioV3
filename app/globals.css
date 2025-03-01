@@ -3,16 +3,16 @@
 @tailwind utilities;
 
 body {
-  transition-property: opacity, transform, filter, background;
+  /* transition-property: opacity, transform, filter, background;
   transition-timing-function: ease-in-out;
-  transition-duration: 500ms;
+  transition-duration: 500ms; */
 }
 
 .page-transition {
   opacity: 0;
-  /* background: #d7d7d7; */
-  transform: translateY(40px);
-  filter: blur(12px);
+  transition-duration: 500ms;
+  transition-timing-function: ease-in-out;
+  transition-property: opacity, transform, filter, background;
 }
 /* Add this custom CSS to your global styles */
 /* a::after {
@@ -104,6 +104,10 @@ body {
   src: url('../public/fonts/Tommy/MADE\ TOMMY\ Medium_PERSONAL\ USE.otf');
 }
 
+@font-face {
+  font-family: 'unix';
+  src: url('../public/fonts/bulletin.regular.ttf');
+}
 /* 
 
   */

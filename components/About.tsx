@@ -6,12 +6,18 @@ import Lottie  from 'lottie-web';
 import TextReveal from './TextReveal';
 
 import { useScroll } from 'framer-motion';
-
+import { motion } from 'framer-motion';
 
 
 function About () {
     return (
-        <div className="w-full h-full b-slate-100 relative flex justify-center items-start">
+        <motion.div
+        initial={{ opacity: 0 , scale: 0.5}}
+        animate={{ opacity: 1 , scale: 1}}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5 , ease: 'easeInOut'}}
+
+        className="w-full h-full b-slate-100 relative flex justify-center items-start">
             <div className="w-[100%] h-full flex b-slate-300 justify-center items-center">
                 <div className='w-full h-[80%] b-black flex flex-col justify-start items-center'>
                     <h1 className='font-[tommy2] text-[25px]'>ABOUT ME</h1>
@@ -26,7 +32,7 @@ function About () {
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 }
 

@@ -5,10 +5,13 @@ import { redirect } from "next/dist/server/api-utils";
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from "react";
 
+import ButtonLight  from "@/components/Button";
 import { TerminalMinishell } from "@/components/Terminal";
 
 interface Project {
   title: string;
+  livedemo: string;
+  github: string;
   src: string;
   color: string;
   field: string;
@@ -16,7 +19,9 @@ interface Project {
   description: string;
   skills: string[];
   date: string;
-  languages: string;
+  languages: string[];
+  technologies: string[];
+  features: string[];
   video: string;
   frameworks: string;
   pics: string[];
@@ -26,6 +31,8 @@ interface Project {
 const projects: Project[] = [
     {
       title: "minishell",
+      livedemo: "none",
+      github: "none",
       src: "c2montreal.png",
       color: "#000000",
       field: "unix",
@@ -34,78 +41,29 @@ const projects: Project[] = [
         "export VAR=otmane && echo hey $VAR", "hey otmane"
       ],
 
-      description: "Recreating Bash like, using limited pre-defined functions in C language.",
+      description: "A lightweight Unix shell written in C, replicating fundamental shell functionalities. Features include command execution using PATH resolution, built-in commands (echo, cd, pwd, export, unset, env, exit), input/output redirections, pipes, environment variable expansion, and interactive mode handling. Implements process control, signal handling, and memory management with POSIX compliance.",
       skills: ['Problem Solving', 'Memory Managment', 'Tree and Linked Lists', 'Team Work', 'Paitent'],
-
-      date: "11-04-2023",
-      languages: "C",
-      video: "Gif video",
-      frameworks: "",
-      pics: ["", "", ""],
-      id: 0,
-    },
-    {
-      title: "ft_transcendence",
-      src: "officestudio.png",
-      color: "#000000",
-      field: "web",
-      usage: [
-        "./Minishell", "echo 'hello I'm insde my shell'", "hello I'm insde my shell",
-        "export VAR=otmane && echo hey $VAR", "hey otmane"
+      technologies: ["C", "POSIX", "System Calls", "Signals", "Process Management", "Pipes", "File Descriptors"],
+      features: [
+        "Custom shell prompt with command-line input handling",
+        "Built-in commands: echo, cd, pwd, export, unset, env, exit",
+        "Redirections: input (<), output (>), append (>>), and heredoc (<<)",
+        "Piping (|) for chaining commands",
+        "Environment variable expansion ($VAR and $?)",
+        "Interactive mode: handles Ctrl-C, Ctrl-D, and Ctrl-\\ like Bash",
+        "Command history using readline",
+        "Logical operators (&& and ||) with parenthesis support",
+        "Wildcard (*) expansion for matching files in the current directory"
       ],
-
-      description: "Recreating Bash like, using limited pre-defined functions in C language.",
-      skills: ['Problem Solving', 'Memory Managment', 'Tree and Linked Lists', 'Team Work', 'Paitent'],
-
+      
       date: "11-04-2023",
-      languages: "C",
+      languages: ["C"],
       video: "Gif video",
       frameworks: "",
       pics: ["", "", ""],
       id: 0,
     },
-    // {
-    //   title: "ft_transcendence",
-    //   src: "officestudio.png",
-    //   color: "#8C8C8C",
-    //   field: "web",
-    //   id: 1,
-    // },
-    // {
-    //   title: "portfolio",
-    //   src: "locomotive.png",
-    //   color: "#EFE8D3",
-    //   field: "web",
-    //   id: 2,
-    // },
-    // {
-    //   title: "inception",
-    //   src: "silencio.png",
-    //   color: "#706D63",
-    //   field: "devops",
-    //   id: 3,
-    // },
-    // {
-    //   title: "fdf",
-    //   src: "c2montreal.png",
-    //   color: "#000000",
-    //   field: "unix graphic",
-    //   id: 4,
-    // },
-    // {
-    //   title: "cub3D",
-    //   src: "c2montreal.png",
-    //   color: "#000000",
-    //   field: "unix graphic",
-    //   id: 5,
-    // },
-    // {
-    //   title: "push_swap",
-    //   src: "c2montreal.png",
-    //   color: "#000000",
-    //   field: "unix",
-    //   id: 5,
-    // },
+    
     
   ]
 
@@ -145,18 +103,20 @@ export default function Project()
   };
 
   return (
-    <div style={{ backgroundColor: project.color }}>
-      <h1>{project.title}</h1>
+    <div
+      // style={{ backgroundColor: project.color }}
+      className=" pt-[80px] w-full h-auto  b-red-500"
+    >
       {renderComponentForField()}
     </div>
   );
 };
 
-const UnixProjectComponent = ({ project } : {project: Project} ) => {
+const DevOpsProjectComponent = ({ project } : {project: Project} ) => {
   return (
     <div>
       <h2>Unix Project: {project.title}</h2>
-      <p>{project.description}</p>
+      <p className="pt-[40px]">{project.description}</p>
       {/* Add more details or components for Unix project */}
     </div>
   );
@@ -172,108 +132,97 @@ const WebProjectComponent = ({ project } : {project: Project}) => {
   );
 };
 
-const DevOpsProjectComponent = ({ project } : {project: Project}) => {
+const UnixProjectComponent = ({ project } : {project: Project}) => {
   return (
-    <div>
-      <h2>DevOps Project: {project.title}</h2>
-      <p>{project.description}</p>
-      {/* Add more details or components for DevOps project */}
-    </div>
+    <div className="w-full h-[5000px] flex justify-center b-slate-400 font-[unix]">
+            <div className="w-[1000px] h-[1900px] b-[#a84848] flex flex-col justify- items-center" >
+
+                <div className="h-[200px] w-[95%] b-slate-600  ">
+                  <h1 className="text-5xl  pt-[100px] uppercase  " >
+                    {project.title} ({project.field})
+                  </h1>
+                </div>
+
+                <div className=" w-[95%]" >
+                  <h1 className="text-3xl  pb-[30px] pt-[50px] ">
+                    Description
+                  </h1>
+                  <p className="text-[20px] ">
+                    {project.description}
+                  </p>
+                </div>
+
+                <div className="w-[95%]" >
+                  <h1 className="text-3xl pt-[50px] pb-[30px] ">
+                    Usage
+                  </h1>
+                  <div className="b-[#000] w-[100%] h-[400px] rounded-[20px] ">
+                    <TerminalMinishell />
+                  </div>
+                </div>
+
+                <div className="w-[95%]" >
+                  <h1 className="text-3xl pt-[30px] pb-[30px] ">
+                      Features
+                  </h1>
+                  <div className="b-[#3eabc4] w-[100%]">
+                      <ul>
+                        {
+                          project.features.map( (skill, index) =>{
+                            return <li className="pb-4 text-[20px]" key={index}>{skill}</li>
+                          })
+                        }
+                      </ul>
+                  </div>
+                </div>
+                
+
+
+                <div className="w-[95%]  md:flex md:flex-row flex flex-col h-auto b-orange-400" >
+                  <div className="md:w-[50%] w-[100%] b-fuchsia-400">
+                    <h1 className="text-3xl pt-[50px] pb-[30px] ">
+                      Technologies
+                    </h1>
+                    <div className="b-[#3eabc4] w-[100%]">
+                        <ul>
+                          {
+                            project.technologies.map( (skill, index) =>{
+                              return <li className="pb-4 text-[20px]" key={index}>{skill}</li>
+                            })
+                          }
+                        </ul>
+                    </div>
+                  </div>
+
+                  <div className="md:w-[50%] w-[100%] b-lime-400 " >
+                    <h1 className="text-3xl pt-[50px] pb-[30px] ">
+                      Skills Gained
+                    </h1>
+                    <div className="b-[#3eabc4] w-[100%]">
+                        <ul>
+                          {
+                            project.skills.map( (skill, index) =>{
+                              return <li className="pb-4 text-[20px]" key={index}>{skill}</li>
+                            })
+                          }
+                        </ul>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div className="w-[95%] pt-[100px]" >
+                  <div className="flex justify-around  w-[100%] h-[50px] b-[#000]  items-center">
+                      <ButtonLight link="http://example.com" classname="w-[200px] rounded- h-[30px] bg-black text-white">
+                        Live Demo
+                      </ButtonLight>
+                      <ButtonLight link="http://example.com" classname="w-[200px] h-[30px] bg-black text-white">
+                        Github
+                      </ButtonLight>
+                  </div>
+                </div>
+            </div>
+        </div>
   );
 };
 
-
-
-
-// }
-
-// export default function Project() {
-
-
-
-//       const minishell = {
-//         title: "minishell",
-//         src: "c2montreal.png",
-//         color: "#000000",
-//         field: "unix",
-//         usage: [
-//           "./Minishell", "echo 'hello I'm insde my shell'", "hello I'm insde my shell",
-//           "export VAR=otmane && echo hey $VAR", "hey otmane"
-//         ],
-
-//         description: "Recreating Bash like, using limited pre-defined functions in C language. Recreating Bash like, using limited pre-defined functions in C language. Recreating Bash like, using limited pre-defined functions in C language.",
-//         skills: ['Problem Solving', 'Memory Managment', 'Tree and Linked Lists', 'Team Work', 'Paitent'],
-
-//         date: "11-04-2023",
-//         languages: ["C"],
-//         video: "Gif video",
-//         frameworks: [""],
-//         pics: ["", "", ""],
-//         id: 0,
-//       }
-
-//     const pathname = usePathname()
-  
-
-//     console.log( "pathname:",pathname)
-
-//     return (
-//         <div className="w-full h-[5000px] flex justify-center b-slate-400">
-//             <div className="w-[1000px] h-[1900px] b-[#a84848] flex flex-col justify- items-center" >
-
-//                 <div className="h-[200px] w-[95%] b-slate-600  ">
-//                   <h1 className="text-5xl  pt-[100px] uppercase font-[tommy2] " >
-//                     {minishell.title} ({minishell.field})
-//                   </h1>
-//                 </div>
-
-//                 <div className=" w-[95%]" >
-//                   <h1 className="text-3xl  pb-[30px] font-[tommy2]">
-//                     Description
-//                   </h1>
-//                   <p className="text-[20px] ">
-//                     {minishell.description}
-//                   </p>
-//                 </div>
-
-//                 <div className="w-[95%]" >
-//                   <h1 className="text-3xl pt-[50px] pb-[30px] font-[tommy2]">
-//                     Usage
-//                   </h1>
-//                   <div className="b-[#000] w-[100%] h-[400px] rounded-[20px] ">
-//                     <TerminalMinishell />
-//                   </div>
-//                 </div>
-
-//                 <div className="w-[95%]" >
-//                   <h1 className="text-3xl pt-[50px] pb-[30px] font-[tommy2]">
-//                     Skills Gained
-//                   </h1>
-//                   <div className="b-[#3eabc4] w-[100%]">
-//                       <ul>
-//                         {
-//                           minishell.skills.map( (skill, index) =>{
-//                             return <li className="pb-4 text-2xl" key={index}>{skill}</li>
-//                           })
-//                         }
-//                       </ul>
-//                   </div>
-//                 </div>
-
-//                 <div className="w-[95%]" >
-//                   <h1 className="text-3xl pt-[30px] pb-[30px] font-[tommy2]">
-//                       Languages Used
-//                   </h1>
-//                   <div className="b-[#3eabc4] w-[100%]">
-//                       <ul>
-//                         {
-//                           minishell.languages.map( (skill, index) =>{
-//                             return <li className="pb-4 text-2xl" key={index}>{skill}</li>
-//                           })
-//                         }
-//                       </ul>
-//                   </div>
-//                 </div>
-//             </div>
-//         </div>
-//     )

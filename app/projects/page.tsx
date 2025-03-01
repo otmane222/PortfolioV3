@@ -83,7 +83,7 @@ export default function Prjects() {
 
     
     return (
-        <div className="w-full h-auto bg-slate-500">
+        <div id="page" className="w-full h-auto bg-slate-500">
             <div className="w-full h-auto flex flex-col  bg-[#e56ef0] pb-[200px] pt-[200px]">
                 <div className="w-[100%]  b-slate-300 flex flex-col items-center">
                     
