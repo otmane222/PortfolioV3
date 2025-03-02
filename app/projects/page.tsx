@@ -92,7 +92,7 @@ export default function Prjects() {
                     </h1>
 
                 </div>
-                <div className="w-[80%] self-center h-auto  b-[#297e30]">
+                <div className="w-[80%] self-center h-auto  b-[#daf2dc]">
                     <div className="flex flex-col items-center justify-center ">
                         {
                             projects.map((project, index) => {

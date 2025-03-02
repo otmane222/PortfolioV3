@@ -98,6 +98,10 @@ body {
   font-family: 'tommy';
   src: url('../public/fonts/Tommy/MADE\ TOMMY\ Bold_PERSONAL\ USE.otf');
 }
+@font-face {
+  font-family: 'tommy1';
+  src: url('../public/fonts/Tommy/MADE\ TOMMY\ Light_PERSONAL\ USE.otf');
+}
 
 @font-face {
   font-family: 'tommy2';

@@ -26,13 +26,13 @@ export default function Home() {
     // <div className={`w-full bg-[url('/st.png')]   flex flex-col items-center justify-center font-[tommy]  bg-white  `}>
     
 
-        <div id="page" className={`h-full w-full font-[tommy2] `}>
+        <div id="page" className={`h-full w-full b-red-300 font-[tommy2] `}>
         
-          <div className="pt-[80px] w-full text-white flex justify-center  min-h-[567px] max-h-[700px]" >
-            <div className="w-[1240px] b-slate-400">
+          {/* <div className="pt-[180px] b-teal-300  w-full text-white flex justify-center  min-h-[567px] max-h-[700px]" >
+            <div className="w-full max-w-[1240px] b-slate-400">
               <Header />
             </div>
-          </div>
+          </div> */}
 
           {/* <div className="w-full flex justify-center itme min:h-[460px]   ">
             <div className="w-full max-w-[1240px] b-slate-500 pb-[130px] h-auto">

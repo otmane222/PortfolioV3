@@ -14,7 +14,7 @@ const PageWrapper = ({ children } : { children: React.ReactNode } ) => {
        * The `motion.div` Component gets re-evaluated when the `key` prop updates, triggering the animation's lifecycles.
        * During this re-evaluation, the `<FrozenRoute />` Component also gets updated with the new route components.
        */}
-      <motion.div key={pathname}>
+      <motion.div key={pathname} className='w-full h-full'>
         <FrozenRoute>{children}</FrozenRoute>
       </motion.div>
     </AnimatePresence>

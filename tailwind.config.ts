@@ -11,6 +11,12 @@ export default {
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
+			'dark-bg': '#0b0b0d',
+			'light-bg': '#daf2dc',
+			'primary': '#',
+			'secondary': '#',
+			'': '#',
+			'': '#',
   			animation: {
   				shimmer: 'shimmer 2s linear infinite'
   			},
