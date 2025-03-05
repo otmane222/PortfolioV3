@@ -52,7 +52,7 @@ function Projects() {
   if (window.innerWidth < 920) {
     return (
       <>
-        <div className="w-full h-auto flex flex-col  b-[#e56ef0] ">
+        <div className="w-full h-auto flex flex-col  b-[#e56ef0] z-50 ">
       <div className="w-full b-slate-300 flex flex-col">
         <h1 className="pl-[20px]">
           My Work
@@ -77,14 +77,14 @@ function Projects() {
     );
   }
   return (
-    <div className="w-full h-auto flex flex-col  b-[#e56ef0] ">
+    <div className="w-full h-auto flex flex-col  z-50">
       <div className="w-full b-slate-300 flex flex-col">
         <h1 className="pl-[20px]">
           My Work
         </h1>
         
         <h1 className="text-5xl p-[20px]">
-          Selected Projects
+          Selected Projectss
         </h1>
         
       </div>
@@ -101,11 +101,11 @@ function Projects() {
           <Modal modal={modal} setModal={setModal} projects={projects} />
           </div>
       </div>
-      <div className="w-full pt-[100px] pb-[100px] flex justify-center items-center">
-          <Link href="#projects" className="text-1xl p-[30px]  rounded-[20px] bg-[#333333]   text-white hover:text-white flex items-center justify-center  ">
-            More Projects
-          </Link>
-        </div>
+      <div className="w-full z-40 pt-[100px] pb-[100px] flex justify-center items-center">
+        <Link href="/projects" className="text-1xl p-[30px]  rounded-[20px] bg-[#333333]   text-white hover:text-white flex items-center justify-center  ">
+          More Projects
+        </Link>
+      </div>
     </div>
   );
 }

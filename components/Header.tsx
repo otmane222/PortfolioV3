@@ -16,7 +16,11 @@ function Header() {
 
   
   return (
-    <div  className={`flex flex-col items-center justify-center w-full h-full ${theme == 'light' ? "text-[#1f1e1e]" : "text-[#e7e7e7]"}`}>
+    <motion.div
+      initial={{ opacity: 0, y: 200 }}
+      animate={{ opacity: [0 , 0 , 0.5 ,1], y: 0 }}
+      transition={{ duration: 3, ease: [0, 0.35, 0.7, 1] }}
+    className={`flex flex-col items-center justify-center w-full h-full ${theme == 'light' ? "text-[#1f1e1e]" : "text-[#e7e7e7]"}`}>
 
       <div className={` h-auto w-full b-slate-500 bg-[#] flex items-center justify-`}>
         
@@ -28,10 +32,10 @@ function Header() {
               
               <div >
               <motion.div 
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0.2 }}
-                exit={{ opacity: 0, x: -50 }} // Exit animation
-                transition={{ duration: 1 }}
+                // initial={{ opacity: 0, x: -50 }}
+                // animate={{ opacity: 1, x: 0.2 }}
+                // exit={{ opacity: 0, x: -50 }} // Exit animation
+                // transition={{ duration: 1 }}
               >
                 <h1 className='md:whitespace-nowrap'>
                   <span className="md:text-6xl 425:text-4xl text-2xl whitespace-nowrap">Hello,</span>
@@ -43,10 +47,10 @@ function Header() {
               </motion.div>
               </div>
               <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0.2 }}
-                exit={{ opacity: 0, x: -50 }} // Exit animation
-                transition={{ duration: 1 }}
+                // initial={{ opacity: 0, x: -50 }}
+                // animate={{ opacity: 1, x: 0.2 }}
+                // exit={{ opacity: 0, x: -50 }} // Exit animation
+                // transition={{ duration: 1 }}
                 className='mt-5 b-slate-400 0:h-[130px] hb1:h-[90px] hb2:h-[60px] h-[100px]'>
                 <span className="text-[30px] ">Full-stack Developer </span>
                 <span className='text-[28px] text-[#76a3f5] font-bold ' >
@@ -60,10 +64,10 @@ function Header() {
                   </span>
               </motion.div>
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0.2 }}
-              exit={{ opacity: 0, x: -50 }} // Exit animation
-              transition={{ duration: 1 }}
+              // initial={{ opacity: 0, x: -50 }}
+              // animate={{ opacity: 1, x: 0.2 }}
+              // exit={{ opacity: 0, x: -50 }} // Exit animation
+              // transition={{ duration: 1 }}
               className='flex  items-start ] b-slate-200 pt-[10px] '>
               {/* <button className='bg-[#0d3b91] hover:bg-[#1e2124] text-white transition-all duration-500 ease-in-out  p-[12px] rounded-md'>
               
@@ -91,10 +95,10 @@ function Header() {
             <div className={`flex justify-center items-center ${theme == 'dark' ? "bg-slate-300" : "bg-slate-800"} h-[1px] w-[95%] md:w-[47%]`}>
             </div>
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0.2 }}
-              exit={{ opacity: 0, x: 50 }} // Exit animation
-              transition={{ duration: 1 }}
+              // initial={{ opacity: 0, x: 50 }}
+              // animate={{ opacity: 1, x: 0.2 }}
+              // exit={{ opacity: 0, x: 50 }} // Exit animation
+              // transition={{ duration: 1 }}
               className='flex md:justify-end justify-start items-center md:p-[0px] p-[10px] b-slate-300 h-[90%] w-[95%] md:w-[50%]'>
               <h4 className='text-[15px]'>Web dev with background in low level programing c/c++ and system design. DRY, Don't Repeat Yourself</h4>
             </motion.div>
@@ -104,10 +108,10 @@ function Header() {
 
         <div className='flex  items-center justify-between w-[95%] md:w-[95%] h-auto b-[#150b6d] '>
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0.2 }}
-            exit={{ opacity: 0, x: -50 }} // Exit animation
-            transition={{ duration: 1 }}
+            // initial={{ opacity: 0, x: -50 }}
+            // animate={{ opacity: 1, x: 0.2 }}
+            // exit={{ opacity: 0, x: -50 }} // Exit animation
+            // transition={{ duration: 1 }}
             className='hidden md:flex justify-around items-center b-[#d83f3f] h-[50px] w-[50%]'>
             <a className='flex cursor-pointer '>
               <h4 className='text-[13px]'>LINKDEN</h4>
@@ -130,10 +134,10 @@ function Header() {
             </a>
           </motion.div>
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0.2 }}
-            exit={{ opacity: 0, x: 50 }} // Exit animation
-            transition={{ duration: 1 }}
+            // initial={{ opacity: 0, x: 50 }}
+            // animate={{ opacity: 1, x: 0.2 }}
+            // exit={{ opacity: 0, x: 50 }} // Exit animation
+            // transition={{ duration: 1 }}
             className='flex justify-start md:justify-end items-center b-[#3fd8be] h-[50px] w-[80%] md:w-[50%]'>
             {/* <button className='bg-[#fff] hover:bg-[#e2e1e1] text-black text-[14px] transition-all duration-500 ease-in-out pr-[23px] pl-[23px]  p-[12px] rounded-full'>
               Know me better
@@ -143,7 +147,7 @@ function Header() {
               </button>
           </motion.div>
         </div>
-    </div>
+    </motion.div>
   );
 }
 

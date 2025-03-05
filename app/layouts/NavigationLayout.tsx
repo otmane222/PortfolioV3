@@ -20,6 +20,8 @@ import { faCertificate } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faFileSignature } from '@fortawesome/free-solid-svg-icons';
 
+import Footer  from '@/components/Footer';
+
 import { ReactNode } from 'react';
 import { Lenis } from "lenis/dist/lenis-react";
 import { TransitionLink } from '@/components/Transition';
@@ -50,7 +52,7 @@ export default function NavigationLayout({ children }: { children: ReactNode }) 
         >
 
             
-        <div className={`relative flex flex-col items-center bg-[url('/')]  ${theme == 'dark' ? "bg-dark-bg text-[#fff4f4]" : "bg-light-bg text-[#000000] "} w-full h-[1000px] `}>
+        <div className={`relative flex flex-col items-center bg-[url('/')]  ${theme == 'dark' ? "bg-dark-bg text-[#fff4f4]" : "bg-light-bg text-[#000000] "} w-full h-auto `}>
         {
             // theme == 'dark' ?
             // <div className="absolute z-[- bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:13px_24px] [mask-image:radial-gradient(ellipse_90%_90%_at_50%_0%,#000_70%,transparent_110%)]"></div>
@@ -60,6 +62,7 @@ export default function NavigationLayout({ children }: { children: ReactNode }) 
         <Navigation />
         
         {children}
+        {/* <Footer /> */}
         </div>
     </Lenis>
   );

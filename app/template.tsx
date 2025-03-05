@@ -4,13 +4,15 @@ import { useContext, useState } from 'react'
 
 import { ApearanceContext } from './context/Themecontext'
 
+import { usePathname } from 'next/navigation'
+
 // const variants = {
 //   hidden: { opacity: 0, x: 0, y: 0 },
 //   enter: { opacity: 1, x: 0, y: 0 },
 // }
 
 export default function Template({ children } : { children: React.ReactNode } ) {
-  window.scrollTo(0, 0)
+  // window.scrollTo(0, 0)
 
   const { theme } = useContext(ApearanceContext) || {}
   
@@ -44,12 +46,14 @@ export default function Template({ children } : { children: React.ReactNode } ) 
   }
   const [zIndex, setZIndex] = useState('z-50');
 
+  const pathname = usePathname()
+
   return (
-    <main className='w-full h-full overflow-hidden'>
+    <main className='w-full h-auto overflow-hidden'>
       <motion.svg
         initial={{ y: "200vh" }}
         animate={{ y: ["200vh", "0vh", "0vh", "-102vh"] }}
-        exit={{ y: "0vh" }}
+        // exit={{ y: "200vh" }}
         transition={{ duration: 3, times: [0, 0.35, 0.7, 1], ease: [
           [0.16, 1, 0.3, 1],    // First segment: initialPath -> middlePath
           "easeInOut",            // Second segment: hold at middlePath
@@ -65,15 +69,22 @@ export default function Template({ children } : { children: React.ReactNode } ) 
           animate="enter"
           // exit="exit"
         />
-          <text
-          x="50%"  // Centers the text horizontally
-          y="50%"  // Centers the text vertically
-          dominantBaseline="middle"  // Vertically aligns the text in the middle
-          textAnchor="middle"  // Horizontally aligns the text in the middle
-          className="text-white text-3xl font-bold"
-        >
-          HOME
-        </text>
+        <motion.text
+        initial={{ opacity: 0 }}
+        animate={{ opacity: [0 , 1 , 1, 0] }}
+        transition={{ duration: 3, times: [0.1, 0.35, 0.65, 0.85] }}
+        
+        z={100}
+        x="50%"
+        y="35%"
+        textAnchor="middle"
+        dominantBaseline="middle"
+        fill="white"
+        fontSize="48"
+        fontWeight="bold"
+      >
+        {pathname == '/' ? 'Home' : pathname}
+      </motion.text>
       </motion.svg>
       {children}
     </main>

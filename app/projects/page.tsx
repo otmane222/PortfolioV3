@@ -83,8 +83,12 @@ export default function Prjects() {
 
     
     return (
-        <div id="page" className="w-full h-auto bg-slate-500">
-            <div className="w-full h-auto flex flex-col  bg-[#e56ef0] pb-[200px] pt-[200px]">
+        <motion.div
+            initial={{ opacity: 0, y: 200 }}
+            animate={{ opacity: [0 , 0 , 0.5 ,1], y: 0 }}
+            transition={{ duration: 3, ease: [0, 0.35, 0.7, 1] }}
+        id="page" className="w-full h-auto b-slate-500">
+            <div className="w-full h-auto flex flex-col  b-[#e56ef0] pb-[200px] pt-[200px]">
                 <div className="w-[100%]  b-slate-300 flex flex-col items-center">
                     
                     <h1 className="text-5xl p-[20px]">
@@ -107,6 +111,6 @@ export default function Prjects() {
                 </div>
             </div>
             {/* <RevealBento /> */}
-        </div>
+        </motion.div>
     )
 }

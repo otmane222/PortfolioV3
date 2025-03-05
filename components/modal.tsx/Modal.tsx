@@ -119,7 +119,7 @@ export default function Modal({modal, projects, setModal} : {modal: any, project
 
     return (
         <>
-            <motion.div ref={modalRef} variants={scaleAnimation} initial={"initial"} animate={active ? "enter" : "closed"} className={`${styles.modalContainer}`}>
+            <motion.div className="z-50 " ref={modalRef} variants={scaleAnimation} initial={"initial"} animate={active ? "enter" : "closed"} className={`${styles.modalContainer}`}>
                 <div  style={{top: index * -100 + "%"}} className={`${styles.modalSlider}`}>
                     {
                         projects.map((project: any, index: number) => {

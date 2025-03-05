@@ -43,18 +43,11 @@ export const TransitionLink: React.FC<TransitionLinkProps> = ({
     if (!page) {
       return;
     }
-    // if (pathname === "/") {
-    //   // animatePageIn();
-    // }
-    // else if (pathname === "/about") {
-    //   // animatePageIn();
-    // }
-    // else if (pathname === "/contact") {
-    //   // animatePageIn();
-    // }
-    page.classList.add("page-transition");
-    await sleep(500);
+
+    // page.classList.add("page-transition");
+    // await sleep(500);
     router.push(href);
+    window.scrollTo(0, 0)
     
   };
 

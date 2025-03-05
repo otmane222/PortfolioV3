@@ -12,7 +12,7 @@ export default {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
 			'dark-bg': '#0b0b0d',
-			'light-bg': '#daf2dc',
+			'light-bg': '#fff',
 			'primary': '#',
 			'secondary': '#',
 			'': '#',

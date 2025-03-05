@@ -195,7 +195,7 @@ export default function Project({index, title, field, setModal, num} : {index: n
 
     return (
         <>
-          <Link href={`projects/${title}`} className="w-full">
+          <Link href={`projects/${title}`} className="w-full ">
               <div onMouseLeave={() => {setModal({active:false, index: index})}}
               onMouseEnter={() => {setModal({active: true, index: index})}}
               className={`${styles.project} w-[100%] h-[150px] border-t-[1px]

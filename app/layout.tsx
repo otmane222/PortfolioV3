@@ -33,6 +33,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
 
+  // window.scrollTo(0, 0)
+  console.log('RootLayout')
   return (
     <html lang="en">
       <ApearanceProvider>
