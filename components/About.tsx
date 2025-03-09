@@ -17,7 +17,7 @@ function About () {
         exit={{ opacity: 0 }}
         transition={{ duration: 0.5 , ease: 'easeInOut'}}
 
-        className="w-full h-full b-slate-100 relative flex justify-center items-start">
+        className="w-full h-full bg-slate-100 relative flex justify-center items-start">
             <div className="w-[100%] h-full flex b-slate-300 justify-center items-center">
                 <div className='w-full h-[80%] b-black flex flex-col justify-start items-center'>
                     <h1 className='font-[tommy2] text-[25px]'>ABOUT ME</h1>

@@ -11,26 +11,43 @@ import Link from "next/link";
 import { motion, useTransform, useScroll } from "framer-motion";
 import { useRef } from "react";
 
-const ScrollCards = () => {
-  return (
-    <div className="bg-">
-      <HorizontalScrollCarousel />
-    </div>
-  );
-};
+// const ScrollCards = () => {
+//   const targetRef = useRef<HTMLDivElement | null>(null);
+//   const { scrollYProgress } = useScroll({
+//     target: targetRef,
+//   });
 
-const HorizontalScrollCarousel = () => {
+//   const x = useTransform(scrollYProgress, [0, 1], ["3%", "-80%"]);
+//   const y = useTransform(scrollYProgress, [0, 1], ["20", "1370px"]);
+  
+//   return (
+//     <section ref={targetRef} className="relative h-[2000px] w-full b-emerald-300">
+//       <motion.div
+//       style={{ y }}
+//       className=" b-lime-300 flex h-screen items-center overflow-">
+//         <motion.div style={{ x }} className="flex gap-4 bg-">
+//           {cards.map((card) => {
+//             return <Card card={card} key={card.id} />;
+//           })}
+//         </motion.div>
+//       </motion.div>
+//     </section>
+//   );
+// };
+
+const ScrollCards = () => {
   const targetRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
   });
 
   const x = useTransform(scrollYProgress, [0, 1], ["3%", "-80%"]);
-
+  // const y = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+  
   return (
-    <section ref={targetRef} className="relative h-[3000px] bg-">
-      <div className="sticky top-0 flex h-screen items-center overflow-hidden">
-        <motion.div style={{ x }} className="flex gap-4">
+    <section ref={targetRef} className="  h-[2000px] w-full b-emerald-300">
+      <div className=" sticky top-[30px] flex items-center b-purple-500 h-[100dvh]  overflow-hidden">
+        <motion.div style={{ x}} className="flex gap-4 bg-">
           {cards.map((card) => {
             return <Card card={card} key={card.id} />;
           })}

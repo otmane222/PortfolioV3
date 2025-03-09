@@ -49,7 +49,7 @@ export default function Template({ children } : { children: React.ReactNode } ) 
   const pathname = usePathname()
 
   return (
-    <main className='w-full h-auto overflow-hidden'>
+    <main className='w-full h-auto overflow-'>
       <motion.svg
         initial={{ y: "200vh" }}
         animate={{ y: ["200vh", "0vh", "0vh", "-102vh"] }}

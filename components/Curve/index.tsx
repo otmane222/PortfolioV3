@@ -8,12 +8,14 @@ import { useScroll } from 'framer-motion'
 import { useRef } from 'react'
 import { ApearanceContext } from '@/app/context/Themecontext'
 import { useContext } from 'react'
+import useWindowSize from '../utils'
 
 export default function Curve() {
+    const { width } = useWindowSize()
 
     const { theme } = useContext(ApearanceContext) || {}
-    const initialPath = `M0 0 L${window.innerWidth} 0 L0 100 M${window.innerWidth} 100 L${window.innerWidth} 0 L0 100 Q${window.innerWidth / 2} 1000 ${window.innerWidth} 100`
-    const endPath = `M0 0 L${window.innerWidth} 0 L0 100 M${window.innerWidth} 100 L${window.innerWidth} 0 L0 100 Q${window.innerWidth / 2} 100 ${window.innerWidth} 100`
+    const initialPath = `M0 0 L${width} 0 L0 100 M${width} 100 L${width} 0 L0 100 Q${width / 2} 1000 ${width} 100`
+    const endPath = `M0 0 L${width} 0 L0 100 M${width} 100 L${width} 0 L0 100 Q${width / 2} 100 ${width} 100`
 
     const container = useRef(null);
     const { scrollYProgress } = useScroll({

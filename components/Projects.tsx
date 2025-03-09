@@ -49,30 +49,22 @@ function Projects() {
   const [modal, setModal] = useState({ active: false, index: 0 });
   const { width } = useWindowSize();
 
-  if (window.innerWidth < 920) {
+  if (!window.innerWidth ) {
     return (
       <>
-        <div className="w-full h-auto flex flex-col  b-[#e56ef0] z-50 ">
-      <div className="w-full b-slate-300 flex flex-col">
-        <h1 className="pl-[20px]">
-          My Work
-        </h1>
-        
-        <h1 className="text-5xl p-[20px]">
-          Selected Projects
-        </h1>
-        
-      </div>
-      <div className="w-full h-auto justify-normal bg-slate- flex flex-nowrap">
-        {
-            projects.map((project, index) => {
-                return (
-                    <ScrollCards key={index} />
-                )
-            })
-        }
-      </div>
-    </div>
+        <div className="w-full h-auto flex flex-col   b-[#e56ef0] ">
+          <div className="w-full b-slate-300 flex flex-col">
+            <h1 className="pl-[20px]">
+              My Work
+            </h1>
+            
+            <h1 className="text-5xl p-[20px]">
+              Selected Projects
+            </h1>
+            
+          </div>
+          <ScrollCards/>
+        </div>
       </>
     );
   }
@@ -101,8 +93,8 @@ function Projects() {
           <Modal modal={modal} setModal={setModal} projects={projects} />
           </div>
       </div>
-      <div className="w-full z-40 pt-[100px] pb-[100px] flex justify-center items-center">
-        <Link href="/projects" className="text-1xl p-[30px]  rounded-[20px] bg-[#333333]   text-white hover:text-white flex items-center justify-center  ">
+      <div className="w-full z-40 pt-[100px] flex justify-center items-center">
+        <Link href="/projects" className="text-2xl p-[30px]  rounded-[20px] flex items-center justify-center  ">
           More Projects
         </Link>
       </div>

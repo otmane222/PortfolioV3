@@ -13,8 +13,10 @@ import { About } from "../components/About";
 import { Contact } from "../components/Contact";
 import  { Skills } from "../components/Skills";
 import { Projects } from "../components/Projects";
-import Certificates from "@/components/Certificates";
+import { Certificates } from "@/components/Certificates";
 import Curve from "@/components/Curve";
+import Education from "@/components/Education";
+
 
 import Link from "next/link";
 
@@ -32,6 +34,7 @@ export default function Home() {
     // <div className={`w-full bg-[url('/st.png')]   flex flex-col items-center justify-center font-[tommy]  bg-white  `}>
     
       // min-h-[567px] max-h-[700px]
+    <>
         <div id="page" className={`min-h-auto w-full b-blue-500 font-[tommy2] `}>
 
           <div className="pt-[180px] pb-[100px] b-teal-300  w-full text-white flex justify-center min-h-[587px] max-h-[700px]" >
@@ -45,6 +48,12 @@ export default function Home() {
               <About />
             </div>
           </div>
+
+          <div className="w-full flex bg-[#] justify-center -950 h-auto overflow-clip pb-[60px] ">
+            <div className="w-full max-w-[1240px] b-slate-500 h-[600px] relative ">
+              <Education />
+            </div>
+          </div>
           
           <div className="w-full flex bg-[#] justify-center -950 h-auto overflow-clip pb-[60px] ">
             <div className="w-full max-w-[1240px] b-slate-500 h-[200px] relative ">
@@ -52,25 +61,23 @@ export default function Home() {
             </div>
           </div>
 
-          <div className={`w-full relative  z-10 flex ${theme == 'dark' ? "bg-dark-bg" : "bg-light-bg"} justify-center  h-auto overflow- `}>
-            <div className="w-full max-w-[1240px]   h-auto">
+          <div className={`w-full  ${theme == 'dark' ? "bg-dark-bg" : "bg-light-bg"} z-40 flex justify-center -950 h-auto overflow-clip `}>
+            <div className="w-full max-w-[1240px]  b-slate-500 h-auto">
               <Projects />
             </div>
           </div>
 
-          {/* <div className="w-full flex bg-[#] justify-center -950 h-[600px] overflow-clip  ">
-            <div className="z-40 w-full b-slate-500 h-auto ">
-            <Certificates />
+          <div className={`w-full  ${theme == 'dark' ? "bg-dark-bg" : "bg-light-bg"} relative z-40 flex justify-center -950 h-auto overflow-clip `}>
+            <div className="w-full max-w-[1240px]  b-slate-500 h-auto">
+              <Certificates />
             </div>
-            </div> */}
+          </div>
+
           <Curve />
-          {/* <div className="w-full flex bg-[#] justify-center -950 h-auto overflow-clip ">
-            <div className="w-full max-w-[1240px] bg-slate-500 h-auto">
-            </div>
-            </div>  */}
-            <Footer />
+          <Footer />
             
         </div>
+        </>
     // </Lenis>
   );
 }
