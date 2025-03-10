@@ -93,20 +93,20 @@ const AnimatedBox = ({ children }: { children: React.ReactNode}) => {
           <div className="w-[250px] mb-4 flex h-[130px]">  
   
             <AnimatedBox>
-                <h1 className="font-[tommy] text-[20px]">High School Diploma</h1>
-                <h1>Science Math</h1>
-                <p>2006-2019</p>
-                <p>Ifrane, Lycée Allal El Fasi</p>
+                <h1 className="font-[tommy] text-[20px]">University</h1>
+                <h1>S.M Applique et Informatics</h1>
+                <p>2020-2022</p>
+                <p>Meknes, Moulay ismail uni</p>
             </AnimatedBox>
           </div>
   
           <div className="w-[255px] flex h-[130px]">  
   
             <AnimatedBox>
-                <h1 className="font-[tommy] text-[20px]">High School Diploma</h1>
-                <h1>Science Math</h1>
-                <p>2006-2019</p>
-                <p>Ifrane, Lycée Allal El Fasi</p>
+                <h1 className="font-[tommy] text-[20px]">1337 (42 Network)</h1>
+                <h1>IT Architect</h1>
+                <p>2022-2024</p>
+                <p>Khouribga, 1337 codind school</p>
             </AnimatedBox>
           </div>
   
@@ -129,10 +129,10 @@ const AnimatedBox = ({ children }: { children: React.ReactNode}) => {
           <div className="w- mb-4 flex h-[130px]">  
   
             <AnimatedBox>
-                <h1 className="font-[tommy] text-[20px]">High School Diploma</h1>
-                <h1>Science Math</h1>
-                <p>2006-2019</p>
-                <p>Ifrane, Lycée Allal El Fasi</p>
+                <h1 className="font-[tommy] text-[20px]">University</h1>
+                <h1>S.M Applique et Informatics</h1>
+                <p>2020-2022</p>
+                <p>Meknes, Moulay ismail uni</p>
             </AnimatedBox>
           </div>
   
@@ -162,10 +162,10 @@ const AnimatedBox = ({ children }: { children: React.ReactNode}) => {
           <div className="w-[255px] flex h-[130px]">  
   
             <AnimatedBox>
-                <h1 className="font-[tommy] text-[20px]">High School Diploma</h1>
-                <h1>Science Math</h1>
-                <p>2006-2019</p>
-                <p>Ifrane, Lycée Allal El Fasi</p>
+                <h1 className="font-[tommy] text-[20px]">1337 (42 Network)</h1>
+                <h1>IT Architect</h1>
+                <p>2022-2024</p>
+                <p>Khouribga,1337 coding school</p>
             </AnimatedBox>
           </div>
         </div>

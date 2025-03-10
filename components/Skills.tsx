@@ -134,25 +134,30 @@ function Skills() {
   }, [rerender, xTranslation, duration, width]);
 
   return (
-    <div className=' mask-gradient w-full h-full'>
-      <motion.div
-          className="absolute left-0 flex gap-4 b-slate-500"
-          style={{ x: xTranslation }}
-          ref={ref}
-          onHoverStart={() => {
-            setMustFinish(true);
-            setDuration(SLOW_DURATION);
-          }}
-          onHoverEnd={() => {
-            setMustFinish(true);
-            setDuration(FAST_DURATION);
-          }}
-        >
-          {[...svgs, ...svgs].map((item, idx) => (
-            <Card svg={item} key={idx} />
-          ))}
-        </motion.div>
-    </ div>
+    <>
+      <h1 className='text-center pt-[30px] pb-[30px] text-4xl' >
+        Tech I Use
+      </h1>
+      <div className=' mask-gradient w-full h-full'>
+        <motion.div
+            className="absolute left-0 flex gap-4 b-slate-500"
+            style={{ x: xTranslation }}
+            ref={ref}
+            onHoverStart={() => {
+              setMustFinish(true);
+              setDuration(SLOW_DURATION);
+            }}
+            onHoverEnd={() => {
+              setMustFinish(true);
+              setDuration(FAST_DURATION);
+            }}
+            >
+            {[...svgs, ...svgs].map((item, idx) => (
+              <Card svg={item} key={idx} />
+            ))}
+          </motion.div>
+      </ div>
+    </>
   );
 }
 

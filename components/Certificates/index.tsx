@@ -93,10 +93,10 @@ function Certificates() {
   const certificates = [
     ["javascript.png", "https://www.coursera.org/account/accomplishments/certificate/3CODBSQ6YBVL"],
     ["postgresql.png", "https://www.coursera.org/account/accomplishments/certificate/ZQ6FB9KLPJ91"],
-    ["typescript2.png", "https://www.coursera.org/account/accomplishments/certificate/RC8B7X2P3DKF"],
+    // ["typescript2.png", "https://www.coursera.org/account/accomplishments/certificate/RC8B7X2P3DKF"],
     ["django.png", "https://www.coursera.org/account/accomplishments/certificate/8SMD49CIL4B2"],
-    ["next.png", "https://static.frontendmasters.com/ud/c/ea52a0b8d5/IUcTZCIWvj/next-js-v3.pdf"],
-    ["typescript.png", "https://static.frontendmasters.com/ud/c/ea52a0b8d5/GwqZrXHypL/typescript-v4.pdf"],
+    // ["next.png", "https://static.frontendmasters.com/ud/c/ea52a0b8d5/IUcTZCIWvj/next-js-v3.pdf"],
+    // ["typescript.png", "https://static.frontendmasters.com/ud/c/ea52a0b8d5/GwqZrXHypL/typescript-v4.pdf"],
   ];
   const { width: widthh } = useWindowSize();
   const FAST_DURATION = widthh < 1024 ? 20 : 50;
@@ -138,7 +138,7 @@ function Certificates() {
   
   // if (widthh ) {
     return (
-      <div className=' flex flex-col pt-[100px]  w-full h-auto'>
+      <div className=' flex flex-col pt-[100px] w-full h-auto'>
         <div className='text-center w-full h-[100px] justify-center b-red-300' >
 
           <h1 className='text-4xl ' >
@@ -166,7 +166,11 @@ function Certificates() {
               </motion.div>
             );
           })}
+
         </div>
+          <a className='text-center  pt-[80px]' href='https://www.linkedin.com/in/otmane-aboulghit-46493a1b4/details/certifications/' target='_blank' rel='noreferrer'>
+            See More on Linkedin
+          </a>
       </div>
     )
   

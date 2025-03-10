@@ -13,7 +13,8 @@ import { ApearanceContext } from "@/app/context/Themecontext";
 import { useScroll } from "framer-motion";
 import { useTransform } from "framer-motion";
 import { useRef } from "react";
-
+import Image from "next/image";
+import useWindowSize from "./utils";
 
 export default function Footer() {
   
@@ -23,14 +24,12 @@ export default function Footer() {
       target: container,
       offset: ["start end", "end end"]
   })
+
+  const { width } = useWindowSize()
   const x = useTransform(scrollYProgress, [0, 1], [0, 100])
-  const y = useTransform(scrollYProgress, [0, 1], [-400, 0])
+  const y = useTransform(scrollYProgress, [0, 1], [width < 768 ? -300 : -400, 0])
   const rotate = useTransform(scrollYProgress, [0, 1], [120, 90])
   
-  const initialPath = `M0 0 L${window.innerWidth} 0 L0 100 M${window.innerWidth} 100 L${window.innerWidth} 0 L0 100 Q${window.innerWidth / 2} 400 ${window.innerWidth} 100`
-  const endPath = `M0 0 L${window.innerWidth} 0 L0 100 M${window.innerWidth} 100 L${window.innerWidth} 0 L0 100 Q${window.innerWidth / 2} 0 ${window.innerWidth} 100`
-
-  const curvo = useTransform(scrollYProgress, [0, 1], [initialPath, endPath]);
 
 
   return (
@@ -54,7 +53,8 @@ export default function Footer() {
           <div className="flex justify-  flex-col gap-4 md:pb-[0]  h-full w-auto md:w-[50%] b-teal-500">
             
             <div className="flex flex-col items-start b-slate-700 h-full w-auto pl-[50px] pt-[100px]">
-              <div className="w-[100px] h-[100px] rounded-full bg-slate-500" >
+              <div className="w-[100px] h-[100px] rounded-full bg-slate-500 relative" >
+                <Image src="/me/arz.jpg" alt="Otmane Aboulghit" layout="fill" className="rounded-full" />
               </div>
 
               <div  className="flex gap-2 h-[90px] items-center b-black">
@@ -84,8 +84,8 @@ export default function Footer() {
               </div>
               <h1 className='text-[12px] opacity-70 font-bold pt-[30px] pb-[10px]  '>Social</h1>
               <div className="flex flex-col gap-2">
-                <a href="https://twitter.com/otmane_aboulghit" target="_blank" rel="noreferrer">
-                  Linkden
+                <a href="https://www.linkedin.com/in/otmane-aboulghit-46493a1b4/" target="_blank" rel="noreferrer">
+                  Linkedin
                 </a>
                 <a href="
                   https://www.linkedin.com/in/otmane-aboulghit-9b4a8b1b7/" target="_blank" rel="noreferrer">
@@ -111,10 +111,10 @@ export default function Footer() {
               <h1 className="text-4xl font-bold pb-6 pt-[40px] text-white text-">
                 Send me a message
               </h1>
-              <form action="">
-                <div className="flex flex-col gap-6">
-                  <div className="flex flex-col gap-2">
-                    <label htmlFor="name" className="text-white text-sm font-semibold">
+              <form action="" className="">
+                <div className="flex flex-col gap-6 ">
+                  <div className="flex flex-col gap-2 ">
+                    <label htmlFor="name" className="text-white text-sm font-semibold  ">
                       Your Name*
                     </label>
                     <input 

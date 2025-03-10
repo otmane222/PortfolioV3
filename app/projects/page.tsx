@@ -87,9 +87,9 @@ export default function Prjects() {
             initial={{ opacity: 0, y: 200 }}
             animate={{ opacity: [0 , 0 , 0.5 ,1], y: 0 }}
             transition={{ duration: 3, ease: [0, 0.35, 0.7, 1] }}
-        id="page" className="w-full h-auto b-slate-500">
-            <div className="w-full h-auto flex flex-col  b-[#e56ef0] pb-[200px] pt-[200px]">
-                <div className="w-[100%]  b-slate-300 flex flex-col items-center">
+        id="page" className="w-full h-auto z-40 mt-[100px] relative b-slate-500">
+            <div className="w-full h-auto flex flex-col  b-[#e56ef0] pb-[200px] pt-[100px]">
+                <div className="w-[100%]   b-slate-300 flex flex-col items-center">
                     
                     <h1 className="text-5xl p-[20px]">
                         All Projects

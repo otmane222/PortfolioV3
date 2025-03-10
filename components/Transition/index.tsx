@@ -40,14 +40,14 @@ export const TransitionLink: React.FC<TransitionLinkProps> = ({
     const body = document.querySelector("body");
     const page = document.getElementById("page");
     
-    if (!page) {
-      return;
-    }
+    // if (!page) {
+    //   return;
+    // }
 
-    // page.classList.add("page-transition");
-    // await sleep(500);
     router.push(href);
     window.scrollTo(0, 0)
+    // page.classList.add("page-transition");
+    // await sleep(500);
     
   };
 

@@ -57,7 +57,7 @@ function Header() {
                 {/* Django Rest Framework */}
                 <Typewriter
                   
-                  words={[ 'TYPESCRIPT', 'Django Rest Framework', 'Next js', 'TAILWINDCSS', 'PostgresSql', 'Docker']}//'Next js', 'TAILWINDCSS',, 'PostgresSql', 'Docker']}
+                  words={[ 'Curiosity 🔍', 'Motivation to Learn', 'Fast Learner ⚡', 'Adaptability 🔄', 'Problem-Solving 🧩', 'Teamwork 🤝']}//'Next js', 'TAILWINDCSS',, 'PostgresSql', 'Docker']}
                   loop={0} cursor={true} cursorStyle='|'
                   typeSpeed={100} deleteSpeed={100} delaySpeed={1000}
                   />

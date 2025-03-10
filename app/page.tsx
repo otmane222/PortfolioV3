@@ -55,14 +55,14 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="w-full flex bg-[#] justify-center -950 h-auto overflow-clip pb-[60px] ">
+          <div className="w-full flex b-emerald-300 pb-[100px] justify-center -950 h-auto overflow-clip ">
             <div className="w-full max-w-[1240px] b-slate-500 h-[200px] relative ">
               <Skills />
             </div>
           </div>
 
-          <div className={`w-full  ${theme == 'dark' ? "bg-dark-bg" : "bg-light-bg"} z-40 flex justify-center -950 h-auto overflow-clip `}>
-            <div className="w-full max-w-[1240px]  b-slate-500 h-auto">
+          <div className={`w-full  ${theme == 'dark' ? "bg-dark-bg" : "bg-light-bg"}  flex justify-center -950 h-auto overflow-clip `}>
+            <div className="w-full max-w-[1240px] z-40  b-slate-500 h-auto">
               <Projects />
             </div>
           </div>

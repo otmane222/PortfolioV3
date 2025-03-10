@@ -61,8 +61,8 @@ export default function Template({ children } : { children: React.ReactNode } ) 
         ] }}
         // viewBox={`0 0 ${window.innerWidth} ${window.innerHeight}`}
         // xmlns="http://www.w3.org/2000/svg"
-        onAnimationComplete={() => setZIndex('z-0')}
-        className={`fixed top-[-300px] ${zIndex}  w-full flex justify-center items-center text-white h-[1800px] fill-[#393939] stroke-0`} >
+        onAnimationComplete={() => setZIndex('z-[-1]')}
+        className={`fixed top-[-300px] ${zIndex}   w-full flex justify-center items-center text-white h-[1800px] fill-[#393939] stroke-0`} >
         <motion.path
           variants={curve}
           initial="initial"
