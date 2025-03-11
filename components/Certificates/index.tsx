@@ -168,7 +168,7 @@ function Certificates() {
           })}
 
         </div>
-          <a className='text-center  pt-[80px]' href='https://www.linkedin.com/in/otmane-aboulghit-46493a1b4/details/certifications/' target='_blank' rel='noreferrer'>
+          <a className='text-center  pt-[80px] md:pb-[0] pb-[50px]' href='https://www.linkedin.com/in/otmane-aboulghit-46493a1b4/details/certifications/' target='_blank' rel='noreferrer'>
             See More on Linkedin
           </a>
       </div>

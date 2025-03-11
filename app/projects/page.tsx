@@ -24,7 +24,7 @@ export default function Prjects() {
             id: 0,
         },
         {
-            title: "ft_transcendence",
+            title: "pong-site",
             src: "officestudio.png",
             color: "#8C8C8C",
             field: "Web Development",

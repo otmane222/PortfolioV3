@@ -47,6 +47,14 @@ export default function Template({ children } : { children: React.ReactNode } ) 
   const [zIndex, setZIndex] = useState('z-50');
 
   const pathname = usePathname()
+  let path;
+  if (pathname == '/') {
+    path = 'home'
+  }
+  else {
+    let split = pathname.split('/')
+    path = split[split.length - 1]
+  }
 
   return (
     <main className='w-full h-auto overflow-'>
@@ -83,7 +91,7 @@ export default function Template({ children } : { children: React.ReactNode } ) 
         fontSize="48"
         fontWeight="bold"
       >
-        {pathname == '/' ? 'Home' : pathname}
+        {path}
       </motion.text>
       </motion.svg>
       {children}
