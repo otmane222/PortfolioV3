@@ -53,11 +53,11 @@ function Header() {
                 // transition={{ duration: 1 }}
                 className='mt-5 b-slate-400 0:h-[130px] hb1:h-[90px] hb2:h-[60px] h-[100px]'>
                 <span className="text-[30px] ">Full-stack Developer </span>
-                <span className='text-[28px] text-[#76a3f5] font-bold ' >
+                <span className='text-[30px] text-[#76a3f5] font-bold ' >
                 {/* Django Rest Framework */}
                 <Typewriter
                   
-                  words={[ 'Curiosity 🔍', 'Motivation to Learn', 'Fast Learner ⚡', 'Adaptability 🔄', 'Problem-Solving 🧩', 'Teamwork 🤝']}//'Next js', 'TAILWINDCSS',, 'PostgresSql', 'Docker']}
+                  words={[ 'Curiosity', 'Motivation to Learn', 'Fast Learner ⚡', 'Adaptability', 'Problem-Solving', 'Teamwork']}//'Next js', 'TAILWINDCSS',, 'PostgresSql', 'Docker']}
                   loop={0} cursor={true} cursorStyle='|'
                   typeSpeed={100} deleteSpeed={100} delaySpeed={1000}
                   />

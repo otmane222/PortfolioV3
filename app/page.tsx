@@ -73,7 +73,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* <Curve /> */}
+          <Curve />
           <Footer />
             
         </div>

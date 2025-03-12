@@ -102,7 +102,7 @@ export default function Footer() {
                 
               </div>
               <div className="h-[1px] w-[90%] bg-[#fff] mt-[30px] "></div>
-              <h1 className="text-[14px] pt-2 font-[tommy2]" >Happiness is only real when you share it.</h1>
+              <h1 className="text-[14px] pt-2 font-[tommy2]" >There is no greatness where there is no simplicity - <span className="font-[tommy]"> Leo Tolstoy</span></h1>
             </div>            
           </div>
 
@@ -156,6 +156,9 @@ export default function Footer() {
             
         </div>
       </div>
+        <h1 className="text-[12px] bg-[#1d1d1d] text-center w-full p-4 b-slate-700">
+          Made with Love by Otmane Aboulghit © 2025
+        </h1>
     </motion.div>
   )
 }

@@ -39,11 +39,15 @@ function About () {
                                     />
                             </div>
                         </div>
-                        <div className='w-auto h-auto b-[#956060] flex items-center  '>
-                            <TextReveal value="My name is Otmane Aboulghit borned and raised in Morocco, passionate about web development.
-                            I am a Full-Stack Developer with a background in Computer Science and a strong foundation in programming.
-                            I am skilled in developing responsive websites and web applications using modern technologies
-                            such as React, Next.js, Django, and Framer motion."
+                        <div className='w-auto h-auto b-[#956060] mt-0 md:mt-[80px] text-[24px] flex items-center  '>
+                            <TextReveal value="Since high school I had a passion for programming,
+                            I started with C++ in 2018 and stoped for a while, I went to university and studied computer science
+                            but I didn't like the way they teach us, After two years I stopped and went to 1337 school
+                            where I had freedom to learn what I want the way I want, I Went dive into low level programming and learned C and C++,
+                            seriously thousands of hours of coding and debugging, I learned the most valuable skill in my opinion,
+                            which is learning how to learn. Now I am mastering web development, I'm also
+                            intested in Cybersecurity which I am learning in parallel with web development.
+                            My goal is to build the most secure and scalable web applications."
                             />
                         </div>
                     </div>

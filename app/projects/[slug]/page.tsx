@@ -25,6 +25,7 @@ interface Project {
   video: string;
   frameworks: string[];
   pics: string[];
+  pdf: string;
   id: number;
 }
 
@@ -42,8 +43,8 @@ const projects: Project[] = [
       ],
 
       description: "A lightweight Unix shell written in C, replicating fundamental shell functionalities. Features include command execution using PATH resolution, built-in commands (echo, cd, pwd, export, unset, env, exit), input/output redirections, pipes, environment variable expansion, and interactive mode handling. Implements process control, signal handling, and memory management with POSIX compliance.",
-      skills: ['Problem Solving', 'Memory Managment', 'Tree and Linked Lists', 'Team Work', 'Paitent'],
-      technologies: ["C", "POSIX", "System Calls", "Signals", "Process Management", "Pipes", "File Descriptors"],
+      skills: ['Problem Solving', 'Memory Managment', 'Tree and Linked Lists', 'Team Work'],
+      technologies: ["C", "System Calls", "Signals", "Process Management", "Pipes", "File Descriptors"],
       features: [
         "Custom shell prompt with command-line input handling.",
         "Built-in commands: echo, cd, pwd, export, unset, env, exit.",
@@ -61,6 +62,7 @@ const projects: Project[] = [
       video: "Gif video",
       frameworks: [""],
       pics: ["", "", ""],
+      pdf: "minishell.pdf",
       id: 0,
     },
     {
@@ -74,7 +76,17 @@ const projects: Project[] = [
 
       description: "pong-site is an innovative web application designed to enhance social interaction through real-time communication. Built with a robust Django backend and a dynamic React frontend, this project aims to provide users with a seamless experience for chatting, sharing, playing, and connecting with others.",
 
-      skills: ["Real-time Communication", "Responsive Design", "Authentication", "Containerization", "Scalability", "Performance Optimization"],
+      skills: [
+          "Problem Solving",
+          "Teamwork",
+          "Communication",
+          "Time Management",
+          "Responsive Design",
+          "Authentication",
+          "Containerization",
+          "Scalability",
+          "Performance Optimization"
+      ],
       
       technologies: ["Django", "React", "Vite", "PostgreSQL", "Docker", "Docker Compose", "Nginx", "WebSockets"],
       
@@ -91,6 +103,7 @@ const projects: Project[] = [
       video: "https://www.youtube-nocookie.com/embed/JH4vipKTbzo",
       frameworks: ["Django", "React"],
       pics: ["", "", ""],
+      pdf: "pong-site.pdf",
       id: 2
     },
     
@@ -189,6 +202,17 @@ const WebProjectComponent = ({ project } : {project: Project}) => {
             />
           </div>
 
+          <h1 className="text-3xl pt-[80px] pb-[30px] b-emerald-300 w-[95%] ">
+            Read more details about the project
+          </h1>
+          <div className="w-[95%] h-screen b-emerald-300 flex justify- ">
+            <iframe
+              src={`/pdfs/${project.pdf}`} // Load PDF from the API
+              className="border-none w-[90%] h-[400px] md:h-[600px]"
+            />
+          </div>
+
+
           <div className="w-[95%]" >
             <h1 className="text-3xl pt-[30px] pb-[30px] ">
                 Features
@@ -281,6 +305,16 @@ const UnixProjectComponent = ({ project } : {project: Project}) => {
             <div className="b-[#000] w-[100%] h-[400px] rounded-[20px] ">
               <TerminalMinishell />
             </div>
+          </div>
+
+          <h1 className="text-3xl pt-[80px] pb-[30px] b-emerald-300 w-[95%] ">
+            Read more details about the project
+          </h1>
+          <div className="w-[95%] h-screen b-emerald-300 flex justify- ">
+            <iframe
+              src={`/pdfs/${project.pdf}`} // Load PDF from the API
+              className="border-none w-[90%] h-[400px] md:h-[600px]"
+            />
           </div>
 
           <div className="w-[95%]" >
