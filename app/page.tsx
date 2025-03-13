@@ -9,12 +9,12 @@ import { Header } from "../components/Header";
 import { Navigation } from "../components/Navigation";
 
 import Footer from "@/components/Footer";
+import Curve from "@/components/Curve";
 import { About } from "../components/About";
 import { Contact } from "../components/Contact";
 import  { Skills } from "../components/Skills";
 import { Projects } from "../components/Projects";
 import { Certificates } from "@/components/Certificates";
-import Curve from "@/components/Curve";
 import Education from "@/components/Education";
 
 

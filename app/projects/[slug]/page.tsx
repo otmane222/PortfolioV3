@@ -3,18 +3,25 @@
 import { redirect } from "next/dist/server/api-utils";
 // import { useRouter } from "next/navigation"
 import { usePathname } from 'next/navigation';
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 
 import ButtonLight  from "@/components/Button";
 import { TerminalMinishell } from "@/components/Terminal";
 
+import { ApearanceContext } from "@/app/context/Themecontext";
+
+import Footer from "@/components/Footer";
+import Curve from "@/components/Curve";
+
+
+
 interface Project {
   title: string;
+  field: string;
   livedemo: string;
   github: string;
   src: string;
   color: string;
-  field: string;
   usage: string[];
   description: string;
   skills: string[];
@@ -32,11 +39,11 @@ interface Project {
 const projects: Project[] = [
     {
       title: "minishell",
+      field: "unix",
       livedemo: "none",
-      github: "none",
+      github: "https://github.com/otmane222/MiniShell",
       src: "c2montreal.png",
       color: "#000000",
-      field: "unix",
       usage: [
         "./Minishell", "echo 'hello I'm insde my shell'", "hello I'm insde my shell",
         "export VAR=otmane && echo hey $VAR", "hey otmane"
@@ -59,7 +66,7 @@ const projects: Project[] = [
       
       date: "11-04-2023",
       languages: ["C"],
-      video: "Gif video",
+      video: "",
       frameworks: [""],
       pics: ["", "", ""],
       pdf: "minishell.pdf",
@@ -67,9 +74,9 @@ const projects: Project[] = [
     },
     {
       title: "pong-site",
+      field: "web",
       livedemo: "none",
       github: "none",
-      field: "web",
       src: "c2montreal.png",
       color: "#000000",
       usage: [],
@@ -106,10 +113,37 @@ const projects: Project[] = [
       pdf: "pong-site.pdf",
       id: 2
     },
+    {
+      title: "inception",
+      field: "DevOps",
+      livedemo: "none",
+      github: "https://github.com/otmane222/inception",
+      src: "none",
+      color: "#3498db",
+      usage: [],
+      description: "Inception is a project focused on setting up a virtualized infrastructure using Docker and container orchestration. The goal is to create multiple services inside isolated containers while ensuring security, efficiency, and scalability.",
+      skills: ["Docker", "Nginx", "WordPress", "MariaDB", "Ftp", "redis-cach", "System Administration"],
+      date: "2024-03-10",
+      languages: ["Bash"],
+      technologies: ["Docker", "Docker Compose", "Nginx", "MariaDB", "WordPress", "Ftp", "redis-cach"],
+      features: [
+        "Multi-container setup with Docker Compose",
+        "Secure Nginx reverse proxy",
+        "Database containerization with MariaDB",
+        "WordPress deployment inside a container",
+        "Volume management for data persistence",
+        "Networking between isolated services"
+      ],
+      video: "https://www.youtube-nocookie.com/embed/juKF0WvR0RQ",
+      frameworks: [],
+      pics: [],
+      pdf: "inception.pdf",
+      id: 3,
+    },
     
   ]
 
-  
+ 
 export default function Project()
 {
   const pathname = usePathname(); // Get the full path
@@ -135,43 +169,43 @@ export default function Project()
 
   // Render based on the project field type
   const renderComponentForField = () => {
-    switch (project.field) {
-      case 'unix':
-        return <UnixProjectComponent project={project} />;
-      case 'web':
-        return <WebProjectComponent project={project} />;
-      case 'devops':
-        return <DevOpsProjectComponent project={project} />;
-      // Add more cases for other fields if needed
-      default:
-        return <div>Field type not supported</div>;
-    }
+    return (
+      <div className="w-full h-auto flex flex-col b-red-500">
+        <WebProjectComponent project={project} />
+        
+        <Curve />
+        <Footer />
+      </div>
+    );
+    // switch (project.field) {
+    //   case 'web':
+    //   // case 'devops':
+    //   //   return <DevOpsProjectComponent project={project} />;
+    //   // Add more cases for other fields if needed
+    //   default:
+    //     return <div>Field type not supported</div>;
+    // }
   };
 
   return (
     <div
       // style={{ backgroundColor: project.color }}
-      className=" pt-[80px] w-full h-auto  b-red-500"
+      className=" pt-[80px]  w-full h-auto  b-red-500"
     >
       {renderComponentForField()}
     </div>
   );
 };
 
-const DevOpsProjectComponent = ({ project } : {project: Project} ) => {
-  return (
-    <div>
-      <h2>Unix Project: {project.title}</h2>
-      <p className="pt-[40px]">{project.description}</p>
-      {/* Add more details or components for Unix project */}
-    </div>
-  );
-};
+
 
 const WebProjectComponent = ({ project } : {project: Project}) => {
+  
+  const { theme } = useContext(ApearanceContext) || {'light': true};
+
   return (
-    <div className="w-full h-[5000px] flex justify-center b-slate-400 font-[tommy2]">
-        <div className="w-[1000px] h-[1900px] b-[#a84848] flex flex-col justify- items-center" >
+    <div className={`w-full h-auto relative z-40 ${theme == 'dark' ? "bg-dark-bg" : "bg-light-bg"} flex justify-center b-slate-400 font-[tommy2]`}>
+        <div className="w-[1000px] h-auto b-[#a84848] flex flex-col justify- items-center" >
 
           <div className="h-[200px] w-[95%] b-slate-600  ">
             <h1 className="text-5xl  pt-[100px] uppercase  " >
@@ -187,26 +221,45 @@ const WebProjectComponent = ({ project } : {project: Project}) => {
               {project.description}
             </p>
           </div>
+          {
+            project.usage.length > 0 && (
+              <div className="w-[95%]" >
+                <h1 className="text-3xl pt-[50px] pb-[30px] ">
+                  Usage
+                </h1>
+                <div className="b-[#000] w-[100%] h-[400px] rounded-[20px] ">
+                  <TerminalMinishell />
+                </div>
+              </div>
+            )             
+          }
 
-          <h1 className="text-3xl pt-[80px] pb-[30px] b-emerald-300 w-[95%] ">
-            Video Demosntrate the project
-          </h1>
-          <div className="relative w-[95%] flex flex-col pb-[56.25%] h-0">
-            <iframe
-              className="absolute top-0 left-0 w-full h-full"
-              src={`${project.video}`}
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-          </div>
+          {
+            project.video && (
+              <>
+                <h1 className="text-3xl pt-[80px] pb-[30px] b-emerald-300 w-[95%] ">
+                  Video Demosntrate the project
+                </h1>
+                <div className="relative w-[95%] flex flex-col pb-[56.25%] h-0">
+                  <iframe
+                    className="absolute top-0 left-0 w-full h-full"
+                    src={`${project.video}`}
+                    title="YouTube video player"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    />
+                </div>
+              </>
+            )
+          }
 
           <h1 className="text-3xl pt-[80px] pb-[30px] b-emerald-300 w-[95%] ">
             Read more details about the project
           </h1>
           <div className="w-[95%] h-screen b-emerald-300 flex justify- ">
             <iframe
+              id="pdfViewer"
               src={`/pdfs/${project.pdf}`} // Load PDF from the API
               className="border-none w-[90%] h-[400px] md:h-[600px]"
             />
@@ -268,7 +321,7 @@ const WebProjectComponent = ({ project } : {project: Project}) => {
                 <ButtonLight link="http://example.com" classname={`w-full max-w-[200px] ${project.livedemo == 'none' ? "pointer-events-none opacity-50" : ""} rounded- h-[30px] bg-black text-white`}>
                   Live Demo
                 </ButtonLight>
-                <ButtonLight link="https://github.com/1337Projects/ft-trancendence" classname="w-full max-w-[200px] cursor-pointer h-[30px] bg-black text-white">
+                <ButtonLight link={`${project.github}`} classname="w-full max-w-[200px] cursor-pointer h-[30px] bg-black text-white">
                   Github
                 </ButtonLight>
             </div>
@@ -381,4 +434,3 @@ const UnixProjectComponent = ({ project } : {project: Project}) => {
     </div>
   );
 };
-

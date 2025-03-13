@@ -1,6 +1,7 @@
+
 'use client'
 
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { MotionProps, motion } from "framer-motion";
 import { twMerge } from "tailwind-merge";
 import { FiArrowRight, FiMail, FiMapPin } from "react-icons/fi";
@@ -15,6 +16,17 @@ import { useTransform } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
 import useWindowSize from "./utils";
+
+
+
+interface FormData {
+  name: string;
+  email: string;
+  message: string;
+}
+
+import { sendEmail } from "@/lib/resend";
+import { toast } from "react-hot-toast";
 
 export default function Footer() {
   
@@ -32,11 +44,41 @@ export default function Footer() {
   
 
 
+
+
+  const [formData, setFormData] = useState<FormData>({ name: '', email: '', message: '' });
+  const [errors, setErrors] = useState<Partial<FormData>>({});
+  
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target;
+    setFormData({ ...formData, [id]: value });
+  };
+
+  const validateForm = (): Partial<FormData> => {
+    const newErrors: Partial<FormData> = {};
+    if (!formData.name) newErrors.name = 'Name is required.';
+    if (!formData.email) newErrors.email = 'Email is required.';
+    if (!formData.message) newErrors.message = 'Message is required.';
+    return newErrors;
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const newErrors = validateForm();
+    setErrors(newErrors);
+    if (Object.keys(newErrors).length === 0) {
+      sendEmail(formData)
+      setFormData({ name: '', email: '', message: '' });
+      toast.success('Message sent successfully!');
+    }
+  };
+
   return (
     <motion.div
       ref={container}
       style={{y}}
-      className=' h-auto z-0 relative text-white b-black '
+      className=' h-auto  z-0 relative font-[tommy2]  text-white b-black '
     >
       
       {/* <svg className=' absolute top-[0] w-full z-[100]  h-[400px]  ' xmlns="http://www.w3.org/2000/svg">
@@ -106,12 +148,12 @@ export default function Footer() {
             </div>            
           </div>
 
-          <div className="flex justify- items-center flex-col md:pt-[0] gap-4 h-full w-[90%] md:w-[50%] b-sky-700">
-            <div className="flex flex-col b-lime-700 p-10 rounded-xl  max-w-md md:mx-auto">
+          <div className="flex justify- items-center b-sky-700 flex-col md:pt-[0] gap-4 h-full w-[90%] md:w-[50%] ">
+            <div className="flex flex-col b-lime-700 pt-[00px] rounded-xl  max-w-md md:mx-auto">
               <h1 className="text-4xl font-bold pb-6 pt-[40px] text-white text-">
                 Send me a message
               </h1>
-              <form action="" className="">
+              <form onSubmit={handleSubmit} className="">
                 <div className="flex flex-col gap-6 ">
                   <div className="flex flex-col gap-2 ">
                     <label htmlFor="name" className="text-white text-sm font-semibold  ">
@@ -120,8 +162,11 @@ export default function Footer() {
                     <input 
                       className="p-3 rounded-md bg-white text-black focus:outline-none focus:ring-0 focus:ring-none transition" 
                       type="text" 
-                      id="name" 
+                      id="name"
+                      value={formData.name}
+                      onChange={handleChange}
                     />
+                    {errors.name && <p className="text-red-500">{errors.name}</p>}
                   </div>
                   <div className="flex flex-col gap-2">
                     <label htmlFor="email" className="text-white text-sm font-semibold">
@@ -130,8 +175,11 @@ export default function Footer() {
                     <input 
                       className="p-3 rounded-md bg-white text-black focus:outline-none focus:ring-0 focus:ring-lime-500 transition" 
                       type="email" 
-                      id="email" 
+                      id="email"
+                      value={formData.email}
+                      onChange={handleChange}
                     />
+                    {errors.email && <p className="text-red-500">{errors.email}</p>}
                   </div>
                   <div className="flex flex-col gap-2">
                     <label htmlFor="message" className="text-white text-sm font-semibold">
@@ -143,7 +191,10 @@ export default function Footer() {
                       id="message" 
                       cols={10} 
                       rows={6}
+                      value={formData.message}
+                      onChange={handleChange}
                     ></textarea>
+                    {errors.message && <p className="text-red-500">{errors.message}</p>}
                   </div>
                   <button 
                     className="bg-slate-800 text-white p-3 rounded-md hover:bg-slate-600 transition w-full font-semibold shadow-md">
@@ -156,7 +207,7 @@ export default function Footer() {
             
         </div>
       </div>
-        <h1 className="text-[12px] bg-[#1d1d1d] text-center w-full p-4 b-slate-700">
+        <h1 className="text-[12px] bg-[#1d1d1d] border-t-[0.5px] border-[#808080] text-center w-full p-4 b-slate-700">
           Made with Love by Otmane Aboulghit © 2025
         </h1>
     </motion.div>

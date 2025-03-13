@@ -26,6 +26,7 @@ import NavigationLayout from './layouts/NavigationLayout';
 import { AnimatePresence } from "framer-motion";
 
 import PageWrapper from "@/components/wrapper/PageWrapper";
+import { Toaster } from "react-hot-toast";
 
 export default function RootLayout({
   children,
@@ -44,6 +45,7 @@ export default function RootLayout({
           <NavigationLayout>
             <PageWrapper>
               {children}
+              <Toaster position="top-right" />
             </PageWrapper>
           </NavigationLayout>
         </body>

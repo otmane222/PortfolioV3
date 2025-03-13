@@ -14,8 +14,8 @@ export default function Curve() {
     const { width } = useWindowSize()
 
     const { theme } = useContext(ApearanceContext) || {}
-    const initialPath = `M0 0 L${width} 0 L0 100 M${width} 100 L${width} 0 L0 100 Q${width / 2} 2000 ${width} 100`
-    const endPath = `M0 0 L${width} 0 L0 100 M${width} 100 L${width} 0 L0 100 Q${width / 2} 100 ${width} 100`
+    const initialPath = `M0 0 L${width} 0 L0 200 M${width} 200 L${width} 0 L0 200 Q${width / 2} 2000 ${width} 200`
+    const endPath = `M0 0 L${width} 0 L0 200 M${width} 200 L${width} 0 L0 200 Q${width / 2} 200 ${width} 200`
 
     const container = useRef(null);
     const { scrollYProgress } = useScroll({
@@ -25,11 +25,11 @@ export default function Curve() {
     
     const curvo = useTransform(scrollYProgress, [0, 1], [initialPath, endPath]);
 
-
+    // ${theme == 'dark' ? "fill-dark-bg" : "fill-light-bg"}
     return (
         <>
-            <div  className={`relative z-10 h-[100px] md:flex hidden b-emerald-300 w-full `}>
-                <svg className={` absolute bottom-[0px] w-full   h-[201px] b-emerald-600 fil-red-300 ${theme == 'dark' ? "fill-dark-bg" : "fill-light-bg"} `} xmlns="http://www.w3.org/2000/svg">
+            <div  className={`relative z-10 b-emerald-200 h-[250px] md:flex hidden  w-full `}>
+                <svg className={` absolute top-[0px] w-full h-[400px] ${theme == 'dark' ? "fill-dark-bg" : "fill-light-bg"} b-emerald-600 fil-red-300  `} xmlns="http://www.w3.org/2000/svg">
                     <motion.path
                     d={curvo}
                     transition={{

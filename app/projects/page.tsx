@@ -18,66 +18,31 @@ export default function Prjects() {
     const projects = [
         {
             title: "minishell",
-            src: "c2montreal.png",
+            src: "minishell.webp",
             color: "#000000",
-            field: "Web Development",
+            field: "Unix Programming",
             id: 0,
         },
         {
             title: "pong-site",
-            src: "officestudio.png",
+            src: "pong-site.png",
             color: "#8C8C8C",
             field: "Web Development",
             id: 1,
         },
         {
             title: "portfolio",
-            src: "locomotive.png",
+            src: "inception.png",
             color: "#EFE8D3",
             field: "Web Development",
             id: 2,
         },
         {
             title: "inception",
-            src: "silencio.png",
+            src: "inception.png",
             color: "#706D63",
-            field: "Web Development",
+            field: "DevOps",
             id: 3,
-        },
-        {
-            title: "inception1",
-            src: "silencio.png",
-            color: "#706D63",
-            field: "Web Development",
-            id: 4,
-        },
-        {
-            title: "inception2",
-            src: "silencio.png",
-            color: "#706D63",
-            field: "Web Development",
-            id: 5,
-        },
-        {
-            title: "inception3",
-            src: "silencio.png",
-            color: "#706D63",
-            field: "Web Development",
-            id: 6,
-        },
-        {
-            title: "inception4",
-            src: "silencio.png",
-            color: "#706D63",
-            field: "Web Development",
-            id: 7,
-        },
-        {
-            title: "inception5",
-            src: "silencio.png",
-            color: "#706D63",
-            field: "Web Development",
-            id: 8,
         },
         ]
 
@@ -87,7 +52,7 @@ export default function Prjects() {
             initial={{ opacity: 0, y: 200 }}
             animate={{ opacity: [0 , 0 , 0.5 ,1], y: 0 }}
             transition={{ duration: 3, ease: [0, 0.35, 0.7, 1] }}
-        id="page" className="w-full h-auto z-40 mt-[100px] relative b-slate-500">
+        id="page" className="w-full h-auto z-40 mt-[100px]  b-slate-500">
             <div className="w-full h-auto flex flex-col  b-[#e56ef0] pb-[200px] pt-[100px]">
                 <div className="w-[100%]   b-slate-300 flex flex-col items-center">
                     
