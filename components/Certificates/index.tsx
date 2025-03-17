@@ -3,7 +3,7 @@
 'use client';
 import React, { useEffect } from 'react';
 import Image from 'next/image.js';
-import useWindowSize from '../utils';
+// import useWindowSize from '../utils';
 
 // import '../styles/base.css';
 // import '../styles/slide.css';
@@ -22,54 +22,53 @@ interface CardProps {
   image: string[];
 }
 
-const Card: React.FC<CardProps> = ({ image }) => {
-  const [showOverlay, setShowOverlay] = useState(false);
-  const { width } = useWindowSize();
+// const Card: React.FC<CardProps> = ({ image } : {image: any}) => {
+//   const [showOverlay, setShowOverlay] = useState(false);
 
-  return (
-    <motion.div
-      className="relative overflow-hidden w-[300px] h-[200px] 800:w-[400] 800:h-[300] 1024:w-[546px] 1024:h-[400px] bg-slate-400 rounded-xl flex justify-center items-center"
-      key={image[0]}
-      onHoverStart={() => setShowOverlay(true)}
-      onHoverEnd={() => setShowOverlay(false)}
-    >
-      <AnimatePresence>
-        {showOverlay && (
-          <motion.div
-            className="absolute left-0 top-0 bottom-0 right-0 z-10 flex justify-center items-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <div className="absolute bg-black pointer-events-none opacity-50 h-full w-full" />
-            <motion.h1
-              className="bg-white font-semibold text-sm z-10 px-3 py-2 rounded-full flex items-center gap-[0.5ch] hover:opacity-75"
-              initial={{ y: 10 }}
-              animate={{ y: 0 }}
-              exit={{ y: 10 }}
-            >
-              <a href={image[1]} target="_blank" rel="noreferrer">
-                <span>See Credentials</span>
-              </a>
-              {/* <Arrow className="h-4 w-4" /> */}
-            </motion.h1>
-          </motion.div>
-        )}
-      </AnimatePresence>
+//   return (
+//     <motion.div
+//       className="relative overflow-hidden w-[300px] h-[200px] 800:w-[400] 800:h-[300] 1024:w-[546px] 1024:h-[400px] bg-slate-400 rounded-xl flex justify-center items-center"
+//       key={image[0]}
+//       onHoverStart={() => setShowOverlay(true)}
+//       onHoverEnd={() => setShowOverlay(false)}
+//     >
+//       <AnimatePresence>
+//         {showOverlay && (
+//           <motion.div
+//             className="absolute left-0 top-0 bottom-0 right-0 z-10 flex justify-center items-center"
+//             initial={{ opacity: 0 }}
+//             animate={{ opacity: 1 }}
+//             exit={{ opacity: 0 }}
+//           >
+//             <div className="absolute bg-black pointer-events-none opacity-50 h-full w-full" />
+//             <motion.h1
+//               className="bg-white font-semibold text-sm z-10 px-3 py-2 rounded-full flex items-center gap-[0.5ch] hover:opacity-75"
+//               initial={{ y: 10 }}
+//               animate={{ y: 0 }}
+//               exit={{ y: 10 }}
+//             >
+//               <a href={image[1]} target="_blank" rel="noreferrer">
+//                 <span>See Credentials</span>
+//               </a>
+//               {/* <Arrow className="h-4 w-4" /> */}
+//             </motion.h1>
+//           </motion.div>
+//         )}
+//       </AnimatePresence>
     
-      <Image
-        src={`/certifacates/${image[0]}`} alt={image[0]} fill style={{ objectFit: "cover" }} />
+//       <Image
+//         src={`/certifacates/${image[0]}`} alt={image[0]} fill style={{ objectFit: "cover" }} />
 
       
       
-    </motion.div>
-  );
-};
+//     </motion.div>
+//   );
+// };
 
 
 const Card2: React.FC<CardProps> = ({ image }) => {
-  const [showOverlay, setShowOverlay] = useState(false);
-  const { width } = useWindowSize();
+  // const [showOverlay, setShowOverlay] = useState(false);
+  // const { width } = useWindowSize();
 
   return (
     <motion.div
@@ -98,11 +97,11 @@ function Certificates() {
     // ["next.png", "https://static.frontendmasters.com/ud/c/ea52a0b8d5/IUcTZCIWvj/next-js-v3.pdf"],
     // ["typescript.png", "https://static.frontendmasters.com/ud/c/ea52a0b8d5/GwqZrXHypL/typescript-v4.pdf"],
   ];
-  const { width: widthh } = useWindowSize();
-  const FAST_DURATION = widthh < 1024 ? 20 : 50;
-  const SLOW_DURATION = widthh < 1024 ? 70 : 80;
+  // const { width: widthh } = useWindowSize();
+  const FAST_DURATION = 50;
+  // const SLOW_DURATION = widthh < 1024 ? 70 : 80;
 
-  const [duration, setDuration] = useState(FAST_DURATION);
+  const duration = FAST_DURATION;
   const [ref, { width }] = useMeasure();
 
   const xTranslation = useMotionValue(0);
@@ -112,7 +111,7 @@ function Certificates() {
 
   useEffect(() => {
     let controls;
-    let finalPosition = -width / 2 - 8;
+    const finalPosition = -width / 2 - 8;
 
     if (mustFinish) {
       controls = animate(xTranslation, [xTranslation.get(), finalPosition], {
@@ -134,11 +133,11 @@ function Certificates() {
     }
 
     return controls?.stop;
-  }, [rerender, xTranslation, duration, width]);
+  }, [rerender, xTranslation, duration, width, mustFinish]);
   
   // if (widthh ) {
     return (
-      <div className=' flex flex-col pt-[100px] w-full h-auto'>
+      <div ref={ref} className=' flex flex-col pt-[100px] w-full h-auto'>
         <div className='text-center w-full h-[100px] justify-center b-red-300' >
 
           <h1 className='text-4xl ' >

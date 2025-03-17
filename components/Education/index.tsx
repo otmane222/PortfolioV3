@@ -6,7 +6,7 @@ import { ApearanceContext } from "@/app/context/Themecontext";
 
 
 
-import useWindowSize from "../utils";
+// import useWindowSize from "../utils";
 
 
 
@@ -176,16 +176,16 @@ const AnimatedBox = ({ children }: { children: React.ReactNode}) => {
 export default function Education() {
 
 
-    const { width } = useWindowSize();
+    // const { width } = useWindowSize();
 
     return (
         <div>
             <h1 className="text-4xl font-bold text-center pb-[30px] pt-[30px]">Education</h1>
             <div className="w-full h-[500px] b-blue-700 flex  justify-center items-center">
             
-                {
-                width <= 550 ? <Small /> : <Large />
-                }
+                {/* {
+                  width <= 550 ? <Small /> : <Large />
+                } */}
 
             
             </div>

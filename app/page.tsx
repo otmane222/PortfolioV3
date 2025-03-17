@@ -1,42 +1,74 @@
 // 'use client'
 'use client';
-import Image from "next/image";
-import { AppProps } from 'next/app';
-import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
+
+
+
+import { useEffect } from 'react';
 
 import { Header } from "../components/Header";
-import { Navigation } from "../components/Navigation";
 
-import Footer from "@/components/Footer";
-import Curve from "@/components/Curve";
+
 import { About } from "../components/About";
-import { Contact } from "../components/Contact";
+
 import  { Skills } from "../components/Skills";
 import { Projects } from "../components/Projects";
 import { Certificates } from "@/components/Certificates";
 import Education from "@/components/Education";
 
 
-import Link from "next/link";
 
-
-import { SmoothScrollHero } from "@/components/SmoothScroll";
+import { motion } from "framer-motion";
 
 import { ApearanceContext } from "@/app/context/Themecontext";
 import { useContext } from "react";
 
+
+import { usePathname } from "next/navigation";
+
+// import useWindowSize from "@/components/utils";
+import Footer from "@/components/Footer";
+// import Curve from "@/components/Curve";
+
 export default function Home() {
-  
+
+  // window.scrollTo(0, 0)
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  } , [])
+  const path = usePathname()
+  let split = path.split('/')
+  let pathName = split[split.length - 1]
   const { theme } = useContext(ApearanceContext) || {}
+  // const { width , height} = useWindowSize();
+
+    
+  // const initialPath = `M0 300  Q${width / 2} 0 ${width} 300 L${width} 300 L0 ${height + 301 }  M${width} ${height + 301} L${width} 300 L0 ${height + 301}  Q${width / 2} ${height + 301 + 200} ${width} ${height + 301} `
+  
+  // const middlePath = `M0 200  Q${width / 2} 200 ${width} 200 L${width} 200 L0 ${height + 301 }  M${width} ${height + 301} L${width} 200 L0 ${height + 301}  Q${width / 2} ${height + 301} ${width} ${height + 301} `
+    
+  // const curve = {
+  //   initial: {
+  //       d: initialPath
+  //   },
+  //   enter: {},
+  //   exit: {
+  //       d: [initialPath, middlePath],
+  //       transition: {
+  //         duration: 1.4,
+  //         ease: [0.16, 1, 0.3, 1],
+  //       }
+  //   }
+  // }
 
   return (
     // <div className={`w-full bg-[url('/st.png')]   flex flex-col items-center justify-center font-[tommy]  bg-white  `}>
     
       // min-h-[567px] max-h-[700px]
     <>
-        <div id="page" className={`min-h-auto w-full b-blue-500 font-[tommy2] `}>
-
+        <div
+          // exit
+        
+          id="page" className={`min-h-auto ${theme == 'dark' ? "bg-dark-bg text-[#fff4f4]" : "bg-light-bg text-[#000000] "} w-full b-blue-500 font-[tommy2] `}>
           <div className="pt-[180px] pb-[100px] b-teal-300  w-full text-white flex justify-center min-h-[587px] max-h-[700px]" >
             <div className="w-full max-w-[1240px] b-slate-400">
               <Header />
@@ -72,11 +104,39 @@ export default function Home() {
               <Certificates />
             </div>
           </div>
-
-          <Curve />
+          {/* <Curve /> */}
           <Footer />
+          {/* <Curve />
+          <Footer /> */}
+            {/* <motion.text
+            initial={{ opacity: 0 }}
+            animate={{ opacity: [0 , 1 , 1, 0] }}
+            transition={{ duration: 3, times: [0.1, 0.35, 0.65, 0.85] }}
             
+            z={100}
+            x="50%"
+            y="35%"
+            textAnchor="middle"
+            dominantBaseline="middle"
+            fill="white"
+            fontSize="48"
+            fontWeight="bold"
+            >
+            {pathName}
+            </motion.text> */}
         </div>
+        {/* <motion.svg
+          initial={{ y: "200vh" }}
+          exit={{ y: ["100vh", "0vh"]  }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          className={`fixed top-[-300px] z-50   w-full flex justify-center items-center text-white h-[1800px] fill-[#393939] stroke-0`} >
+          <motion.path
+            variants={curve}
+            initial="initial"
+            exit="exit"
+          />
+        </motion.svg> */}
+        
         </>
     // </Lenis>
   );

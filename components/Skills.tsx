@@ -1,8 +1,8 @@
 'use client';
 import React, { useEffect } from 'react';
-import { Item } from '../styles/js/item.js';
-import Image from 'next/image.js';
-import ReactLogo from '../public/icons/react.svg';
+// import { Item } from '../styles/js/item.js';
+// import Image from 'next/image.js';
+// import ReactLogo from '../public/icons/react.svg';
 
 import '../styles/base.css';
 import '../styles/slide.css';
@@ -17,16 +17,16 @@ import { AnimatePresence } from "framer-motion";
 
 
 interface CardProps {
-  svg: any;
+  svg: React.ReactNode;
 }
 
-const Card: React.FC<CardProps> = ({ svg }) => {
+const Card: React.FC<CardProps> = ({ svg } ) => {
   const [showOverlay, setShowOverlay] = useState(false);
 
   return (
     <motion.div
       className="relative grid__item-  overflow-hidden h-[130px] w-[130px] md:ml-[30px] md:mr-[30px] bg-slate- rounded-xl flex justify-center items-center"
-      key={svg}
+      // key={svg}
       onHoverStart={() => setShowOverlay(true)}
       onHoverEnd={() => setShowOverlay(false)}
     >
@@ -100,7 +100,7 @@ function Skills() {
   const SLOW_DURATION = 45;
 
   const [duration, setDuration] = useState(FAST_DURATION);
-  let [ref, { width }] = useMeasure();
+  const [ref, { width }] = useMeasure();
 
   const xTranslation = useMotionValue(0);
 
@@ -109,7 +109,7 @@ function Skills() {
 
   useEffect(() => {
     let controls;
-    let finalPosition = -width / 2 - 8;
+    const finalPosition = -width / 2 - 8;
 
     if (mustFinish) {
       controls = animate(xTranslation, [xTranslation.get(), finalPosition], {

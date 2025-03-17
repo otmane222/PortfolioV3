@@ -9,6 +9,10 @@ import { MdArrowOutward } from "react-icons/md";
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { motion } from 'framer-motion';
+import Magnet from './Magnet';
+
+
+
 
 function Header() {
 
@@ -17,9 +21,9 @@ function Header() {
   
   return (
     <motion.div
-      initial={{ opacity: 0, y: 200 }}
-      animate={{ opacity: [0 , 0 , 0.5 ,1], y: 0 }}
-      transition={{ duration: 3, ease: [0, 0.35, 0.7, 1] }}
+      // initial={{ opacity: 0, y: 200 }}
+      // animate={{ opacity: [0 , 0 , 0.5 ,1], y: 0 }}
+      // transition={{ duration: 3, ease: [0, 0.35, 0.7, 1] }}
     className={`flex flex-col items-center justify-center w-full h-full ${theme == 'light' ? "text-[#1f1e1e]" : "text-[#e7e7e7]"}`}>
 
       <div className={` h-auto w-full b-slate-500 bg-[#] flex items-center justify-`}>
@@ -76,9 +80,9 @@ function Header() {
               <button className="inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 hover:bg-[linear-gradient(110deg, #fff,45%,#1e2631,55%,#000103)] bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_150%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
               Contact Me
               </button>
-              <button className='hover:bg-[#1363a5] hover:text-white  transition-all duration-500 ease-in-out  p-[12px] rounded-md ml-5'>
+              {/* <button className='hover:bg-[#1363a5] hover:text-white  transition-all duration-500 ease-in-out  p-[12px] rounded-md ml-5'>
                 Resume
-              </button>
+              </button> */}
             </motion.div>
             </div>
             
@@ -113,25 +117,33 @@ function Header() {
             // exit={{ opacity: 0, x: -50 }} // Exit animation
             // transition={{ duration: 1 }}
             className='hidden md:flex justify-around items-center b-[#d83f3f] h-[50px] w-[50%]'>
-            <a className='flex cursor-pointer '>
-              <h4 className='text-[13px]'>LINKDEN</h4>
-              <MdArrowOutward size={15}/>
-            </a>
 
-            <a className='flex cursor-pointer '>
-              <h4 className='text-[13px]'>GITHUB</h4>
-              <MdArrowOutward size={15}/>
-            </a>
+            <Magnet>
+              <a className='flex cursor-pointer b-emerald-200 p-5 '>
+                <h4 className='text-[13px]'>LINKDEN</h4>
+                <MdArrowOutward size={15}/>
+              </a>
+            </Magnet>
+            <Magnet>
+              <a className='flex cursor-pointer p-5'>
+                <h4 className='text-[13px]'>GITHUB</h4>
+                <MdArrowOutward size={15}/>
+              </a>
+            </Magnet>
 
-            <a className='flex cursor-pointer '>
-              <h4 className='text-[13px]'>TWITTER</h4>
-              <MdArrowOutward size={15}/>
-            </a>
+            <Magnet>
+              <a className='flex cursor-pointer p-5'>
+                <h4 className='text-[13px]'>TWITTER</h4>
+                <MdArrowOutward size={15}/>
+              </a>
+            </Magnet>
 
-            <a className='flex cursor-pointer '>
-              <h4 className='text-[13px]'>GMAIL</h4>
-              <MdArrowOutward size={15}/>
-            </a>
+            <Magnet>
+              <a className='flex cursor-pointer p-5'>
+                <h4 className='text-[13px]'>GMAIL</h4>
+                <MdArrowOutward size={15}/>
+              </a>
+            </Magnet>
           </motion.div>
           <motion.div
             // initial={{ opacity: 0, x: 50 }}

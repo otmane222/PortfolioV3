@@ -4,38 +4,16 @@ import React from "react";
 import { ApearanceContext } from "@/app/context/Themecontext";
 import { useContext } from "react";
 import styles from "./style.module.css";
-import { SP } from "next/dist/shared/lib/utils";
-import Image from "next/image";
+// import { SP } from "next/dist/shared/lib/utils";
+// import Image from "next/image";
 
 import Link from "next/link";
 import { motion, useTransform, useScroll } from "framer-motion";
 import { useRef } from "react";
 
-// const ScrollCards = () => {
-//   const targetRef = useRef<HTMLDivElement | null>(null);
-//   const { scrollYProgress } = useScroll({
-//     target: targetRef,
-//   });
+import { CardType } from "@/types/indexTypes";
 
-//   const x = useTransform(scrollYProgress, [0, 1], ["3%", "-80%"]);
-//   const y = useTransform(scrollYProgress, [0, 1], ["20", "1370px"]);
-  
-//   return (
-//     <section ref={targetRef} className="relative h-[2000px] w-full b-emerald-300">
-//       <motion.div
-//       style={{ y }}
-//       className=" b-lime-300 flex h-screen items-center overflow-">
-//         <motion.div style={{ x }} className="flex gap-4 bg-">
-//           {cards.map((card) => {
-//             return <Card card={card} key={card.id} />;
-//           })}
-//         </motion.div>
-//       </motion.div>
-//     </section>
-//   );
-// };
-
-const ScrollCards = () => {
+const ScrollCards = ({projects}: {projects: CardType[]}) => {
   const targetRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -45,11 +23,11 @@ const ScrollCards = () => {
   // const y = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
   
   return (
-    <section ref={targetRef} className="  h-[2000px] w-full b-emerald-300">
-      <div className=" sticky top-[30px] flex items-center b-purple-500 h-[100dvh]  overflow-hidden">
+    <section ref={targetRef} className="  h-[2000px] w-full bg-[#] b-emerald-300">
+      <div className=" sticky top-[0px] flex items-center b-purple-500 h-[100dvh]  overflow-hidden">
         <motion.div style={{ x}} className="flex gap-4 bg-">
-          {cards.map((card) => {
-            return <Card card={card} key={card.id} />;
+          {projects.map((project) => {
+            return <Card card={project} key={project.id} />;
           })}
         </motion.div>
       </div>
@@ -63,7 +41,7 @@ const Card = ({ card }: { card: CardType }) => {
     if (card.id == -1){
       return (
         <div className="w-[350px] h-[520px] pl-[50px] flex justify-center items-center">
-          <Link href="#" className="text-4xl p-[20px] w-[300px] h-[300px] bg-[#333333] rounded-full  text-white hover:text-white flex items-center justify-center  ">
+          <Link href="/projects" className="text-4xl p-[20px] w-[300px] h-[300px] bg-[#333333] rounded-full  text-white hover:text-white flex items-center justify-center  ">
             More Projects
           </Link>
         </div>
@@ -72,7 +50,8 @@ const Card = ({ card }: { card: CardType }) => {
     return (
     <div
     key={card.id}
-    className={`group flex flex-col items-center rounded-[10px] relative h-[520px] w-[310px] 400:w-[390px] 500:w-[400px] bg-[#333333]  overflow- `}
+    style={{backgroundColor:card.color}}
+    className={`group flex flex-col items-center rounded-[10px] relative h-[520px] w-[310px] 400:w-[390px] 500:w-[400px]   overflow- `}
     >
         <div>
             <h1 className="w-full text-center text-4xl pt-[50px] pb-[20px]">
@@ -81,38 +60,25 @@ const Card = ({ card }: { card: CardType }) => {
         </div>
         <div className={` w-[90%]  h-[250px] rounded-[10px] transition-transform duration-300 `}
             style={{
-                backgroundImage: `url(/projects/${card.url})`,
+                backgroundImage: `url(/projects/${card.src})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 }}
              >
-            {/* <Image src={`/projects/${card.url}`} width={400} height={0} alt={`${card.title}`} /> */}
+            {/* <Image src={`/projects/${card.title}`} width={400} height={0} alt={`${card.title}`} /> */}
         </div>
         <div className="w-[95%]">
-            <p className="w-full text-center text-[20px] pt-[20px] pb-[10px]">
+            <p className="w-full text-center text-[20px] pt-[20px] mb-[10px] line-clamp-2 overflow-hidden">
                 {card.description}
             </p>
         </div>
         <div className="w-[90%] h-[50px] flex justify-center items-center">
             <button className="w-[90%] h-[50px] bg-[#000000] text-white rounded-[10px]">
-                <a href={`/projects/${card.url}`} target="_blank" rel="noreferrer">
+                <Link href={`/projects/${card.title}`} >
                     Read More
-                </a>
+                </Link>
             </button>
         </div>
-    {/* <div
-        style={{
-        backgroundImage: `url(/projects/${card.url})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        }}
-        className="absolute inset-0 z-0 transition-transform duration-300 group-hover:scale-110"
-    ></div>
-    <div className="absolute inset-0 z-10 grid place-content-center">
-    <p className="bg-gradient-to-br from-white/20 to-white/0 p-8 text-6xl font-black uppercase text-white backdrop-blur-lg">
-    {card.title}
-    </p>
-    </div> */}
 
         <div className={`absolute uppercase rounded-[10px] top-[-10px] left-[-10px] flex justify-center items-center inset-0 z-50 p-[20px] ${theme == 'dark' ? "bg-white text-black" : "bg-black text-white"} w-[150px] h-[30px]`}>
             {card.field}
@@ -123,77 +89,13 @@ const Card = ({ card }: { card: CardType }) => {
 
 export  { ScrollCards };
 
-type CardType = {
-    url: string;
-    title: string;
-    field: string;
-    description: string;
-    id: number;
-};
-
-const cards: CardType[] = [
-  {
-    url: "officestudio.png",
-    field: "web",
-    title: "PONG SITE",
-    description: "Full stack project, fully responsive, fully functional",
-    id: 1,
-  },
-  {
-    url: "locomotive.png",
-    field: "web",
-    title: "Portfolio",
-    description: "My Awsome Portfolio, it speaks for itself",
-    id: 2,
-  },
-  {
-    url: "silencio.png",
-    field: "Devops",
-    title: "Inception",
-    description: "Deep dive into the world of containers and dockerzaition ",
-    id: 3,
-  },
-  {
-    url: "c2montreal.png",
-    field: "unix",
-    title: "MINI-SHELL",
-    description: "A simple shell but not that simple taking Bash as a reference",
-    id: 4,
-  },
-  {
-    url: "",
-    field: "",
-    title: "",
-    description: "",
-    id: -1,
-  }
-  // {
-  //   url: "officestudio.png",
-  //   field: "",
-  //   title: "Title 5",
-  //   description: "A simple shell",
-  //   id: 5,
-  // },
-  // {
-  //   url: "locomotive.png",
-  //   field: "",
-  //   title: "Title 6",
-  //   description: "A simple shell",
-  //   id: 6,
-  // },
-  // {
-  //   url: "silencio.png",
-  //   field: "",
-  //   title: "Title 7",
-  //   description: "A simple shell",
-  //   id: 7,
-  // },
-];
 
 
 
 
-export function SProject({project}: {project: any}) {
+
+
+export function SProject() {
 
     return (
         <div className="bg-slate-400 m-1 w-[95%] flex justify-center h-[500px] md:w-[49%] md:min-w-[420px] min-w-[320px]" >
@@ -205,14 +107,24 @@ export function SProject({project}: {project: any}) {
 }
 
 
+type ModalState = { active: boolean; index: number };
 
-export default function Project({index, title, field, setModal, num} : {index: number, title: string, field: string, setModal: any, num:number}) {
+export default function Project({index, title, field, setModal, num} :
+    {
+      index: number,
+      title: string,
+      field: string,
+      setModal: React.Dispatch<React.SetStateAction<ModalState>>,
+      num:number
+    }
+  )
+  {
 
     const { theme } = useContext(ApearanceContext) || {};
 
     return (
         <>
-          <Link href={`projects/${title}`} className="w-full ">
+          <Link href={`/projects/${title}`} key={title} className="w-full font-[tommy2] ">
               <div onMouseLeave={() => {setModal({active:false, index: index})}}
               onMouseEnter={() => {setModal({active: true, index: index})}}
               className={`${styles.project} w-[100%] h-[150px] border-t-[1px]

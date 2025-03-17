@@ -10,11 +10,11 @@ import {
         <TypingAnimation >&gt; ./Minishell</TypingAnimation>
   
         <AnimatedSpan delay={1500} className="text-green-">
-          <p className="w-[50px] md:w-full">echo 'hello I'm insde my shell'</p>
+          <p className="w-[50px] md:w-full">echo &apos;hello I&apos;m insde my shell&apos;</p>
         </AnimatedSpan>
 
         <AnimatedSpan delay={1800}  className="text-green-500">
-          <p>hello I'm insde my shell</p>
+          <p>hello I&apos;m insde my shell</p>
         </AnimatedSpan>
         
         <AnimatedSpan delay={3500} className="text-green-">

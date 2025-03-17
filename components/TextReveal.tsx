@@ -34,7 +34,7 @@ export default function TextReveal ({value}: {value: string}) {
     }, []);
     const { scrollYProgress } = useScroll({
         target: element,
-        offset: offset as [string, string],
+        offset: offset as [number, number],
     })
 
     const words = value.split(" ");

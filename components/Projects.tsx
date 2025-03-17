@@ -1,73 +1,87 @@
 'use client'
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 import Project from "./projects/Project";
-import { SProject } from "./projects/Project";
+// import { SProject } from "./projects/Project";
 import { ScrollCards } from "./projects/Project";
 import Link from "next/link";
 import Modal from "./modal.tsx/Modal";
-import styles from "./Projects.module.css";
-import useWindowSize from "./utils";
+// import styles from "./Projects.module.css";
+// import useWindowSize from "./utils";
 
   
         
+import { CardType } from "@/types/indexTypes";
 
 function Projects() {
 
-  const projects = [
-      {
-        title: "C2 Montreal",
-        src: "c2montreal.png",
-        color: "#000000",
-        field: "Web Development",
+  const projects : CardType[] = [
+    {
+        title: "minishell",
+        src: "minishell.webp",
+        color: "#5a803b",
+        field: "Unix",
+        description: "A lightweight Unix shell written in C and limited pre-defined functions",
         id: 0,
-      },
-      {
-        title: "Office Studio",
-        src: "officestudio.png",
+    },
+    {
+        title: "pong-site",
+        src: "pong-site.png",
         color: "#8C8C8C",
-        field: "Web Development",
+        field: "Web",
+        description: "pong-site is an innovative web application designed to enhance social interaction through real-time",
         id: 1,
-      },
-      {
-        title: "Locomotive",
-        src: "locomotive.png",
-        color: "#EFE8D3",
-        field: "Web Development",
+    },
+    {
+        title: "inception",
+        src: "inception.png",
+        color: "#66aec0",
+        field: "DevOps",
+        description: "Inception is a project focused on setting up a virtualized infrastructure using Docker and container orchestration.",
         id: 2,
-      },
-      {
-        title: "Silencio",
-        src: "silencio.png",
+    },
+    {
+        description: "It's a simple portfolio I made using pure html and css",
+        title: "old-portfolio",
+        src: "old-portfolio.png",
         color: "#706D63",
-        field: "Web Development",
+        field: "Web",
         id: 3,
-      }
-    ]
+    },
+    {
+      description: "It's a simple portfolio I made using pure html and css",
+      title: "old-portfolio",
+      src: "old-portfolio.png",
+      color: "#706D63",
+      field: "Web",
+      id: -1,
+  }
+
+]
 
   const [modal, setModal] = useState({ active: false, index: 0 });
-  const { width } = useWindowSize();
+  // const { width } = useWindowSize();
 
-  if (!window.innerWidth ) {
-    return (
-      <>
-        <div className="w-full h-auto flex flex-col   b-[#e56ef0] ">
-          <div className="w-full b-slate-300 flex flex-col">
-            <h1 className="pl-[20px]">
-              My Work
-            </h1>
+  // if (width < 768) {
+  //   return (
+  //     <>
+  //       <div className="w-full h-auto flex flex-col   b-[#e56ef0] ">
+  //         <div className="w-full b-slate-300 flex flex-col">
+  //           <h1 className="pl-[20px]">
+  //             My Work
+  //           </h1>
             
-            <h1 className="text-5xl p-[20px]">
-              Selected Projects
-            </h1>
+  //           <h1 className="text-5xl p-[20px]">
+  //             Selected Projects
+  //           </h1>
             
-          </div>
-          <ScrollCards/>
-        </div>
-      </>
-    );
-  }
+  //         </div>
+  //         <ScrollCards projects={projects} />
+  //       </div>
+  //     </>
+  //   );
+  // }
   return (
     <div className="w-full h-auto flex flex-col  z-50">
       <div className="w-full b-slate-300 flex flex-col">
@@ -90,7 +104,7 @@ function Projects() {
                 })
             }
             
-          <Modal modal={modal} setModal={setModal} projects={projects} />
+          <Modal modal={modal} projects={projects} />
           </div>
       </div>
       <div className="w-full z-40 pt-[100px] flex justify-center items-center">

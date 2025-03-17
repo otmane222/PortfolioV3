@@ -2,10 +2,9 @@
 // 'use client'
 
 import React from 'react';  
-import Lottie  from 'lottie-web';
 import TextReveal from './TextReveal';
 
-import { useScroll } from 'framer-motion';
+
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 

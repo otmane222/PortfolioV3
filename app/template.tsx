@@ -10,6 +10,8 @@ import { usePathname } from 'next/navigation'
 //   hidden: { opacity: 0, x: 0, y: 0 },
 //   enter: { opacity: 1, x: 0, y: 0 },
 // }
+import PageWrapper from "@/components/wrapper/PageWrapper";
+
 
 export default function Template({ children } : { children: React.ReactNode } ) {
   // window.scrollTo(0, 0)
@@ -30,7 +32,7 @@ export default function Template({ children } : { children: React.ReactNode } ) 
     enter: {
         d: [initialPath, middlePath, middlePath, targetPath, middlePath],  // Hold at middlePath
         transition: {
-          duration: 3,
+          duration: 2,
           times: [0, 0.35, 0.6, 0.8, 1],  // Control timing: 40% to reach middle, hold for 20%, then continue
           ease: [
             [0.16, 1, 0.3, 1],    // First segment: initialPath -> middlePath
@@ -44,7 +46,7 @@ export default function Template({ children } : { children: React.ReactNode } ) 
         transition: {duration: 0.8, ease: [0.16, 1, 0.3, 1]}
     }
   }
-  const [zIndex, setZIndex] = useState('z-50');
+  const [zIndex, setZIndex] = useState('z-[100]');
 
   const pathname = usePathname()
   let path;
@@ -57,45 +59,47 @@ export default function Template({ children } : { children: React.ReactNode } ) 
   }
 
   return (
-    <main className='w-full h-auto overflow-'>
-      <motion.svg
-        initial={{ y: "200vh" }}
-        animate={{ y: ["200vh", "0vh", "0vh", "-102vh"] }}
-        // exit={{ y: "200vh" }}
-        transition={{ duration: 3, times: [0, 0.35, 0.7, 1], ease: [
-          [0.16, 1, 0.3, 1],    // First segment: initialPath -> middlePath
-          "easeInOut",            // Second segment: hold at middlePath
-          [0.61, 1, 0.88, 1],              // Third segment: middlePath -> targetPath
-        ] }}
-        // viewBox={`0 0 ${window.innerWidth} ${window.innerHeight}`}
-        // xmlns="http://www.w3.org/2000/svg"
-        onAnimationComplete={() => setZIndex('z-[-1]')}
-        className={`fixed top-[-300px] ${zIndex}   w-full flex justify-center items-center text-white h-[1800px] fill-[#393939] stroke-0`} >
-        <motion.path
-          variants={curve}
-          initial="initial"
-          animate="enter"
-          // exit="exit"
-        />
-        <motion.text
-        initial={{ opacity: 0 }}
-        animate={{ opacity: [0 , 1 , 1, 0] }}
-        transition={{ duration: 3, times: [0.1, 0.35, 0.65, 0.85] }}
-        
-        z={100}
-        x="50%"
-        y="35%"
-        textAnchor="middle"
-        dominantBaseline="middle"
-        fill="white"
-        fontSize="48"
-        fontWeight="bold"
-      >
-        {path}
-      </motion.text>
-      </motion.svg>
-      {children}
-    </main>
+      <>
+        <main className='w-full h-auto overflow-'>
+          <motion.svg
+            initial={{ y: "0vh" }}
+            animate={{ y: ["0vh", "0vh", "0vh", "-102vh"] }}
+            // exit={{ y: "200vh" }}
+            transition={{ duration: 2, times: [0, 0.35, 0.7, 1], ease: [
+              [0.16, 1, 0.3, 1],    // First segment: initialPath -> middlePath
+              "easeInOut",            // Second segment: hold at middlePath
+              [0.61, 1, 0.88, 1],              // Third segment: middlePath -> targetPath
+            ] }}
+            // viewBox={`0 0 ${window.innerWidth} ${window.innerHeight}`}
+            // xmlns="http://www.w3.org/2000/svg"
+            onAnimationComplete={() => setZIndex('z-[-1]')}
+            className={`fixed top-[-300px] ${zIndex}   w-full flex justify-center items-center text-white h-[1800px] fill-[#393939] stroke-0`} >
+            <motion.path
+              variants={curve}
+              initial="initial"
+              animate="enter"
+              // exit="exit"
+            />
+            <motion.text
+            initial={{ opacity: 0 }}
+            animate={{ opacity: [0 , 1 , 1, 1] }}
+            transition={{ duration: 1, times: [0.1, 0.35, 0.65, 0.85] }}
+            
+            z={100}
+            x="50%"
+            y="35%"
+            textAnchor="middle"
+            dominantBaseline="middle"
+            fill="white"
+            fontSize="48"
+            fontWeight="bold"
+          >
+            {path}
+          </motion.text>
+          </motion.svg>
+          {children}
+        </main>
+      </>
   )
 }
   // <motion.div 

@@ -1,7 +1,7 @@
 // /app/api/send-email/route.ts
 
 import { NextResponse } from 'next/server';
-import Resend from 'resend';
+import { Resend } from 'resend';
 
 // Initialize Resend with your API key
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -9,7 +9,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function POST(request: Request) {
   const { name, email, message } = await request.json();
 
-  // Validate inputs
+  
   if (!name || !email || !message) {
     return NextResponse.json({ error: 'All fields are required' }, { status: 400 });
   }
@@ -29,6 +29,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ message: 'Message sent successfully' });
   } catch (error) {
+    console.error(error);
     return NextResponse.json({ error: 'Failed to send message' }, { status: 500 });
   }
 }
