@@ -1,11 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // reactStrictMode: false,
-  /* config options here */
-  // eslint: {
-  //   ignoreDuringBuilds: true,
-  // },
+  output: "standalone",
+  experimental: {
+    serverActions: {}, // Empty object or provide relevant configuration here
+  },
 };
 
 export default nextConfig;
