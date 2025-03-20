@@ -1,17 +1,17 @@
-'use client'
+// 'use client'
 
-import { redirect } from "next/dist/server/api-utils";
+// import { redirect } from "next/dist/server/api-utils";
 // import { useRouter } from "next/navigation"
-import { usePathname } from 'next/navigation';
-import { useState, useEffect, useContext } from "react";
+// import { usePathname } from 'next/navigation';
+// import { useContext } from "react";
 
 import ButtonLight  from "@/components/Button";
 import { TerminalMinishell } from "@/components/Terminal";
 
-import { ApearanceContext } from "@/app/context/Themecontext";
+// import { ApearanceContext } from "@/app/context/Themecontext";
 
 import Footer from "@/components/Footer";
-// import Curve from "@/components/Curve";
+import Curve from "@/components/Curve";
 
 
 
@@ -87,8 +87,8 @@ const projects : Record<string, Project> = {
     pdf: "minishell.pdf",
   },
 
-  "pong-site": {
-    title: "Pong Site",
+  "ft_transcendence": {
+    title: "ft_transcendence",
     description:
       "A social web application with real-time communication, featuring a Django backend and a React frontend for chatting, playing, and connecting with others.",
     field: "Web",
@@ -130,7 +130,7 @@ const projects : Record<string, Project> = {
     video: "https://www.youtube-nocookie.com/embed/JH4vipKTbzo",
     frameworks: ["Django", "React"],
     pics: [],
-    pdf: "pong-site.pdf",
+    pdf: "ft_transcendence.pdf",
   },
 
   "inception": {
@@ -200,46 +200,62 @@ const projects : Record<string, Project> = {
 };
 
 
-import { Navigation } from "@/components/Navigation";
-import { motion } from "framer-motion";
-import { useParams, useRouter } from 'next/navigation';
-import { notFound } from 'next/navigation';
+const arr = ["minishell", "ft_transcendence", "old-portfolio", "inception"];
 
-// const arr:string[] = ['home', 'projects', 'about', 'contact']
+// ✅ Define generateStaticParams here
+export function generateStaticParams() {
+  return arr.map((slug) => ({ slug }));
+}
 
+
+// import { motion } from "framer-motion";
 // import useWindowSize from "@/components/utils";
-export default function Project()
-{
-  const params = useParams();
-  const project = projects[params.slug as string];
+interface PageProps {
+  params: Promise<{ slug: string }>;
+}
+
+export default async function ProjectPage({ params }: PageProps) {
+  // Await the params
+  const resolvedParams = await params;
+  const { slug } = resolvedParams;
+  // const { width, height } = useWindowSize();
+
+  if (!["minishell", "ft_transcendence", "old-portfolio", "inception"].includes(slug)) {
+    return (
+      <div className="h-screen w-full flex flex-col justify-center items-center font-[tommy] text-2xl dark:text-light-bg text-dark-bg dark:bg-dark-bg bg-light-bg">
+          <h1>
+            404 | This page could not be found.
+          </h1>
+      </div>
+    )
+  }
+  const project = projects[slug];
   // const { width, height} = useWindowSize();
 
-  if (!project)
-    return <></>;
-
+  // if (!project)
+  //   return <></>;
   // const initialPath = `M0 300  Q${width / 2} 0 ${width} 300 L${width} 300 L0 ${height + 301 }  M${width} ${height + 301} L${width} 300 L0 ${height + 301}  Q${width / 2} ${height + 301 + 200} ${width} ${height + 301} `
-  
-  // const middlePath = `M0 200  Q${width / 2} 200 ${width} 200 L${width} 200 L0 ${height + 301 }  M${width} ${height + 301} L${width} 200 L0 ${height + 301}  Q${width / 2} ${height + 301} ${width} ${height + 301} `
     
+  // const middlePath = `M0 200  Q${width / 2} 200 ${width} 200 L${width} 200 L0 ${height + 301 }  M${width} ${height + 301} L${width} 200 L0 ${height + 301}  Q${width / 2} ${height + 301} ${width} ${height + 301} `
+      
   // const curve = {
-  //   initial: {
-  //       d: initialPath
-  //   },
-  //   enter: {},
-  //   exit: {
-  //       d: [initialPath, middlePath],
-  //       transition: {
+  //     initial: {
+  //         d: initialPath
+  //     },
+  //     enter: {},
+  //     exit: {
+  //         d: [initialPath, middlePath],
+  //         transition: {
   //         duration: 1.4,
   //         ease: [0.16, 1, 0.3, 1],
-  //       }
-  //   }
+  //         }
+  //     }
   // }
 
 
   return (
     <>
       <div
-        // style={{ backgroundColor: project.color }}
         className="   w-full h-auto  b-red-500"
       >
         <div className="w-full h-auto pt-[80px] flex flex-col b-red-500">
@@ -247,32 +263,33 @@ export default function Project()
           
         </div>
       </div>
-      {/* <Curve /> */}
+      <Curve />
       <Footer />
       {/* <motion.svg
         initial={{ y: "200vh" }}
         exit={{ y: ["100vh", "0vh"]  }}
         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
         className={`fixed top-[-300px] z-50   w-full flex justify-center items-center text-white h-[1800px] fill-[#393939] stroke-0`}
-        >
+      >
         <motion.path
-          variants={curve}
-          initial="initial"
-          exit="exit"
-          />
+            variants={curve}
+            initial="initial"
+            exit="exit"
+            />
       </motion.svg> */}
     </>
   );
 };
 
-
+import Image from 'next/image';
+// import { Link } from "lucide-react";
 
 const WebProjectComponent = ({ project } : {project: Project}) => {
   
-  const { theme } = useContext(ApearanceContext) || {'light': true};
+  // const { theme } = useContext(ApearanceContext) || {'light': true};
 
   return (
-    <div className={`w-full h-auto relative z-40 ${theme == 'dark' ? "bg-dark-bg" : "bg-light-bg"} flex justify-center b-slate-400 font-[tommy2]`}>
+    <div className={`w-full h-auto relative z-40 dark:bg-dark-bg bg-light-bg flex justify-center b-slate-400 font-[tommy2]`}>
         <div className="w-[1000px] h-auto b-[#a84848] flex flex-col justify- items-center" >
 
           <div className="h-[200px] w-[95%] b-slate-600  ">
@@ -327,11 +344,11 @@ const WebProjectComponent = ({ project } : {project: Project}) => {
               <h1 className="text-3xl pt-[80px] pb-[30px] b-emerald-300 w-[95%] ">
                 Read more details about the project
               </h1>
-              <div className="w-[95%] h-screen b-emerald-300 flex justify- ">
+              <div className="w-[95%] h-screen b-emerald-300 rounded-[10px] flex justify- ">
                 <iframe
                   id="pdfViewer"
                   src={`/pdfs/${project.pdf}`} // Load PDF from the API
-                  className="border-none w-[90%] h-[400px] md:h-[600px]"
+                  className="border-none w-[90%] h-[600px]"
                   />
               </div>
             </>
@@ -344,10 +361,10 @@ const WebProjectComponent = ({ project } : {project: Project}) => {
                 Shoots
               </h1>
               <div className=" w-[95%] h-auto bg-emerald-300 flex justify-center items-center">
-                <div className="flex gap-4">
+                <div className="flex gap-4 relative w-[100%] h-[300px] md:h-[500px]">
                   {
                     project.pics.map((pic, index) => {
-                      return <img key={index} src={`/projects/${pic}`} className="w-full" />
+                      return <Image key={index} alt="project pics" src={`/projects/${pic}`} fill className="w-full" />
                     })
                   }
                 </div>
@@ -407,10 +424,10 @@ const WebProjectComponent = ({ project } : {project: Project}) => {
 
 
           <div className="w-[95%] pt-[100px] b-emerald-300" >
-            <div className="flex justify-around  w-[100%] h-[50px] b-[#000] gap-2  items-center">
-                <ButtonLight link={`${project.livedemo}`} text="Live Demo" classname={`w-full max-w-[200px] ${project.livedemo == 'none' ? "pointer-events-none opacity-50" : ""} rounded- h-[30px] bg-black text-white`} />
+            <div className="flex justify-around text-white  w-[100%] h-[50px] b-[#000] gap-2  items-center">
+                <ButtonLight link={`${project.livedemo}`} text="Live Demo" classname={`w-full max-w-[200px] ${project.livedemo == 'none' ? "pointer-events-none opacity-50" : ""} rounded- h-[30px] bg-black`} />
 
-                <ButtonLight link={`${project.github}`} text="Github" classname="w-full max-w-[200px] cursor-pointer h-[30px] bg-black text-white"/>
+                <ButtonLight link={`${project.github}`} text="Github" classname="w-full max-w-[200px] cursor-pointer h-[30px] bg-black"/>
                   
                 
             </div>

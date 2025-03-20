@@ -1,12 +1,14 @@
 
-import React, { useContext, useState } from "react";
+'use client';
+
+import React, { useState } from "react";
 import { motion, useAnimate } from "framer-motion";
-import { ApearanceContext } from "@/app/context/Themecontext";
+// import { ApearanceContext } from "@/app/context/Themecontext";
 
 
 
 
-// import useWindowSize from "../utils";
+import useWindowSize from "../utils";
 
 
 
@@ -45,20 +47,19 @@ const AnimatedBox = ({ children }: { children: React.ReactNode}) => {
       await controls("#hover", { y: 20 });
       setHover(false);
     };
-  
-    const { theme } = useContext(ApearanceContext) || {};
+
     return (
     
       <motion.div
         ref={animate}
-        className={`w-[30px] h-[30px] cursor-pointer ${
-          theme === "dark" ? "bg-light-bg" : "bg-dark-bg"
-        } rounded-[20px] ml-2 mr-2 flex items-center justify-center overflow-hidden`}
+        className={`w-[30px] h-[30px] cursor-pointer
+          dark:bg-light-bg bg-dark-bg
+            rounded-[20px] ml-2 mr-2 flex items-center justify-center overflow-hidden`}
         onClick={hover ? handleAnimateOut : handleAnimateIn}
       >
         <motion.div
           id="hover"
-          className={`flex flex-col   ${theme == 'dark' ? "text-dark-bg" : "text-light-bg"} pl-4 pt-3 w-full h-full  text-[#]  opacity-0`}
+          className={`flex flex-col   dark:text-dark-bg text-light-bg pl-4 pt-3 w-full h-full  text-[#]  opacity-0`}
           initial={{ y: 20, opacity: 0 }}
         >
           {children}
@@ -70,12 +71,10 @@ const AnimatedBox = ({ children }: { children: React.ReactNode}) => {
   
   const Small = () => {
 
-    const { theme } = useContext(ApearanceContext) || {};
-
     return (
       <div className="flex justify-center">
         
-        <div className={`h-[500px] w-[10px] rounded-[20px] ${theme == 'dark' ? "bg-light-bg" : "bg-dark-bg"} `}>
+        <div className={`h-[500px] w-[10px] rounded-[20px] dark:bg-light-bg bg-dark-bg`}>
   
         </div>
         <div className="flex flex-col justify-center items-start b-sky-400 h-[500px] w-full">
@@ -106,7 +105,7 @@ const AnimatedBox = ({ children }: { children: React.ReactNode}) => {
                 <h1 className="font-[tommy] text-[20px]">1337 (42 Network)</h1>
                 <h1>IT Architect</h1>
                 <p>2022-2024</p>
-                <p>Khouribga, 1337 codind school</p>
+                <p>Khouribga, 1337 coding school</p>
             </AnimatedBox>
           </div>
   
@@ -116,8 +115,6 @@ const AnimatedBox = ({ children }: { children: React.ReactNode}) => {
   }
   
   const Large = () => {
-
-    const { theme } = useContext(ApearanceContext) || {};
 
     return (
       <div className="flex justify-center">
@@ -141,7 +138,7 @@ const AnimatedBox = ({ children }: { children: React.ReactNode}) => {
   
         </div>
   
-        <div className={`h-[500px] w-[30px] rounded-[20px] ${theme == 'dark' ? "bg-light-bg" : "bg-dark-bg"} `}>
+        <div className={`h-[500px] w-[30px] rounded-[20px] dark:bg-light-bg bg-dark-bg`}>
         </div>
         
         <div className="flex flex-col justify-center items-start b-sky-400 h-[500px] w-full">
@@ -176,16 +173,16 @@ const AnimatedBox = ({ children }: { children: React.ReactNode}) => {
 export default function Education() {
 
 
-    // const { width } = useWindowSize();
+    const { width } = useWindowSize();
 
     return (
         <div>
             <h1 className="text-4xl font-bold text-center pb-[30px] pt-[30px]">Education</h1>
             <div className="w-full h-[500px] b-blue-700 flex  justify-center items-center">
             
-                {/* {
+                {
                   width <= 550 ? <Small /> : <Large />
-                } */}
+                }
 
             
             </div>

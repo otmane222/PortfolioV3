@@ -8,17 +8,19 @@ export const ApearanceContext = createContext<ApearanceContextType | null>(null)
 
 export default function ApearanceProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<string>('light');
+  const [mounted, setMounted] = useState<boolean>(false);
 
 
   useEffect(() => {
     let currentTheme = window.localStorage.getItem('theme');
 
-    // if (!currentTheme) {
-    // }
-    currentTheme = 'light';
+    if (!currentTheme) {
+      currentTheme = 'light';
+    }
     window.localStorage.setItem('theme', currentTheme);
-
+    
     setTheme(currentTheme);
+    setMounted(true);
   }, []);
   
   function themeHandler(theme: string) {
@@ -31,6 +33,7 @@ export default function ApearanceProvider({ children }: { children: ReactNode })
     themeHandler,
   };
 
+  if (!mounted) return null;
   return (
     <ApearanceContext.Provider value={value}>
       {children}

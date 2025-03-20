@@ -3,15 +3,16 @@
 
 import { motion } from "framer-motion";
 // import { Navigation } from "@/components/Navigation";
-import { useContext } from "react";
-import { ApearanceContext } from "@/app/context/Themecontext";
+// import { useContext } from "react";
+// import { ApearanceContext } from "@/app/context/Themecontext";
 
+import { useEffect } from "react";
 import Image from "next/image";
 import TextReveal from "@/components/TextReveal";
 import Magnet from "@/components/Magnet";
 
 import Footer from "@/components/Footer";
-// import Curve from "@/components/Curve";
+import Curve from "@/components/Curve";
 
 const WrappedText = ({ text }: { text: string }) => {
     return (
@@ -29,7 +30,7 @@ const WrappedText = ({ text }: { text: string }) => {
 
 export default function About() {
 
-    const { theme } = useContext(ApearanceContext) || {}
+    // const { theme } = useContext(ApearanceContext) || {}
     // useEffect(() => {
     //     window.scrollTo(0, 0)
     // } , [])
@@ -54,10 +55,13 @@ export default function About() {
     //     }
     // }
     // console.log('About page');
+    // useEffect(() => {
+    //     window.scrollTo(0, 0)
+    // } , [])
     const arr : string[] = ['Web', 'Dev', 'And', 'Software', 'Engineer']
     return (
         <>
-            <div className={`w-full relative flex justify-center ${theme == 'dark' ? "bg-dark-bg text-[#fff4f4]" : "bg-light-bg text-[#000000] "}`} >
+            <div className={`w-full relative flex justify-center`} >
                 <motion.div
                 // exit={{ opacity: 0 }}
                 // initial={{ opacity: 0 }}
@@ -93,7 +97,7 @@ export default function About() {
                                     />
                             </div>
                         </div>
-                        <div className={`w-full flex justify-center ${theme == 'dark' ? "bg-dark-bg"  : "bg-light-bg"} pb-[50px]`}>
+                        <div className={`w-full flex justify-center dark:bg-dark-bg bg-light-bg pb-[50px]`}>
                             <div className='w-auto max-w-[900px] h-auto b-[#956060] mt-0 text-[24px] flex items-center  '>
                                 <TextReveal value="Since high school I had a passion for programming,
                                 I started with C++ in 2018 and stoped for a while, I went to university and studied computer science
@@ -112,7 +116,7 @@ export default function About() {
 
                 </motion.div>
             </div>
-            {/* <Curve /> */}
+            <Curve />
             <Footer />
             {/* <motion.svg
                 initial={{ y: "200vh" }}

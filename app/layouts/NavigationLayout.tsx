@@ -2,11 +2,11 @@
 'use client'
 
 import React from 'react';
-import { useState, useContext } from 'react';
-import { ApearanceContext } from '@/app/context/Themecontext';
+// import { useContext } from 'react';
+// import { ApearanceContext } from '@/app/context/Themecontext';
 
 
-import Footer  from '@/components/Footer';
+// import Footer  from '@/components/Footer';
 
 import { ReactNode } from 'react';
 
@@ -14,20 +14,36 @@ import { ReactNode } from 'react';
 import { Navigation } from '@/components/Navigation';
 // import Curve from '@/components/Curve';
 
-// import { usePathname } from 'next/navigation';
+import { usePathname } from 'next/navigation';
+import { useEffect } from 'react';
+import { ReactLenis } from 'lenis/react';
+// import { motion } from 'framer-motion';
+// import {  useState } from 'react';
 
 export default function NavigationLayout({ children }: { children: ReactNode }) {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname(); // Detects route changes
 
-  const { theme, themeHandler } = useContext(ApearanceContext) || {}
+  useEffect(() => {
+    window.scrollTo(0, 0); // Instantly scroll to top
+  }, [pathname]); // Runs effect when pathname changes
+  // const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  function ThemeHandler() {
-      themeHandler!(theme == 'light' ? 'dark' : 'light')
-  }
+  // const { theme } = useContext(ApearanceContext) || {}
 
-  const onToggleMenu = () => {
-      setIsMenuOpen(!isMenuOpen);
-  };
+  // const [isLenisReady, setIsLenisReady] = useState(false);
+  
+  // const lenis = useLenis(({ scroll }) => {
+  //   // Your scroll callback logic here
+  // });
+  
+  // useEffect(() => {
+  //   // Delay enabling smooth scrolling
+  //   const timer = setTimeout(() => {
+  //     setIsLenisReady(true);
+  //   }, 400);
+    
+  //   return () => clearTimeout(timer);
+  // }, []);
     
   return (
     
@@ -40,9 +56,18 @@ export default function NavigationLayout({ children }: { children: ReactNode }) 
     //       //   syncTouch: true,
     //     }}
     //     >
-        <div className={` flex flex-col items-center bg-[url('/')]  ${theme == 'dark' ? "bg-dark-bg text-[#fff4f4]" : "bg-light-bg text-[#000000] "} w-full h-auto `}>
-          <Navigation />
-          {children}
+        <div className={` flex flex-col items-center bg-[url('/')]  dark:bg-dark-bg bg-light-bg w-full h-auto `}>
+          <ReactLenis root 
+            options={{
+              lerp: 0.1,
+              // duration: 0.5,
+              
+              // Other options you might want
+            }}
+          >
+            <Navigation />
+            {children}
+          </ReactLenis>
         </div>
     // </Lenis>
   );

@@ -1,14 +1,14 @@
 "use client";
 
 import { motion, MotionValue, useScroll, useTransform } from "motion/react";
-import { ComponentPropsWithoutRef, FC, ReactNode, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useEffect } from "react";
-import { useContext } from "react";
-import { ApearanceContext } from "@/app/context/Themecontext";
+// import { useContext } from "react";
+// import { ApearanceContext } from "@/app/context/Themecontext";
 
 export default function TextReveal ({value}: {value: string}) {
 
-    const { theme } = useContext(ApearanceContext) || {};
+    // const { theme } = useContext(ApearanceContext) || {};
 
     const element = useRef<HTMLParagraphElement>(null);
     const [offset, setOffset] = useState<(string | number)[]>(['start 0.9', 'start -0.5']);
@@ -46,7 +46,7 @@ export default function TextReveal ({value}: {value: string}) {
     return (
         <p 
             ref={element}
-            className={`flex flex-wrap justify-center ${ theme == 'dark' ? "text-white" : "text-black" } `}
+            className={`flex flex-wrap justify-center`}
         >
             {
                 words.map((word, index) => {

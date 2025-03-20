@@ -133,11 +133,11 @@ export default function Project({index, title, field, setModal, num} :
                   b-slate-200 flex justify-between items-center`}>
 
 
-                  <div className=" hover:opacity-[0.4] transition-all duration-500 ease-in-out w-full h-full flex justify-center items-center">
-                      <div className="w-[40%] b-slate-300 transition-all duration-500 ease-in-out  flex justify-start items-center">
+                  <div className=" hover:opacity-[0.4]  ease-in-out w-full h-full flex justify-center items-center">
+                      <div className="w-[40%] b-slate-300  ease-in-out  flex justify-start items-center">
                           <h1 className="text-4xl" >{title}</h1>
                       </div>
-                      <div className="w-[40%] b-slate-300 transition-all duration-500 ease-in-out flex justify-end items-center">
+                      <div className="w-[40%] b-slate-300  ease-in-out flex justify-end items-center">
                           <p>{field}</p>
                       </div>
                   </div>

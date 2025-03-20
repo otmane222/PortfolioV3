@@ -29,13 +29,13 @@ export default function Modal({modal, projects}: ModalProps) {
     const cursorRef = useRef<HTMLDivElement>(null);
     const cursorLabelRef = useRef<HTMLDivElement>(null);
 
-    let lastScrollY = 0;
-    const lastScrollX = 0;
-    let cursorY = 0;
-    let cursorLabelY = 0;
-    let containerY = 0;
-
+    // const lastScrollX = 0;
+    
     useEffect(() => {
+        let lastScrollY = 0;
+        let cursorY = 0;
+        let cursorLabelY = 0;
+        let containerY = 0;
         const moveContainerX = gsap.quickTo(modalRef.current, "left", {duration: 0.8, ease: "power3"});
         const moveContainerY = gsap.quickTo(modalRef.current, "top", {duration: 0.8, ease: "power3"});
         

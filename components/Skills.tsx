@@ -131,7 +131,7 @@ function Skills() {
     }
 
     return controls?.stop;
-  }, [rerender, xTranslation, duration, width]);
+  }, [rerender, xTranslation, duration, width, mustFinish]);
 
   return (
     <>

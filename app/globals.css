@@ -2,18 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  /* transition-property: opacity, transform, filter, background;
-  transition-timing-function: ease-in-out;
-  transition-duration: 500ms; */
+
+
+/* html {
+  overflow: scroll;
 }
 
-.page-transition {
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+  background: transparent;
+} */
+
+/* .page-transition {
   opacity: 0;
   transition-duration: 500ms;
   transition-timing-function: ease-in-out;
   transition-property: opacity, transform, filter, background;
-}
+} */
 /* Add this custom CSS to your global styles */
 /* a::after {
   content: "";
@@ -34,50 +40,50 @@ body {
 } */
 
 /* 1 */
-@font-face{
+/* @font-face{
   font-family: 'zendaya';
   src:url('../public/fonts/Zendaya.otf');
-}
+} */
 
 /* 2 */
-@font-face {
+/* @font-face {
   font-family: 'tokyo';
   src: url('../public/fonts/Tokyo.ttf');
-}
+} */
 
 /* - */
-@font-face {
+/* @font-face {
   font-family: 'vulture';
   src: url('../public/fonts/Vulture.ttf');
-}
+} */
 
 /* 3 */
-@font-face {
+/* @font-face {
   font-family: 'standerd';
   src: url('../public/fonts/Standerd-Regular.otf');
-}
+} */
 
 /* 4- */
-@font-face {
+/* @font-face {
   font-family: 'sorealism';
   src: url('../public/fonts/sorealism.otf');
-}
+} */
 
 /* - */
-@font-face {
+/* @font-face {
   font-family: 'mintely';
   src: url('../public/fonts/Mintely\ Personal\ Use\ Only.ttf');
-}
+} */
 /* - */
-@font-face {
+/* @font-face {
   font-family: 'minimalist';
   src: url('../public/fonts/Minimalist\ Creative.otf');
-}
+} */
 /* - */
-@font-face {
+/* @font-face {
   font-family: 'maslite';
   src: url('../public/fonts/MASLITE.otf');
-}
+} */
 /* - */
 @font-face {
   font-family: 'magioline';
@@ -120,7 +126,7 @@ body {
 /* background: var(--background); */
 /* font-family: Arial, Helvetica, sans-serif; */
 
-@layer base {
+/* @layer base {
   :root {
     --background: 0 0% 100%;
     --foreground: 224 71.4% 4.1%;
@@ -183,4 +189,4 @@ body {
   body {
     @apply bg-background text-foreground;
   }
-}
+} */

@@ -1,3 +1,7 @@
+'use client'
+
+export * from "lenis/react"
+
 // 'use client';
 
 // import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';

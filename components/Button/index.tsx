@@ -1,19 +1,22 @@
+'use client';
 import React from 'react';
 import { motion } from 'framer-motion';
 
 
 const ButtonLight = ({ link, text, classname }: { link:string, text: string, classname?: string }) => {
   return (
-      <motion.a
+    <motion.span
       initial={{scale: 1}}
       whileHover={{scale: 1.4}}
-      href={link} target="_blank" rel="noopener noreferrer"
-        className={`${classname}  flex justify-center items-center`}
+      className={`${classname}  flex justify-center text-white items-center`}
       >
-        <button>
-          {text  }
-        </button>
-      </motion.a>
+      <a
+        className='w-full h-full cursor-pointer flex justify-center items-center'
+        href={link} target="_blank" rel="noopener noreferre"
+      >
+        {text  }
+      </a>
+    </motion.span>
   );
 };
 

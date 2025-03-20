@@ -1,11 +1,11 @@
 'use client'
 
-import React, { useState, useRef, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import Link from 'next/link';
 // import Image from 'next/image';
 import { ApearanceContext } from '@/app/context/Themecontext';
 import { Moon, Sun } from 'lucide-react';
-// import useWindowSize from '../utils';
+import useWindowSize from '../utils';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouse, faDiagramProject, faAddressBook, faUser } from '@fortawesome/free-solid-svg-icons';
@@ -14,32 +14,43 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 
 import Magnet from '../Magnet';
 import UpButton from '../UpButton';
+import { useTheme } from 'next-themes';
 
-function Mode({ ThemeHandler, isDarkMode, isMenuOpen }: { ThemeHandler: () => void, isDarkMode: boolean, isMenuOpen: boolean }) {
+function Mode() {
+    const [mounted, setMounted] = useState(false);
+    const {theme, setTheme} = useTheme();
+
+    // Ensure component is mounted before rendering UI
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    if (!mounted) return null;
     return (
         <div className='flex items-center justify-center b-cyan-300 '>
             <div
-                onClick={ThemeHandler}
-                className={`absolute cursor-pointer mr-[40px] w-[22px] h-[22px] z-10 position-x-2 dark:bg-gray-600 
-                rounded-full shadow-md transition-all duration-500 ease-in-out 
-                ${isDarkMode ? 'translate-x-[35px] bg-[#000]' : 'translate-x-[5px] bg-[#fff]'}`}
+                onClick={() => setTheme(theme == 'light' ? 'dark' : 'light')}
+                className={`absolute cursor-pointer mr-[40px] w-[22px] h-[22px] z-10 position-x-2 b-gray-600 
+                rounded-full shadow-md transition-all duration-500 ease-in-out
+                
+                ${theme == 'dark' ? 'translate-x-[35px] bg-[#000]' : 'translate-x-[5px] bg-[#fff]'}`}
             >
                 <div className="w-[22px] h-[22px] flex items-center justify-center">
                     <Sun
                         className={`absolute w-[20px] h-[20px] text-[#000] transition-all duration-500
-                        ${isDarkMode ? 'opacity-0 rotate-180' : 'opacity-100 rotate-0'}`}
+                        ${theme == 'dark' ? 'opacity-0 rotate-180' : 'opacity-100 rotate-0'}`}
                     />
                     <Moon
                         className={`absolute w-[20px] h-[20px] text-[#fff] transition-all duration-500
-                        ${isDarkMode ? 'opacity-100 rotate-0' : 'opacity-0 -rotate-180'}`}
+                        ${theme == 'dark' ? 'opacity-100 rotate-0' : 'opacity-0 -rotate-180'}`}
                     />
                 </div>
             </div>
             <button
-                onClick={ThemeHandler}
+                onClick={() => setTheme(theme == 'light' ? 'dark' : 'light')}
                 className={`w-[40px] h-[6px] z-0 bg-gray-200 dark:bg-gray-800 
                     rounded-full shadow-inner overflow-hidden transition-opacity duration-500 ease-in-out 
-                    ${isMenuOpen ? 'md:opacity-100 opacity-0 pointer-events-none' : 'opacity-100'}`}
+                     pointer-events-none `}
             >
             </button>
         </div>
@@ -67,7 +78,7 @@ function Links() {
             <li className='flex w-[100%] items-center p-[5px] pl-[10px] pr-[10px] m-1'>
                 <a href='#contact' onClick={(e) => {
                     e.preventDefault();
-                    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+                    window.scrollTo({ top: document.body.scrollHeight - 750, behavior: "smooth" });
                 }}>
                     <UpButton text='Contact' />
                 </a>
@@ -91,7 +102,7 @@ function NavigationMobile() {
 
     return (
         <div
-            className={`w-full h-[80px] bottom-0 z-40 rounded-t-3xl border-t-[1px] font-[tommy] 
+            className={`w-full h-[80px] bottom-0 z-50 rounded-t-3xl border-t-[1px] font-[tommy] 
             ${theme == 'dark' ? "backdrop-blur bg-[#161616]/60 border-[#badbc270]" : "backdrop-blur bg-[#badbc2]/40 border-[#16161698]"} 
             fixed flex justify-around items-center`}
         >
@@ -123,17 +134,43 @@ function NavigationMobile() {
     );
 }
 
+import { useEffect } from 'react';
+// import { useTheme } from 'next-themes';
+
 function Navigation() {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const navLinksRef = useRef<HTMLDivElement>(null);
-    const [isDarkMode, setIsDarkMode] = useState(false);
+    // const [isMenuOpen, setIsMenuOpen] = useState(false);
+    // const navLinksRef = useRef<HTMLDivElement>(null);
+    // const [isDarkMode, setIsDarkMode] = useState(false);
+    const [mounted, setMounted] = useState(false);
+    const {theme} = useTheme();
+    
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+    // Ensure component is mounted before rendering UI
+    // const { theme, themeHandler } = useContext(ApearanceContext) || {}
+    
+    const [isMobile, setIsMobile] = useState<number>(-1);
+    
+    useEffect(() => {
+        // Ensure window is available
+        const checkScreenSize = () => {
+        setIsMobile(window.innerWidth < 708 ? 1 : 0);
+        };
 
-    const { theme, themeHandler } = useContext(ApearanceContext) || {}
+        checkScreenSize(); // Run once on mount
+        window.addEventListener('resize', checkScreenSize);
 
-    function ThemeHandler() {
-        themeHandler!(theme == 'light' ? 'dark' : 'light')
-        setIsDarkMode(!isDarkMode);
-    }
+        return () => {
+        window.removeEventListener('resize', checkScreenSize);
+        };
+    }, []);
+
+
+    // function ThemeHandler() {
+    //     themeHandler!(theme == 'light' ? 'dark' : 'light')
+    //     setIsDarkMode(!isDarkMode);
+    // }
 
     // const onToggleMenu = () => {
     //     if (navLinksRef.current) {
@@ -143,19 +180,20 @@ function Navigation() {
     // };
 
     const { scrollY } = useScroll();
-    // const { width } = useWindowSize();
+    const { width } = useWindowSize();
     const navWidth = useTransform(scrollY, [0, 200], ['95%', '100%']);
     const navMaxWidth = useTransform(scrollY, [0, 200], ['1400px', '630px']);
     const navBlur = useTransform(scrollY, [0, 200], ['blur(0px)', 'blur(10px)']);
     // const hideNav = useTransform(scrollY, [0, 200], ['0', '1']);
     const navShadow = useTransform(scrollY, [150, 200], ['0px 0px 0px 0px', '0px 0px 2px 0px']);
 
-    // if (width < 708) {
-    //     navWidth.set('100%');
-    //     navMaxWidth.set('1400px');
-    //     navBlur.set('blur(0px)');
-    //     navShadow.set('0px 0px 0px 0px');
-    // }
+    if (isMobile == 1) {
+        navWidth.set('100%');
+        navMaxWidth.set('1400px');
+        navBlur.set('blur(0px)');
+        navShadow.set('0px 0px 0px 0px');
+    }
+    if (!mounted) return null;
 
     return (
         <>
@@ -165,27 +203,27 @@ function Navigation() {
                 transition={{ duration: 1 }}
                 exit={{ y: -200 }}
                 className={`fixed flex justify-center items-center z-50 b-sky-200 h-[80px]`}
-                // style={{
-                //     width: width > 705 ? navWidth : '100%',
-                //     maxWidth: width > 705 ? navMaxWidth : '1400px',
-                // }}
+                style={{
+                    width: width > 705 ? navWidth : '100%',
+                    maxWidth: width > 705 ? navMaxWidth : '1400px',
+                }}
             >
                 <motion.div
                     className={`flex font-[tommy] w-full justify-between rounded-[30px] pl-[30px] pr-[30px]
                     backdrop-blur items-center mx-auto h-[45px]
                     ${theme == 'dark' ? "bg-dark-bg/60 border-light-bg" : "bg-light-bg/40 border-dark-bg"}`}
-                    // style={{
-                    //     backdropFilter: width > 705 ? navBlur : 'blur(0px)',
-                    //     WebkitBackdropFilter: width > 705 ? navBlur : 'blur(0px)',
-                    //     boxShadow: width > 705 ? navShadow : '0px 0px 0px 0px',
-                    // }}
+                    style={{
+                        backdropFilter: width > 705 ? navBlur : 'blur(0px)',
+                        WebkitBackdropFilter: width > 705 ? navBlur : 'blur(0px)',
+                        boxShadow: width > 705 ? navShadow : '0px 0px 0px 0px',
+                    }}
                 >
                     <Logo />
-                    {/* {width > 708 && <Links />} */}
-                    <Mode ThemeHandler={ThemeHandler} isDarkMode={isDarkMode} isMenuOpen={isMenuOpen} />
+                    {isMobile == 0  && <Links />}
+                    <Mode />
                 </motion.div>
             </motion.nav>
-            {/* {width < 708 && <NavigationMobile />} */}
+            {isMobile == 1 && <NavigationMobile />}
         </>
     );
 }
