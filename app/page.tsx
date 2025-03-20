@@ -29,7 +29,7 @@ import Education from "@/components/Education";
 import Footer from "@/components/Footer";
 import Curve from "@/components/Curve";
 
-import { useEffect } from "react";
+// import { useEffect } from "react";
 // import Lenis from "lenis";
 
 export default function Home() {

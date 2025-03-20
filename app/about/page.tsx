@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 // import { useContext } from "react";
 // import { ApearanceContext } from "@/app/context/Themecontext";
 
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import Image from "next/image";
 import TextReveal from "@/components/TextReveal";
 import Magnet from "@/components/Magnet";
