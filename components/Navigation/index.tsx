@@ -216,7 +216,7 @@ function Navigation() {
                 }}
             >
                 <motion.div
-                    className={`flex font-[tommy] w-[95%] justify-between rounded-[30px] 
+                    className={`flex font-[tommy] w-[100%] justify-between rounded-[30px] 
                     backdrop-blur items-center mx-auto h-[45px]
                     ${theme == 'dark' ? "md:bg-dark-bg/60 md:border-light-bg bg-light-bg/40 border-dark-bg" : "md:bg-light-bg/40 md:border-dark-bg bg-dark-bg/40 border-light-bg"}`}
                     style={{
