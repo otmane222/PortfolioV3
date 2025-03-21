@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import styles from './style.module.css';
+
+import styles from "./style.module.css";
 
 function ShinyButton({ text }: { text: string }) {
   return (
@@ -22,9 +23,9 @@ function ShinyButton({ text }: { text: string }) {
           mass: 0.1,
         },
       }}
-      className={`${styles['radial-gradient']} px-6 py-3 rounded-md relative`}
+      className={`${styles['radial-gradient']} px-4 py-2 rounded-md relative`}
     >
-      <span className={`${styles['linear-mask']} text-neutral-100 tracking-wide font-light h-full w-full block relative`}>
+      <span className={`${styles['linear-mask']} tracking-wide text-white font-light h-full w-full block relative`}>
         {text}
       </span>
       <span className={`${styles['linear-overlay']} block absolute inset-0 rounded-md p-px`} />

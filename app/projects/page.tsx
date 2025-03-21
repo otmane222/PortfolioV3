@@ -128,9 +128,9 @@ export default function Prjects() {
                                 <ScrollCards projects={projects} /> 
                             </div>
                         </div>
-                        <div className={`w-full h-[300px] relative z-10 dark:bg-dark-bg bg-light-bg`}>
-                            <h1 className="text-6xl font-[tommy2] text-center" >
-                                More Projects is coming soon
+                        <div className={`w-[100%] h-[300px] relative z-10 dark:bg-dark-bg bg-light-bg`}>
+                            <h1 className="text-4xl md:text-6xl font-[tommy2] text-center" >
+                                More Projects are coming soon
                             </h1>
                         </div>
                         </motion.div>

@@ -41,11 +41,11 @@ function Header() {
                 // transition={{ duration: 1 }}
                 className=''
               >
-                <h1 className='md:whitespace-nowrap'>
+                <h1 className='md:whitespace-nowrap text-center md:text-left'>
                   <span className="md:text-6xl 425:text-4xl text-2xl whitespace-nowrap">Hello,</span>
                   <br />
                   <span className="md:text-7xl 425:text-4xl text-2xl whitespace-nowrap">I&apos;m </span>
-                  <span className="md:text-7xl 425:text-6xl text-4xl font-bold ">Otmane Aboulghit</span>
+                  <span className="md:text-7xl text-6xl font-bold ">Otmane Aboulghit</span>
                   <br />
                 </h1>
               </motion.div>
@@ -55,8 +55,9 @@ function Header() {
                 // animate={{ opacity: 1, x: 0.2 }}
                 // exit={{ opacity: 0, x: -50 }} // Exit animation
                 // transition={{ duration: 1 }}
-                className='mt-5 b-slate-400 0:h-[130px] hb1:h-[90px] hb2:h-[60px] h-[100px]'>
-                <span className="text-[30px] ">Full-stack Developer </span>
+                className='mt-5 b-slate-400 text-center md:text-left '>
+                <span className="text-[30px] md:inline-flex md:mr-2 block">Full-stack Developer </span>
+                {/* <br /> */}
                 <span className='text-[30px] text-[#76a3f5] font-bold ' >
                 {/* Django Rest Framework */}
                 <Typewriter
@@ -72,7 +73,7 @@ function Header() {
               // animate={{ opacity: 1, x: 0.2 }}
               // exit={{ opacity: 0, x: -50 }} // Exit animation
               // transition={{ duration: 1 }}
-              className='flex  items-start ] b-slate-200 pt-[10px] '>
+              className='flex  items-start justify-center md:justify-start b-slate-200 pt-[10px] '>
               {/* <button className='bg-[#0d3b91] hover:bg-[#1e2124] text-white transition-all duration-500 ease-in-out  p-[12px] rounded-md'>
               
                 Contact Me
@@ -110,7 +111,7 @@ function Header() {
               // exit={{ opacity: 0, x: 50 }} // Exit animation
               // transition={{ duration: 1 }}
               className='flex md:justify-end justify-start items-center md:p-[0px] p-[10px] b-slate-300 h-[90%] w-[95%] md:w-[50%]'>
-              <h4 className='text-[15px]'>Web dev with background in low level programing c/c++ and system design. DRY, Don&apos;t Repeat Yourself</h4>
+              <h4 className='text-[15px] text-center md:text-left '>Web dev with background in low level programing c/c++ and system design. DRY, Don&apos;t Repeat Yourself</h4>
             </motion.div>
           </div>
 
@@ -156,12 +157,12 @@ function Header() {
             // animate={{ opacity: 1, x: 0.2 }}
             // exit={{ opacity: 0, x: 50 }} // Exit animation
             // transition={{ duration: 1 }}
-            className='flex justify-start md:justify-end items-center b-[#3fd8be] h-[50px] w-[80%] md:w-[50%]'>
+            className='flex md:justify-end justify-center items-center b-[#3fd8be] h-[50px] w-full md:w-[50%]'>
             {/* <button className='bg-[#fff] hover:bg-[#e2e1e1] text-black text-[14px] transition-all duration-500 ease-in-out pr-[23px] pl-[23px]  p-[12px] rounded-full'>
               Know me better
             </button> */}
             <div className=" hover:text-white cursor-pointer h-12  rounded-full  px-6">
-              <Link href={"/about"} className='w-full h-full flex items-center justify-center' >
+              <Link href={"/about"} className='w-full h-full  b-black flex items-center justify-center' >
                 <ShinyButton text={"Know Me Better"} />
               </Link>
             </div>

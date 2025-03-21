@@ -124,9 +124,16 @@ function NavigationMobile() {
                 </Link>
             </div>
             <div>
-                <Link className='flex flex-col justify-center items-center' scroll={false} href="/contact">
-                <FontAwesomeIcon icon={faAddressBook} />
+                <a href='#contact' onClick={(e) => {
+                        e.preventDefault();
+                        window.scrollTo({ top: document.body.scrollHeight - 750, behavior: "smooth" });
+                    }}
+                    className='flex flex-col justify-center items-center'
+                >
+                    <FontAwesomeIcon icon={faAddressBook} />
                     Contact
+                </a>
+                <Link className='flex flex-col justify-center items-center' scroll={false} href="/contact">
                 </Link>
             </div>
         </div>
