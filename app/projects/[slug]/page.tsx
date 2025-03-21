@@ -84,7 +84,7 @@ const projects : Record<string, Project> = {
     video: "",
     frameworks: [],
     pics: [],
-    pdf: "minishell.pdf",
+    pdf: "https://drive.google.com/file/d/1Z9QEx7Pa-_0HdzxTFcI1WeCWguH5UIl2/preview",
   },
 
   "ft_transcendence": {
@@ -130,7 +130,7 @@ const projects : Record<string, Project> = {
     video: "https://www.youtube-nocookie.com/embed/JH4vipKTbzo",
     frameworks: ["Django", "React"],
     pics: [],
-    pdf: "ft_transcendence.pdf",
+    pdf: "https://drive.google.com/file/d/1utyVZigHVdXTl4xquRahk1156jIFRVC_/preview",
   },
 
   "inception": {
@@ -174,7 +174,7 @@ const projects : Record<string, Project> = {
     video: "https://www.youtube-nocookie.com/embed/juKF0WvR0RQ",
     frameworks: [],
     pics: [],
-    pdf: "inception.pdf",
+    pdf: "https://drive.google.com/file/d/12zgXYqLyOxcocppx8-eCzCfN72EjjHnQ/preview",
   },
 
   "old-portfolio": {
@@ -347,9 +347,17 @@ const WebProjectComponent = ({ project } : {project: Project}) => {
               <div className="w-[95%] h-screen b-emerald-300 rounded-[10px] flex justify- ">
                 <iframe
                   id="pdfViewer"
-                  src={`/pdfs/${project.pdf}`} 
+                  src={`${project.pdf}`} 
                   className="border-none w-[90%] h-[500px] md:h-[600px]"
                   />
+                {/* <iframe
+                  className="border-none w-[90%] h-[500px] md:h-[600px]"
+                  src="https://drive.google.com/file/d/1utyVZigHVdXTl4xquRahk1156jIFRVC_/preview"
+                  width="640"
+                  height="360"
+                  scrolling="no"
+                  title="inception">
+                </iframe> */}
               </div>
             </>
           }
