@@ -1,5 +1,5 @@
 'use client';
-import { Typewriter } from 'react-simple-typewriter'
+// import { Typewriter } from 'react-simple-typewriter'
 
 // import {  useContext } from 'react';
 // import { ApearanceContext } from '@/app/context/Themecontext';
@@ -56,17 +56,16 @@ function Header() {
                 // exit={{ opacity: 0, x: -50 }} // Exit animation
                 // transition={{ duration: 1 }}
                 className='mt-5 b-slate-400 text-center md:text-left '>
-                <span className="text-[30px] md:inline-flex md:mr-2 block">Full-stack Developer </span>
+                <span className="text-[35px] md:inline-flex md:mr-2 block">Full-stack Developer </span>
                 {/* <br /> */}
-                <span className='text-[30px] text-[#76a3f5] font-bold ' >
-                {/* Django Rest Framework */}
-                <Typewriter
+                {/* <span className='text-[35px] text-[#316ad4] justify-center font- flex md:hidden ' >
+                  <Typewriter
                   
-                  words={[ 'Curiosity', 'Motivation to Learn', 'Fast Learner ⚡', 'Adaptability', 'Problem-Solving', 'Teamwork']}//'Next js', 'TAILWINDCSS',, 'PostgresSql', 'Docker']}
+                  words={[ 'Fast ⚡', 'Scalable', 'Optimized']}//'Next js', 'TAILWINDCSS',, 'PostgresSql', 'Docker']}
                   loop={0} cursor={true} cursorStyle='|'
                   typeSpeed={100} deleteSpeed={100} delaySpeed={1000}
                   />
-                  </span>
+                </span> */}
               </motion.div>
             <motion.div
               // initial={{ opacity: 0, x: -50 }}

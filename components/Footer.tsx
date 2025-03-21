@@ -240,7 +240,7 @@ export default function Footer() {
         initial={{ y: "200vh" }}
         exit={{ y: ["100vh", "0vh"]  }}
         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed top-[-300px] z-50   w-full flex justify-center items-center text-white h-[1800px] fill-[#393939] stroke-0`}
+        className={`fixed top-[-300px] z-50   w-full flex justify-center items-center text-white h-[10000px] fill-[#393939] stroke-0`}
       >
         <motion.path
             variants={curve}

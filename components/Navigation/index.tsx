@@ -91,7 +91,7 @@ function Logo() {
     return (
         <Magnet>
             <div className='flex items-center justify-center h-full b-emerald-300'>
-                <h1 className='text-[20px] cursor-pointer'>OA</h1>
+                <h1 className='text-[20px] cursor-pointer dark:text-dark-bg text-light-bg dark:md:text-light-bg md:text-dark-bg '>OA</h1>
             </div>
         </Magnet>
     );
@@ -188,10 +188,11 @@ function Navigation() {
     const { scrollY } = useScroll();
     const { width } = useWindowSize();
     const navWidth = useTransform(scrollY, [0, 200], ['95%', '100%']);
-    const navMaxWidth = useTransform(scrollY, [0, 200], ['1400px', '630px']);
+    const navMaxWidth = useTransform(scrollY, [0, 200], ['1240px', '630px']);
     const navBlur = useTransform(scrollY, [0, 200], ['blur(0px)', 'blur(10px)']);
     // const hideNav = useTransform(scrollY, [0, 200], ['0', '1']);
     const navShadow = useTransform(scrollY, [150, 200], ['0px 0px 0px 0px', '0px 0px 2px 0px']);
+    const padding = useTransform(scrollY, [0, 200], ['0px', '30px']);
 
     if (isMobile == 1) {
         navWidth.set('100%');
@@ -208,20 +209,22 @@ function Navigation() {
                 animate={{ y: 0 }}
                 transition={{ duration: 1 }}
                 exit={{ y: -200 }}
-                className={`fixed flex justify-center items-center z-50 b-sky-200 h-[80px]`}
+                className={`fixed flex justify-center  items-center z-50 b-sky-200 h-[80px]`}
                 style={{
                     width: width > 705 ? navWidth : '100%',
-                    maxWidth: width > 705 ? navMaxWidth : '1400px',
+                    maxWidth: width > 705 ? navMaxWidth : '1250px',
                 }}
             >
                 <motion.div
-                    className={`flex font-[tommy] w-full justify-between rounded-[30px] pl-[30px] pr-[30px]
+                    className={`flex font-[tommy] w-[95%] justify-between rounded-[30px] 
                     backdrop-blur items-center mx-auto h-[45px]
-                    ${theme == 'dark' ? "bg-dark-bg/60 border-light-bg" : "bg-light-bg/40 border-dark-bg"}`}
+                    ${theme == 'dark' ? "md:bg-dark-bg/60 md:border-light-bg bg-light-bg/40 border-dark-bg" : "md:bg-light-bg/40 md:border-dark-bg bg-dark-bg/40 border-light-bg"}`}
                     style={{
                         backdropFilter: width > 705 ? navBlur : 'blur(0px)',
                         WebkitBackdropFilter: width > 705 ? navBlur : 'blur(0px)',
                         boxShadow: width > 705 ? navShadow : '0px 0px 0px 0px',
+                        paddingLeft: width > 705 ? padding : '30px',
+                        paddingRight: width > 705 ? padding : '30px',
                     }}
                 >
                     <Logo />

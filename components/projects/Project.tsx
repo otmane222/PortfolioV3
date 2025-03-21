@@ -51,7 +51,7 @@ const Card = ({ card }: { card: CardType }) => {
     <div
     key={card.id}
     style={{backgroundColor:card.color}}
-    className={`group flex flex-col items-center rounded-[10px] relative h-[520px] w-[310px] 400:w-[390px] 500:w-[400px]   overflow- `}
+    className={`group flex flex-col items-center rounded-[10px] relative h-[70dvh] min-h-[250px] max-h-[520px] w-[310px] 400:w-[390px] 500:w-[400px] pb-3   overflow- `}
     >
         <div>
             <h1 className="w-full text-center text-4xl pt-[50px] pb-[20px]">
