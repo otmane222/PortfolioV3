@@ -170,6 +170,7 @@ const AnimatedBox = ({ children }: { children: React.ReactNode}) => {
     )
   }
 
+import { LightText } from "../LightText";
 export default function Education() {
 
 
@@ -177,7 +178,9 @@ export default function Education() {
 
     return (
         <div>
-            <h1 className="text-4xl font-bold text-center pb-[30px] pt-[30px]">Education</h1>
+            <h1 className="text-4xl font-bold text-center pb-[30px] pt-[30px]">
+              <LightText text="Education" />
+            </h1>
             <div className="w-full h-[500px] b-blue-700 flex  justify-center items-center">
             
                 {

@@ -26,7 +26,7 @@ export default function Footer() {
 
   const { width, height } = useWindowSize();
   const x = useTransform(scrollYProgress, [0, 1], [0, 100]);
-  const y = useTransform(scrollYProgress, [0, 1], [-400, 0]);
+  const y = useTransform(scrollYProgress, [0, 1], [-200, 0]);
   const rotate = useTransform(scrollYProgress, [0, 1], [120, 90]);
 
   const [formData, setFormData] = useState<FormData>({ name: '', email: '', message: '' });

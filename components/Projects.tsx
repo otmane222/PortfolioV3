@@ -14,6 +14,8 @@ import { useEffect } from "react";
 
 import { CardType } from "@/types/indexTypes";
 
+import { LightText } from "./LightText";
+
 function Projects() {
 
   const projects : CardType[] = [
@@ -104,7 +106,7 @@ function Projects() {
     <div className="w-full h-auto flex flex-col  z-50">
       <div className="w-full b-slate-300 flex flex-col">
         <h1 className="pl-[20px]">
-          My Work
+          <LightText text="My work" />
         </h1>
         
         <h1 className="text-5xl p-[20px]">
@@ -129,7 +131,8 @@ function Projects() {
           </div>
       </div>
       <div className="w-full z-40 pt-[100px] flex justify-center items-center">
-        <Link href="/projects" className="text-2xl p-[30px]  rounded-[20px] flex items-center justify-center  ">
+        <Link href="/projects" className="text-2xl p-[30px]  px-10 py-6 border-t-[1px] border-b-[1px] border-[#000] dark:border-[#fff] flex items-center justify-center  ">
+          {/* <LightText text="More Projects" /> */}
           More Projects
         </Link>
       </div>

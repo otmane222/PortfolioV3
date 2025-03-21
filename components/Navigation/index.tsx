@@ -1,9 +1,9 @@
 'use client'
 
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 // import Image from 'next/image';
-import { ApearanceContext } from '@/app/context/Themecontext';
+// import { ApearanceContext } from '@/app/context/Themecontext';
 import { Moon, Sun } from 'lucide-react';
 import useWindowSize from '../utils';
 
@@ -48,7 +48,7 @@ function Mode() {
             </div>
             <button
                 onClick={() => setTheme(theme == 'light' ? 'dark' : 'light')}
-                className={`w-[40px] h-[6px] z-0 bg-gray-200 dark:bg-gray-800 
+                className={`w-[40px] h-[6px] z-0 bg-gray-200 
                     rounded-full shadow-inner overflow-hidden transition-opacity duration-500 ease-in-out 
                      pointer-events-none `}
             >
@@ -98,35 +98,34 @@ function Logo() {
 }
 
 function NavigationMobile() {
-    const { theme } = useContext(ApearanceContext) || {}
 
     return (
         <div
-            className={`w-full h-[80px] bottom-0 z-50 rounded-t-3xl border-t-[1px] font-[tommy] 
-            ${theme == 'dark' ? "backdrop-blur bg-[#161616]/60 border-[#badbc270]" : "backdrop-blur bg-[#badbc2]/40 border-[#16161698]"} 
+            className={`w-full h-[80px] bottom-0 z-50 rounded-t-3xl border-t-[1px] font-[tommy]
+            dark:backdrop-blur dark:bg-[#161616]/60 dark:border-[#badbc270] backdrop-blur bg-[#badbc2]/40 border-[#16161698]
             fixed flex justify-around items-center`}
         >
-            <div className='flex flex-col justify-center items-center'>
-                <FontAwesomeIcon icon={faHouse} />
-                <Link scroll={false} href="/">
+            <div className=''>
+                <Link className='flex flex-col justify-center items-center' scroll={false} href="/">
+                    <FontAwesomeIcon icon={faHouse} />
                     Home
                 </Link>
             </div>
-            <div className='flex flex-col justify-center items-center'>
+            <div>
+                <Link className='flex flex-col justify-center items-center' scroll={false} href="/about">
                 <FontAwesomeIcon icon={faUser} />
-                <Link scroll={false} href="/about">
                     About
                 </Link>
             </div>
-            <div className='flex flex-col justify-center items-center'>
+            <div>
+                <Link className='flex flex-col justify-center items-center' scroll={false} href="/projects">
                 <FontAwesomeIcon icon={faDiagramProject} />
-                <Link scroll={false} href="/projects">
                     Projects
                 </Link>
             </div>
-            <div className='flex flex-col justify-center items-center'>
+            <div>
+                <Link className='flex flex-col justify-center items-center' scroll={false} href="/contact">
                 <FontAwesomeIcon icon={faAddressBook} />
-                <Link scroll={false} href="/contact">
                     Contact
                 </Link>
             </div>

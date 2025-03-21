@@ -25,7 +25,7 @@ const Card: React.FC<CardProps> = ({ svg } ) => {
 
   return (
     <motion.div
-      className="relative grid__item-  overflow-hidden h-[130px] w-[130px] md:ml-[30px] md:mr-[30px] bg-slate- rounded-xl flex justify-center items-center"
+      className="relative grid__item-  overflow-hidden h-[130px] w-[130px] md:ml-[3px] md:mr-[3px] bg-slate- rounded-xl flex justify-center items-center"
       // key={svg}
       onHoverStart={() => setShowOverlay(true)}
       onHoverEnd={() => setShowOverlay(false)}
@@ -82,6 +82,7 @@ const svg9 = (
   <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48" width="48px" height="48px"><path fill="#e64a19" d="M26,17h-8c-3.866,0-7-3.134-7-7v0c0-3.866,3.134-7,7-7h8V17z"/><path fill="#7c4dff" d="M25,31h-7c-3.866,0-7-3.134-7-7v0c0-3.866,3.134-7,7-7h7V31z"/><path fill="#66bb6a" d="M18,45L18,45c-3.866,0-7-3.134-7-7v0c0-3.866,3.134-7,7-7h7v7C25,41.866,21.866,45,18,45z"/><path fill="#ff7043" d="M32,17h-7V3h7c3.866,0,7,3.134,7,7v0C39,13.866,35.866,17,32,17z"/><circle cx="32" cy="24" r="7" fill="#29b6f6"/></svg>
 );
 
+import { LightText } from './LightText';
 function Skills() {
 
   const svgs = [
@@ -136,7 +137,8 @@ function Skills() {
   return (
     <>
       <h1 className='text-center pt-[30px] pb-[30px] text-4xl' >
-        Tech I Use
+        <LightText text='Tech I Use' /> 
+        {/* Tech I Use */}
       </h1>
       <div className=' mask-gradient w-full h-full'>
         <motion.div

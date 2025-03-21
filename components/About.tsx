@@ -7,6 +7,7 @@ import TextReveal from './TextReveal';
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { LightText } from './LightText';
 
 function About () {
     return (
@@ -24,7 +25,7 @@ function About () {
                         <div className='flex flex-col items-center'>
 
                             <h1 className='text-4xl font-[tommy2] text-center pb-[50px]  '>
-                                About me
+                                <LightText text='About me' />
                             </h1>
                             <div
                                 className='relative w-[40vw] h-[40vw] max-h-[400px] max-w-[400px] mb-7 md:mb-0  aspect-square b-[#956060]'

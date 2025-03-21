@@ -1,4 +1,3 @@
-
 'use client';
 import { Typewriter } from 'react-simple-typewriter'
 
@@ -10,8 +9,9 @@ import { MdArrowOutward } from "react-icons/md";
 // import { gsap } from 'gsap';
 import { motion } from 'framer-motion';
 import Magnet from './Magnet';
+import Link from 'next/link';
 
-
+import { ShinyButton } from './ShinnyButton';
 
 
 function Header() {
@@ -77,9 +77,15 @@ function Header() {
               
                 Contact Me
               </button> */}
-              <button className="inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 hover:bg-[linear-gradient(110deg, #fff,45%,#1e2631,55%,#000103)] bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_150%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-              Contact Me
-              </button>
+              <div
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.scrollTo({ top: document.body.scrollHeight - 750});
+                }}
+              >
+                <ShinyButton text={"Contact Me"} />
+              </div>
+  
               {/* <button className='hover:bg-[#1363a5] hover:text-white  transition-all duration-500 ease-in-out  p-[12px] rounded-md ml-5'>
                 Resume
               </button> */}
@@ -154,9 +160,11 @@ function Header() {
             {/* <button className='bg-[#fff] hover:bg-[#e2e1e1] text-black text-[14px] transition-all duration-500 ease-in-out pr-[23px] pl-[23px]  p-[12px] rounded-full'>
               Know me better
             </button> */}
-            <button className="inline-flex h-12 animate-shimmer items-center justify-center rounded-full border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-                Know me better
-              </button>
+            <div className=" hover:text-white cursor-pointer h-12  rounded-full  px-6">
+              <Link href={"/about"} className='w-full h-full flex items-center justify-center' >
+                <ShinyButton text={"Know Me Better"} />
+              </Link>
+            </div>
           </motion.div>
         </div>
     </motion.div>

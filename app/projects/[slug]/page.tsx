@@ -293,7 +293,7 @@ const WebProjectComponent = ({ project } : {project: Project}) => {
         <div className="w-[1000px] h-auto b-[#a84848] flex flex-col justify- items-center" >
 
           <div className="h-[200px] w-[95%] b-slate-600  ">
-            <h1 className="text-5xl  pt-[100px] uppercase  " >
+            <h1 className="md:text-5xl text-3xl pt-[100px] uppercase  " >
               {project.title} ({project.field})
             </h1>
           </div>
@@ -347,8 +347,8 @@ const WebProjectComponent = ({ project } : {project: Project}) => {
               <div className="w-[95%] h-screen b-emerald-300 rounded-[10px] flex justify- ">
                 <iframe
                   id="pdfViewer"
-                  src={`/pdfs/${project.pdf}`} // Load PDF from the API
-                  className="border-none w-[90%] h-[600px]"
+                  src={`/pdfs/${project.pdf}`} 
+                  className="border-none w-[90%] h-[500px] md:h-[600px]"
                   />
               </div>
             </>

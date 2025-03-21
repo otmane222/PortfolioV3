@@ -32,7 +32,7 @@ const Card2: React.FC<CardProps> = ({ image }) => {
 };
 
 
-
+import { LightText } from '../LightText';
 
 function Certificates() {
 
@@ -116,7 +116,8 @@ function Certificates() {
         <div className='text-center w-full h-[100px] justify-center b-red-300' >
 
           <h1 className='text-4xl ' >
-            Certificates
+            <LightText text='Certificates' />
+            {/* Certificates */}
           </h1>
           <span className='text-sm text-gray-500 block'>
             (click to see credentials)
@@ -142,9 +143,11 @@ function Certificates() {
           })}
 
         </div>
-          <a className='text-center  pt-[80px] md:pb-[0] pb-[50px]' href='https://www.linkedin.com/in/otmane-aboulghit-46493a1b4/details/certifications/' target='_blank' rel='noreferrer'>
+        <div className='w-full h-auto flex justify-center items-center'>
+          <a className=' w-fit border-b-[2px] border-[#000] dark:border-[#fff] text-2xl pt-[80px] md:pb-[0] mb-[50px]' href='https://www.linkedin.com/in/otmane-aboulghit-46493a1b4/details/certifications/' target='_blank' rel='noreferrer'>
             See More on Linkedin
           </a>
+        </div>
       </div>
     )
   

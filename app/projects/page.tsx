@@ -109,7 +109,7 @@ export default function Prjects() {
     if (width < 768) {
         return (
             <>
-                <div className={`w-full h-auto relative z-10 flex justify-center `}  >
+                <div className={`w-full h-auto relative dark:bg-dark-bg bg-light-bg z-10 flex justify-center `}  >
                     <motion.div
                         // initial={{ opacity:0 }}
                         // animate={{ opacity: 1 }}

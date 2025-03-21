@@ -73,11 +73,9 @@ const Card = ({ card }: { card: CardType }) => {
             </p>
         </div>
         <div className="w-[90%] h-[50px] flex justify-center items-center">
-            <button className="w-[90%] h-[50px] bg-[#000000] text-white rounded-[10px]">
-                <Link href={`/projects/${card.title}`} >
-                    Read More
-                </Link>
-            </button>
+            <Link className="w-[90%] h-[50px] bg-[#000000] flex justify-center items-center text-white rounded-[10px]" href={`/projects/${card.title}`} >
+                Read More
+            </Link>
         </div>
 
         <div className={`absolute uppercase rounded-[10px] top-[-10px] left-[-10px] flex justify-center items-center inset-0 z-50 p-[20px] ${theme == 'dark' ? "bg-white text-black" : "bg-black text-white"} w-[150px] h-[30px]`}>
