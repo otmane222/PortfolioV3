@@ -36,7 +36,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased relative`}
       >
         <PageWrapper>
-          <ThemeProvider attribute="class" enableSystem defaultTheme="system">
+          <ThemeProvider attribute="class" enableSystem defaultTheme="light">
             <NavigationLayout>
               {children}
             </NavigationLayout>
